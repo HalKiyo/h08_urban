@@ -1,1 +1,5 @@
-*/dat/*
+**/dat/
+global_city/pre/*.log
+qgis/org/
+qgis/out/
+
