@@ -1,0 +1,28 @@
+services:
+    h08:
+        build:
+            dockerfile: './Dockerfile'
+        image: h08
+        container_name: 'h08'
+        shm_size: '90gb'
+        deploy:
+            resources:
+                reservations:
+                    devices:
+                    - driver: nvidia
+                      count: 1
+                      capabilities: [gpu]
+        restart: always
+        tty: true
+        env_file:
+            - ./env_wslg
+        expose:
+            - "9999"
+        ports:
+            - "127.0.0.1:9999:9999"
+        working_dir: '/mnt/c/Users/tsimk/Downloads/H08_20230612'
+        volumes:
+            - /mnt/c/:/mnt/c/
+            - /mnt/wslg:/mnt/wslg
+            - /tmp/.X11-unix:/tmp/.X11-unix
+
