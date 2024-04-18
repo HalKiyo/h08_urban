@@ -4,7 +4,7 @@ services:
             dockerfile: './Dockerfile'
         image: h08
         container_name: 'h08'
-        shm_size: '90gb'
+        shm_size: '80gb'
         deploy:
             resources:
                 reservations:
