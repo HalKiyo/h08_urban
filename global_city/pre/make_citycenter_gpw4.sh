@@ -8,11 +8,11 @@
 ############################################################
 # Geography
 ############################################################
-L2X=/mnt/c/Users/tsimk/Downloads/H08_20230612/map/dat/l2x_l2y_/l2x.gl5.txt
-L2Y=/mnt/c/Users/tsimk/Downloads/H08_20230612/map/dat/l2x_l2y_/l2y.gl5.txt
-ARG="9331200 4320 2160 $L2X $L2Y -180 180 -90 90"
-SUF=.gl5
 POP=gpw4
+SUF=.30s
+L2X=/mnt/c/Users/tsimk/Downloads/H08_20230612/map/dat/l2x_l2y_/l2x.${SUF}.txt
+L2Y=/mnt/c/Users/tsimk/Downloads/H08_20230612/map/dat/l2x_l2y_/l2y.${SUF}.txt
+ARG="933120000 43200 21600 $L2X $L2Y -180 180 -90 90"
 
 ############################################################
 # Input
