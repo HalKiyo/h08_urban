@@ -14,8 +14,8 @@ alias rm='rm -rfi'
 alias vi='vim'
 alias python='python3'
 alias bs='cat ~/.bashrc'
-alias notebook='sh /mnt/c/Users/tsimk/Downloads/dotfiles/h08/jupyter.sh -notebook'
-alias lab='sh /mnt/c/Users/tsimk/Downloads/dotfiles/h08/jupyter.sh -lab'
+alias notebook='sh /mnt/c/Users/tsimk/Downloads/dotfiles/h08/jupyter.sh -notebook &'
+alias lab='sh /mnt/c/Users/tsimk/Downloads/dotfiles/h08/jupyter.sh -lab &'
 
 
 # path
