@@ -17,9 +17,6 @@ def explore_citymask(load_mask, index, err_count):
     # city center modification
     modify_flag = True
 
-    # map data
-    MAP='CAMA'
-
     # explore grid radius
     radius_max = 120
 
@@ -147,7 +144,6 @@ def explore_citymask(load_mask, index, err_count):
     mod_x = np.where(modified==index)[1]
     mod_y = mod_y[0]
     mod_x = mod_x[0]
-    mod_cnt = gwp_pop_density[mod_y, mod_x]
 
     #-----------------------------------------------
     #  Initialization of mask array
@@ -158,24 +154,11 @@ def explore_citymask(load_mask, index, err_count):
     mask[mod_y, mod_x] = 1
 
     #-----------------------------------------------
-    #  overlap check
-    #-----------------------------------------------
-
-    err_flag = 0
-
-    if np.any(np.logical_and(load_mask > 0, mask > 0)):
-        print("----------/// 555 ///----------")
-        print(f"initial density {gwp_pop_density[mod_y, mod_x]} less than threshold {threshold}")
-        print("----------/// 555 ///----------")
-        new_mask_added = False
-        coverage_flag = False
-        err_flag = 5
-        mask = np.zeros((lat_shape,lon_shape), dtype=dtype)
-
-
-    #-----------------------------------------------
     #  Explore start
     #-----------------------------------------------
+
+    # no err
+    err_flag = 0
 
     # stop flag
     new_mask_added = True
@@ -200,7 +183,7 @@ def explore_citymask(load_mask, index, err_count):
         coverage_flag = False
         density_ratio = (previous_density/init_density)*100
         err_flag = 1
-        mask = np.zeros((lat_shape,lon_shape), dtype=dtype)
+        best_mask = np.zeros((lat_shape,lon_shape), dtype=dtype)
 
     # loop start
     while new_mask_added:
@@ -289,6 +272,18 @@ def explore_citymask(load_mask, index, err_count):
                     best_masked_pop = gwp_masked_pop
                     grid_num = np.sum(best_mask)
                     previous_density = gwp_pop_density[largest[1], largest[2]]
+    #-----------------------------------------------
+    #  overlap check
+    #-----------------------------------------------
+
+    if np.any(np.logical_and(load_mask > 0, best_mask > 0)):
+        print("----------/// 555 ///----------")
+        print(f"overlap occured")
+        print("----------/// 555 ///----------")
+        new_mask_added = False
+        coverage_flag = False
+        err_flag = 5
+        best_mask = np.zeros((lat_shape,lon_shape), dtype=dtype)
 
     #-----------------------------------------------
     # Output result
@@ -331,55 +326,12 @@ def explore_citymask(load_mask, index, err_count):
     return load_mask, err_count
 
 
-def summarize():
-    # colored
-    color_flag = True
-
-    # pop data
-    POP = 'gpw4'
-
-    # shape
-    lat_shape = 2160
-    lon_shape = 4320
-
-    # date type
-    dtype= 'float32'
-
-    # homedir
-    h08dir = '/mnt/c/Users/tsimk/Downloads/dotfiles/h08/global_city'
-
-    # make save array
-    summary = np.empty((lat_shape, lon_shape))
-
-    for index in range(1, 1861):
-        if color_flag is True:
-            summary_path = f"{h08dir}/dat/cty_msk_/{POP}/city_clrd0000.gl5"
-            mask_name = f"{h08dir}/dat/cty_msk_/{POP}/city_{index:08}.gl5"
-
-            # for city center colored
-            #summary_path = f"{h08dir}/dat/cty_cnt_/{POP}/city_clrd0000.gl5"
-            #mask_name = f"{h08dir}/dat/cty_cnt_/{POP}/city_{index:08}.gl5"
-
-            tmp = np.fromfile(mask_name, dtype=dtype).reshape(lat_shape, lon_shape)
-            summary[tmp == 1] = index
-        else:
-            summary_path = f"{h08dir}/dat/cty_msk_/{POP}/city_00000000.gl5"
-            mask_name = f"{h08dir}/dat/cty_msk_/{POP}/city_{index:08}.gl5"
-            tmp = np.fromfile(mask_name, dtype=dtype).reshape(lat_shape, lon_shape)
-            summary[tmp == 1] = 1
-
-    # save file
-    summary.astype(np.float32).tofile(summary_path)
-    print(f'{summary_path} is saved')
-
-    return summary
-
 def main():
+    # initial state
     dtype= 'float32'
     lat_shape = 21600
     lon_shape = 43200
     load_mask = np.zeros((lat_shape,lon_shape), dtype=dtype)
-
     err_count = {'0': 0, '1': 0, '2': 0, '3':0, '4':0, '5':0}
 
     # python make_downtown.py > make_downtown.log
