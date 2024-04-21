@@ -21,7 +21,7 @@ def explore_citymask(load_mask, index, err_count):
     MAP='CAMA'
 
     # explore grid radius
-    radius_max = 12
+    radius_max = 120
 
     # search radius (1grid in 0.5degree)
     circle = 3
@@ -97,7 +97,7 @@ def explore_citymask(load_mask, index, err_count):
     gwp_pop_density = (gwp_pop / (area / 10**6))
 
     #-----------------------------------------------
-    # load city_center coordinate
+    # check city center
     #-----------------------------------------------
 
     if modify_flag is True:
@@ -110,11 +110,8 @@ def explore_citymask(load_mask, index, err_count):
         org_y = org_y[0]
         org_x = org_x[0]
 
+        # modified city center
         modified = np.fromfile(modified_path, dtype=dtype).reshape(lat_shape,lon_shape)
-
-    #-----------------------------------------------
-    # check city center
-    #-----------------------------------------------
 
         # original city center
         org_cnt = gwp_pop_density[org_y, org_x]
@@ -158,15 +155,23 @@ def explore_citymask(load_mask, index, err_count):
 
     # mask array for saving
     mask = np.zeros((lat_shape,lon_shape), dtype=dtype)
-    mask[rpl_y, rpl_x] = 1
+    mask[mod_y, mod_x] = 1
 
     #-----------------------------------------------
-    # overwrite city center file if changed
+    #  overlap check
     #-----------------------------------------------
 
-    if modify_flag is True:
-        new_center_path = f'{h08dir}/dat/cty_cnt_/{POP}/modified/cityclrd0000.{SUF}'
-        mask.astype(np.float32).tofile(new_center_path)
+    err_flag = 0
+
+    if np.any(np.logical_and(load_mask > 0, mask > 0)):
+        print("----------/// 555 ///----------")
+        print(f"initial density {gwp_pop_density[mod_y, mod_x]} less than threshold {threshold}")
+        print("----------/// 555 ///----------")
+        new_mask_added = False
+        coverage_flag = False
+        err_flag = 5
+        mask = np.zeros((lat_shape,lon_shape), dtype=dtype)
+
 
     #-----------------------------------------------
     #  Explore start
@@ -183,19 +188,19 @@ def explore_citymask(load_mask, index, err_count):
     best_coverage = float(best_masked_pop / un_pop)
 
     # momnitor density ratio
-    init_density = np.sum(gwp_pop_density[x, y])
-    previous_density = np.sum(gwp_pop_density[x, y])
+    init_density = np.sum(gwp_pop_density[mod_y, mod_x])
+    previous_density = np.sum(gwp_pop_density[mod_y, mod_x])
 
     # initial grid threshold
-    err_flag = 0
-    if gwp_pop_density[x, y] <= threshold:
+    if gwp_pop_density[mod_y, mod_x] <= threshold:
         print("----------/// 111 ///----------")
-        print(f"initial density {gwp_pop_density[x, y]} less than threshold {threshold}")
+        print(f"initial density {gwp_pop_density[mod_y, mod_x]} less than threshold {threshold}")
         print("----------/// 111 ///----------")
         new_mask_added = False
         coverage_flag = False
         density_ratio = (previous_density/init_density)*100
         err_flag = 1
+        mask = np.zeros((lat_shape,lon_shape), dtype=dtype)
 
     # loop start
     while new_mask_added:
@@ -203,8 +208,8 @@ def explore_citymask(load_mask, index, err_count):
         ### make search list
         search_lst = []
         new_mask_added = False
-        for a in range(max(0, x - radius_max), min(x + radius_max + 1, lat_shape)):
-            for b in range(max(0, y - radius_max), min(y + radius_max + 1, lon_shape)):
+        for a in range(max(0, mod_y - radius_max), min(mod_y + radius_max + 1, lat_shape)):
+            for b in range(max(0, mod_x - radius_max), min(mod_x + radius_max + 1, lon_shape)):
                 if mask[a, b] == 1:
                     # explore surrounded 8 grids
                     for dx, dy in [(-1, 0), (-1, 1), (0, 1), (1, 1), (1, 0), (1, -1), (0, -1), (-1, 1)]:
@@ -305,7 +310,7 @@ def explore_citymask(load_mask, index, err_count):
 
 
     # result path save
-    resultpath = h08dir + f'/dat/cty_lst_/{POP}/result_downtown.txt'
+    resultpath = h08dir + f'/dat/cty_lst_/{POP}/result_{SUF}.txt'
 
     if index == 1:
         with open(resultpath, 'w') as file:
@@ -319,10 +324,11 @@ def explore_citymask(load_mask, index, err_count):
     print(err_count)
 
     # binary file saved (latest version)
-    maskpath_bin = h08dir + f'/dat/cty_msk_/{POP}/city_{index:08}.gl5'
-    best_mask.astype(np.float32).tofile(maskpath_bin)
+    summary_path = h08dir + f'/dat/cty_msk_/{POP}/city_clrd0000.{SUF}'
+    load_mask[best_mask == 1] == index
+    load_mask.astype(np.float32).tofile(summary_path)
 
-    return err_count
+    return load_mask, err_count
 
 
 def summarize():
@@ -369,22 +375,16 @@ def summarize():
     return summary
 
 def main():
-    round_flag = 'Second'
+    dtype= 'float32'
+    lat_shape = 21600
+    lon_shape = 43200
+    load_mask = np.zeros((lat_shape,lon_shape), dtype=dtype)
 
-    if round_flag == 'First':
-        err_count = {'0': 0, '1': 0, '2': 0, '3':0, '4':0}
-        # python make_downtown.py > make_downtown.log
-        for index in range(1, 1861):
-            err_count = explore_citymask(index, err_count)
+    err_count = {'0': 0, '1': 0, '2': 0, '3':0, '4':0, '5':0}
 
-    elif round_flag == 'Second':
-        summary = summarize()
-
-        plt.imshow(summary, cmap='rainbow')
-        plt.show()
-
-    else:
-        print(f"round flag is wrong {round_flag}")
+    # python make_downtown.py > make_downtown.log
+    for index in range(1, 1861):
+        load_mask, err_count = explore_citymask(load_mask, index, err_count)
 
 
 if __name__ == '__main__':
