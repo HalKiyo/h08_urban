@@ -30,13 +30,13 @@ def explore_citymask(load_mask, index, err_count):
     threshold = 1000
 
     # EN.3: downtown rate
-    downtown_rate = 0.99
+    downtown_rate = 1.5
 
     # EN.3: grid sum
-    grdlim = 9
+    grdlim = 1000
 
     # EN.4: low ratio
-    lowrat = 0.01
+    lowrat = 0.0
 
     # shape
     lat_shape = 21600
@@ -90,6 +90,9 @@ def explore_citymask(load_mask, index, err_count):
     pop_path = f'{h08dir}/dat/pop_tot_/GPW4ag__20100000.{SUF}'
     gwp_pop = np.fromfile(pop_path, dtype=dtype).reshape(lat_shape, lon_shape)
 
+    # mask ocean grid
+    np.where(gwp_pop == 1e20, 0, gwp_pop)
+
     # population density (person/km2)
     gwp_pop_density = (gwp_pop / (area / 10**6))
 
@@ -117,7 +120,7 @@ def explore_citymask(load_mask, index, err_count):
         replaced_num = 0
         print(f"cityindex {index}")
         print(f'original center [y, x] = [{org_y, org_x}]')
-        print(f"org_cnt: {gwp_pop_density[org_y, org_x]}")
+        print(f"org_cnt: {org_cnt}")
 
         # if there is larger grid, center grid is replaced
         rpl_y, rpl_x = org_y, org_x
@@ -210,6 +213,7 @@ def explore_citymask(load_mask, index, err_count):
 
             new_mask_added = False
             coverage_flag = False
+            print(f"search_lst: {search_lst} is empty")
 
         # get largest grid
         else:
@@ -272,6 +276,7 @@ def explore_citymask(load_mask, index, err_count):
                     best_masked_pop = gwp_masked_pop
                     grid_num = np.sum(best_mask)
                     previous_density = gwp_pop_density[largest[1], largest[2]]
+                    print(f"city index={index}:, cover: {best_coverage}, num: {grid_num}")
     #-----------------------------------------------
     #  overlap check
     #-----------------------------------------------
@@ -295,6 +300,7 @@ def explore_citymask(load_mask, index, err_count):
           f"coverage {best_coverage}\n" \
           f"city_mask {grid_num}\n" \
           f"density_ratio {density_ratio}\n" \
+          f"err_flag {err_flag}\n" \
           f"{city_name}\n"
           )
     print('#########################################\n')
