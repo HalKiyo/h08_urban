@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 def explore_citymask(load_mask, index, err_count):
 
     #-----------------------------------------------
-    # Initialization
+    # PATHS
     #-----------------------------------------------
 
     # suffix
@@ -14,14 +14,25 @@ def explore_citymask(load_mask, index, err_count):
     # pop data
     POP='gpw4_30s'
 
+    # paths
+    h08dir = '/mnt/c/Users/tsimk/Downloads/dotfiles/h08/global_city'
+    wup_path = f'{h08dir}/dat/cty_lst_/gpw4/WUP2018_300k_2010.txt'
+    area_path = f'/mnt/c/Users/tsimk/Downloads/H08_20230612/map/dat/grd_ara_/grdara.{SUF}'
+    pop_path = f'{h08dir}/dat/pop_tot_/GPW4ag__20100000.{SUF}'
+    center_path = f'{h08dir}/dat/cty_cnt_/{POP}/cityclrd0000.{SUF}'
+    modified_center_path = f'{h08dir}/dat/cty_cnt_/{POP}/modified/cityclrd0000.{SUF}'
+    result_text_path = h08dir + f'/dat/cty_lst_/{POP}/result_{SUF}.txt'
+    save_mask_path = h08dir + f'/dat/cty_msk_/{POP}/city_clrd0000.{SUF}'
+
+    #-----------------------------------------------
+    # Input Constants
+    #-----------------------------------------------
+
     # city center modification
     modify_flag = True
 
-    # explore grid radius
-    radius_max = 120
-
-    # search radius (1grid in 0.5degree)
-    circle = 3
+    # search radius (1grid in 30seconds)
+    circle = 5
 
     # EN.1: lower limitation of population density
     lowlim = 1000
@@ -29,11 +40,11 @@ def explore_citymask(load_mask, index, err_count):
     # EN.2: initial grid threshold
     threshold = 1000
 
-    # EN.3: downtown rate
-    downtown_rate = 1.5
-
     # EN.3: grid sum
     grdlim = 1000
+
+    # EN.3: downtown rate
+    downtown_rate = 1.5
 
     # EN.4: low ratio
     lowrat = 0.0
@@ -45,8 +56,9 @@ def explore_citymask(load_mask, index, err_count):
     # date type
     dtype= 'float32'
 
-    # h08 directory
-    h08dir = '/mnt/c/Users/tsimk/Downloads/dotfiles/h08/global_city'
+    #-----------------------------------------------
+    # Initialization
+    #-----------------------------------------------
 
     # initialize variables
     best_coverage = float('inf')
@@ -62,7 +74,6 @@ def explore_citymask(load_mask, index, err_count):
     name_list = []
 
     # load data
-    wup_path = f'{h08dir}/dat/cty_lst_/gpw4/WUP2018_300k_2010.txt'
     for l in open(wup_path).readlines():
         data = l[:].split('\t')
         data = [item.strip() for item in data]
@@ -79,7 +90,6 @@ def explore_citymask(load_mask, index, err_count):
     #  Get area(m2)
     #-----------------------------------------------
 
-    area_path = f'/mnt/c/Users/tsimk/Downloads/H08_20230612/map/dat/grd_ara_/grdara.{SUF}'
     area = np.fromfile(area_path, dtype=dtype).reshape(lat_shape, lon_shape)
 
     #-----------------------------------------------
@@ -87,7 +97,6 @@ def explore_citymask(load_mask, index, err_count):
     #-----------------------------------------------
 
     # population data(GWP4 2010)
-    pop_path = f'{h08dir}/dat/pop_tot_/GPW4ag__20100000.{SUF}'
     gwp_pop = np.fromfile(pop_path, dtype=dtype).reshape(lat_shape, lon_shape)
 
     # mask ocean grid
@@ -102,7 +111,7 @@ def explore_citymask(load_mask, index, err_count):
 
     if modify_flag is True:
         center_path = f'{h08dir}/dat/cty_cnt_/{POP}/cityclrd0000.{SUF}'
-        modified_path = f'{h08dir}/dat/cty_cnt_/{POP}/modified/cityclrd0000.{SUF}'
+        modified_center_path = f'{h08dir}/dat/cty_cnt_/{POP}/modified/cityclrd0000.{SUF}'
 
         location = np.fromfile(center_path, dtype=dtype).reshape(lat_shape,lon_shape)
         org_y = np.where(location==index)[0]
@@ -111,7 +120,7 @@ def explore_citymask(load_mask, index, err_count):
         org_x = org_x[0]
 
         # modified city center
-        modified = np.fromfile(modified_path, dtype=dtype).reshape(lat_shape,lon_shape)
+        modified = np.fromfile(modified_center_path, dtype=dtype).reshape(lat_shape,lon_shape)
 
         # original city center
         org_cnt = gwp_pop_density[org_y, org_x]
@@ -138,10 +147,10 @@ def explore_citymask(load_mask, index, err_count):
 
         modified[org_y, org_x] = 0
         modified[rpl_y, rpl_x] = index
-        modified.astype(np.float32).tofile(modified_path)
+        modified.astype(np.float32).tofile(modified_center_path)
 
     else:
-        modified_path = f'{h08dir}/dat/cty_cnt_/{POP}/modified/cityclrd0000.{SUF}'
+        modified_center_path = f'{h08dir}/dat/cty_cnt_/{POP}/modified/cityclrd0000.{SUF}'
 
     mod_y = np.where(modified==index)[0]
     mod_x = np.where(modified==index)[1]
@@ -194,18 +203,20 @@ def explore_citymask(load_mask, index, err_count):
         ### make search list
         search_lst = []
         new_mask_added = False
-        for a in range(max(0, mod_y - radius_max), min(mod_y + radius_max + 1, lat_shape)):
-            for b in range(max(0, mod_x - radius_max), min(mod_x + radius_max + 1, lon_shape)):
-                if mask[a, b] == 1:
-                    # explore surrounded 8 grids
-                    for dx, dy in [(-1, 0), (-1, 1), (0, 1), (1, 1), (1, 0), (1, -1), (0, -1), (-1, 1)]:
-                        i, j = a + dx, b + dy
-                        # not explored yet
-                        if mask[i, j] == 0:
-                            # within grid range
-                            if 0 <= i < lat_shape and 0<= j < lon_shape:
-                                # Don't use gwp_pop. there is bug due to ocean land ara data
-                                search_lst.append([gwp_pop_density[i, j], i, j])
+        indices = np.where(mask == 1)
+
+        for ind in range(len(indices[0])):
+            y_index = indices[0][ind]
+            x_index = indices[1][ind]
+            for dy, dx in [(-1, 0), (-1, 1), (0, 1), (1, 1), (1, 0), (1, -1), (0, -1), (-1, 1)]:
+                i = y_index + dy
+                j = x_index + dx
+                # not explored yet
+                if mask[i, j] == 0:
+                    # within grid range
+                    if 0 <= i < lat_shape and 0<= j < lon_shape:
+                        # Don't use gwp_pop. there is bug due to ocean land ara data
+                        search_lst.append([gwp_pop_density[i, j], i, j])
 
         ### obtain largest searched grid
         # empty check
@@ -213,7 +224,7 @@ def explore_citymask(load_mask, index, err_count):
 
             new_mask_added = False
             coverage_flag = False
-            print(f"search_lst: {search_lst} is empty")
+            print(f"search_lst is empty")
 
         # get largest grid
         else:
@@ -309,25 +320,20 @@ def explore_citymask(load_mask, index, err_count):
     # SAVE FILE
     #------------------------------------------------
 
-
-    # result path save
-    resultpath = h08dir + f'/dat/cty_lst_/{POP}/result_{SUF}.txt'
-
     if index == 1:
-        with open(resultpath, 'w') as file:
+        with open(result_text_path, 'w') as file:
             file.write(f"{index}| {city_name}| {best_masked_pop}| {un_pop}| {best_coverage}| {grid_num}| {err_flag}\n")
     else:
-        with open(resultpath, 'a') as file:
+        with open(result_text_path, 'a') as file:
             file.write(f"{index}| {city_name}| {best_masked_pop}| {un_pop}| {best_coverage}| {grid_num}| {err_flag}\n")
 
     # update error
     err_count[f'{err_flag}'] += 1
     print(err_count)
 
-    # binary file saved (latest version)
-    summary_path = h08dir + f'/dat/cty_msk_/{POP}/city_clrd0000.{SUF}'
+    # mask binary file saved
     load_mask[best_mask == 1] == index
-    load_mask.astype(np.float32).tofile(summary_path)
+    load_mask.astype(np.float32).tofile(save_mask_path)
 
     return load_mask, err_count
 
