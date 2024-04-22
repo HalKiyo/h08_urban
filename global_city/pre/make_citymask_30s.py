@@ -2,7 +2,7 @@ import math
 import numpy as np
 import matplotlib.pyplot as plt
 
-def explore_citymask(load_mask, index, err_count):
+def explore_citymask(load_mask, index, err_count, modified):
 
     #-----------------------------------------------
     # PATHS
@@ -21,15 +21,12 @@ def explore_citymask(load_mask, index, err_count):
     pop_path = f'{h08dir}/dat/pop_tot_/GPW4ag__20100000.{SUF}'
     center_path = f'{h08dir}/dat/cty_cnt_/{POP}/cityclrd0000.{SUF}'
     modified_center_path = f'{h08dir}/dat/cty_cnt_/{POP}/modified/cityclrd0000.{SUF}'
-    result_text_path = h08dir + f'/dat/cty_lst_/{POP}/result_{SUF}.txt'
-    save_mask_path = h08dir + f'/dat/cty_msk_/{POP}/city_clrd0000.{SUF}'
+    result_text_path = f'{h08dir}/dat/cty_lst_/{POP}/result_{SUF}.txt'
+    save_mask_path = f'{h08dir}/dat/cty_msk_/{POP}/city_clrd0000.{SUF}'
 
     #-----------------------------------------------
     # Input Constants
     #-----------------------------------------------
-
-    # city center modification
-    modify_flag = True
 
     # search radius (1grid in 30seconds)
     circle = 5
@@ -100,7 +97,7 @@ def explore_citymask(load_mask, index, err_count):
     gwp_pop = np.fromfile(pop_path, dtype=dtype).reshape(lat_shape, lon_shape)
 
     # mask ocean grid
-    np.where(gwp_pop == 1e20, 0, gwp_pop)
+    gwp_pop = np.where(gwp_pop == 1e20, 0, gwp_pop)
 
     # population density (person/km2)
     gwp_pop_density = (gwp_pop / (area / 10**6))
@@ -109,48 +106,37 @@ def explore_citymask(load_mask, index, err_count):
     # check city center
     #-----------------------------------------------
 
-    if modify_flag is True:
-        center_path = f'{h08dir}/dat/cty_cnt_/{POP}/cityclrd0000.{SUF}'
-        modified_center_path = f'{h08dir}/dat/cty_cnt_/{POP}/modified/cityclrd0000.{SUF}'
+    location = np.fromfile(center_path, dtype=dtype).reshape(lat_shape,lon_shape)
+    org_y = np.where(location==index)[0]
+    org_x = np.where(location==index)[1]
+    org_y = org_y[0]
+    org_x = org_x[0]
 
-        location = np.fromfile(center_path, dtype=dtype).reshape(lat_shape,lon_shape)
-        org_y = np.where(location==index)[0]
-        org_x = np.where(location==index)[1]
-        org_y = org_y[0]
-        org_x = org_x[0]
+    # original city center
+    org_cnt = gwp_pop_density[org_y, org_x]
 
-        # modified city center
-        modified = np.fromfile(modified_center_path, dtype=dtype).reshape(lat_shape,lon_shape)
+    # number of replacement
+    replaced_num = 0
+    print(f"cityindex {index}")
+    print(f'original center [y, x] = [{org_y, org_x}]')
+    print(f"org_cnt: {org_cnt}")
 
-        # original city center
-        org_cnt = gwp_pop_density[org_y, org_x]
+    # if there is larger grid, center grid is replaced
+    rpl_y, rpl_x = org_y, org_x
+    for a_cnt in range(org_y-circle, org_y+circle+1):
+        for b_cnt in range(org_x-circle, org_x+circle+1):
+            candidate = gwp_pop_density[a_cnt, b_cnt]
+            if candidate >= org_cnt:
+                org_cnt = candidate
+                rpl_y = a_cnt
+                rpl_x = b_cnt
+                replaced_num += 1
 
-        # number of replacement
-        replaced_num = 0
-        print(f"cityindex {index}")
-        print(f'original center [y, x] = [{org_y, org_x}]')
-        print(f"org_cnt: {org_cnt}")
+    print(f'replaced center [y, x] = [{rpl_y, rpl_x}]')
+    print(f"rpl_cnt: {gwp_pop_density[rpl_y, rpl_x]}")
 
-        # if there is larger grid, center grid is replaced
-        rpl_y, rpl_x = org_y, org_x
-        for a_cnt in range(org_y-circle, org_y+circle+1):
-            for b_cnt in range(org_x-circle, org_x+circle+1):
-                candidate = gwp_pop_density[a_cnt, b_cnt]
-                if candidate >= org_cnt:
-                    org_cnt = candidate
-                    rpl_y = a_cnt
-                    rpl_x = b_cnt
-                    replaced_num += 1
-
-        print(f'replaced center [y, x] = [{rpl_y, rpl_x}]')
-        print(f"rpl_cnt: {gwp_pop_density[rpl_y, rpl_x]}")
-
-        modified[org_y, org_x] = 0
-        modified[rpl_y, rpl_x] = index
-        modified.astype(np.float32).tofile(modified_center_path)
-
-    else:
-        modified_center_path = f'{h08dir}/dat/cty_cnt_/{POP}/modified/cityclrd0000.{SUF}'
+    modified[org_y, org_x] = 0
+    modified[rpl_y, rpl_x] = index
 
     mod_y = np.where(modified==index)[0]
     mod_x = np.where(modified==index)[1]
@@ -335,7 +321,10 @@ def explore_citymask(load_mask, index, err_count):
     load_mask[best_mask == 1] == index
     load_mask.astype(np.float32).tofile(save_mask_path)
 
-    return load_mask, err_count
+    # save modified city center file
+    modified.astype(np.float32).tofile(modified_center_path)
+
+    return load_mask, err_count, modified
 
 
 def main():
@@ -344,11 +333,12 @@ def main():
     lat_shape = 21600
     lon_shape = 43200
     load_mask = np.zeros((lat_shape,lon_shape), dtype=dtype)
+    modified = np.zeros((lat_shape, lon_shape), dtype=dtype)
     err_count = {'0': 0, '1': 0, '2': 0, '3':0, '4':0, '5':0}
 
     # python make_downtown.py > make_downtown.log
     for index in range(1, 1861):
-        load_mask, err_count = explore_citymask(load_mask, index, err_count)
+        load_mask, err_count, modified = explore_citymask(load_mask, index, err_count, modified)
 
 
 if __name__ == '__main__':
