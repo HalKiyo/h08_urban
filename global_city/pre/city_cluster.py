@@ -197,15 +197,18 @@ def check():
         save_dict = pickle.load(file)
 
     invalid_index = save_dict['invalid_index']
-    #mask_path = f'{rootdir}/dat/vld_cty_/city_{index:08d}.gl5'
 
-    for index in range(1, 200):
+    for index in range(1600, 1861):
         if index not in invalid_index:
+            mask_path = f'{rootdir}/dat/vld_cty_/city_{index:08d}.gl5'
             print(f"index: {index}")
-            print(f"gradient: {save_dict['gradient'][index]}")
-            print(f"mask_num: {save_dict['mask_num'][index]}")
-            print(f"cover_rate: {save_dict['cover_rate'][index]}")
+            print(f"gradient: {save_dict['gradient'][index-1]}")
+            print(f"mask_num: {save_dict['mask_num'][index-1]}")
+            print(f"cover_rate: {save_dict['cover_rate'][index-1]}")
             print('-------------------------------------')
+
+    print(invalid_index)
+    print(f"len(invalid_index): {len(invalid_index)}")
 
 
 if __name__ == '__main__':
