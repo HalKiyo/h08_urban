@@ -117,7 +117,7 @@ def clustering(index, save_dict):
             save_dict['gradient'].append(gradient)
             save_dict['mask_num'].append(mask_num)
             save_dict['cover_rate'].append(mask_cover)
-            np.save(mask_path, bestmask_track)
+            bestmask_track.astype(np.float32).tofile(mask_path)
         else:
             print(f"city_index: {index}")
             print(f"gradient: {gradient}")
@@ -143,7 +143,7 @@ def clustering(index, save_dict):
             save_dict['gradient'].append(gradient)
             save_dict['mask_num'].append(mask_num)
             save_dict['cover_rate'].append(mask_cover)
-            np.save(mask_path, bestmask_track)
+            bestmask_track.astype(np.float32).tofile(mask_path)
         else:
             print(f"city_index: {index}")
             print(f"gradient: {gradient}")
@@ -179,7 +179,36 @@ def main():
     with open(save_path, 'wb') as handle:
         pickle.dump(save_dict, handle)
 
+#-----------------------------------------------------------------------
+
+def check():
+    """
+    save_dict = {'gradient': [],
+                 'mask_num': [],
+                 'cover_rate': [],
+                 'invalid_index': []}
+    """
+
+    # paths
+    rootdir = '/mnt/c/Users/tsimk/Downloads/dotfiles/h08/global_city'
+    save_path = f'{rootdir}/dat/vld_cty_/city_00000000.pickle'
+
+    with open(save_path, 'rb') as file:
+        save_dict = pickle.load(file)
+
+    invalid_index = save_dict['invalid_index']
+    #mask_path = f'{rootdir}/dat/vld_cty_/city_{index:08d}.gl5'
+
+    for index in range(1, 200):
+        if index not in invalid_index:
+            print(f"index: {index}")
+            print(f"gradient: {save_dict['gradient'][index]}")
+            print(f"mask_num: {save_dict['mask_num'][index]}")
+            print(f"cover_rate: {save_dict['cover_rate'][index]}")
+            print('-------------------------------------')
+
 
 if __name__ == '__main__':
-    main()
+    #main()
+    check()
 
