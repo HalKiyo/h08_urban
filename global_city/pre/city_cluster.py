@@ -1,7 +1,7 @@
 import pickle
 import numpy as np
 
-def clustering(index, invalid_index):
+def clustering(index, save_dict):
 
     #---------------------------------------------------------------
     # PATHS
@@ -9,7 +9,8 @@ def clustering(index, invalid_index):
 
     # paths
     rootdir = '/mnt/c/Users/tsimk/Downloads/dotfiles/h08/global_city'
-    dict_path = f'{rootdir}/dat/dwn_twn_/city_{index:08d}.pickle'
+    load_path = f'{rootdir}/dat/dwn_twn_/city_{index:08d}.pickle'
+    mask_path = f'{rootdir}/dat/vld_cty_/city_{index:08d}.gl5'
 
     #---------------------------------------------------------------
     # Input Constants
@@ -35,14 +36,14 @@ def clustering(index, invalid_index):
     # Load Pickle
     #---------------------------------------------------------------
 
-    with open (dict_path, 'rb') as file:
-        save_dict = pickle.load(file)
+    with open (load_path, 'rb') as file:
+        load_dict = pickle.load(file)
 
     #---------------------------------------------------------------
     # Load Density_track
     #---------------------------------------------------------------
 
-    density_track = save_dict['added_density']
+    density_track = load_dict['added_density']
 
     #---------------------------------------------------------------
     # Valid or Invalid Mask
@@ -51,25 +52,31 @@ def clustering(index, invalid_index):
     if not density_track:
         print(f"city_index: {index}")
         print(f"invalid mask")
-        print("--------------------------")
-        invalid_index.append(index)
-        return invalid_index
+        save_dict['gradient'].append(-1)
+        save_dict['mask_num'].append(-1)
+        save_dict['cover_rate'].append(-1)
+        save_dict['invalid_index'].append(index)
+        return save_dict
 
     if len(density_track) == 1:
         print(f"city_index: {index}")
         print(f"initial_density: {density_track[0]}")
         print(f"invalid mask")
-        print("--------------------------")
-        invalid_index.append(index)
-        return invalid_index
+        save_dict['gradient'].append(-1)
+        save_dict['mask_num'].append(-1)
+        save_dict['cover_rate'].append(-1)
+        save_dict['invalid_index'].append(index)
+        return save_dict
 
     if density_track[0] <=  threshold:
         print(f"city_index: {index}")
         print(f"initial_density: {density_track[0]}")
         print(f"invalid mask")
-        print("--------------------------")
-        invalid_index.append(index)
-        return invalid_index
+        save_dict['gradient'].append(-1)
+        save_dict['mask_num'].append(-1)
+        save_dict['cover_rate'].append(-1)
+        save_dict['invalid_index'].append(index)
+        return save_dict
 
     #---------------------------------------------------------------
     # Valid Gradient
@@ -94,60 +101,83 @@ def clustering(index, invalid_index):
     #---------------------------------------------------------------
 
     if valid_index:
-        print(valid_index)
         target_index = valid_index[0]
         gradient = valid_gradient[0]
-        bestmask_track = save_dict['mask'][:, :, target_index]
-        mask_cover = save_dict['cover_rate'][target_index]
+        bestmask_track = load_dict['mask'][:, :, target_index]
+        mask_cover = load_dict['cover_rate'][target_index]
         mask_num = np.sum(bestmask_track)
         if mask_num >= mingrid:
             print(f"city_index: {index}")
+            print(valid_index)
             print(f"len of positive_gradient: {len(positive_gradient)}")
             print(f"len of valid_gradient: {len(valid_gradient)}")
             print(f"gradient: {gradient}")
             print(f"city_mask: {mask_num}")
             print(f"mask_cover: {mask_cover}")
-            print("--------------------------")
+            save_dict['gradient'].append(gradient)
+            save_dict['mask_num'].append(mask_num)
+            save_dict['cover_rate'].append(mask_cover)
+            np.save(mask_path, bestmask_track)
         else:
             print(f"city_index: {index}")
             print(f"gradient: {gradient}")
             print(f"city_mask: {mask_num}")
             print(f"mask_cover: {mask_cover}")
             print(f"invalid mask")
-            print("--------------------------")
-            invalid_index.append(index)
+            save_dict['gradient'].append(gradient)
+            save_dict['mask_num'].append(mask_num)
+            save_dict['cover_rate'].append(mask_cover)
+            save_dict['invalid_index'].append(index)
 
     else:
         target_index = len(density_track) - 1
         gradient = density_track[target_index]
-        bestmask_track = save_dict['mask'][:, :, target_index]
-        mask_cover = save_dict['cover_rate'][target_index]
+        bestmask_track = load_dict['mask'][:, :, target_index]
+        mask_cover = load_dict['cover_rate'][target_index]
         mask_num = np.sum(bestmask_track)
         if mask_num >= mingrid:
             print(f"city_index: {index}")
             print(f"gradient: {gradient}")
             print(f"city_mask: {mask_num}")
             print(f"mask_cover: {mask_cover}")
-            print("--------------------------")
+            save_dict['gradient'].append(gradient)
+            save_dict['mask_num'].append(mask_num)
+            save_dict['cover_rate'].append(mask_cover)
+            np.save(mask_path, bestmask_track)
         else:
             print(f"city_index: {index}")
             print(f"gradient: {gradient}")
             print(f"city_mask: {mask_num}")
             print(f"mask_cover: {mask_cover}")
             print(f"invalid mask")
-            print("--------------------------")
-            invalid_index.append(index)
+            save_dict['gradient'].append(gradient)
+            save_dict['mask_num'].append(mask_num)
+            save_dict['cover_rate'].append(mask_cover)
+            save_dict['invalid_index'].append(index)
 
-    return invalid_index
+    return save_dict
 
 
 #-----------------------------------------------------------------------
 
 def main():
-    invalid_index = []
-    for city_index in range(24, 1861):
-        invalid_index = clustering(city_index, invalid_index)
-        print(f"invalid number {len(invalid_index)}")
+    save_dict = {'gradient': [],
+                 'mask_num': [],
+                 'cover_rate': [],
+                 'invalid_index': []}
+
+    for city_index in range(1, 1861):
+        save_dict = clustering(city_index, save_dict)
+        print(f"invalid number {len(save_dict['invalid_index'])}")
+        print(f"--------------------------------------------------------------")
+
+    # paths
+    rootdir = '/mnt/c/Users/tsimk/Downloads/dotfiles/h08/global_city'
+    save_path = f'{rootdir}/dat/vld_cty_/city_00000000.pickle'
+
+    # dict save
+    with open(save_path, 'wb') as handle:
+        pickle.dump(save_dict, handle)
 
 
 if __name__ == '__main__':
