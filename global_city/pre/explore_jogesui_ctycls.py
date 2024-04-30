@@ -12,93 +12,6 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 #---------------------------------------------------------------------------------------------------------------
-# MODULES
-#---------------------------------------------------------------------------------------------------------------
-
-def l_coordinate_to_tuple(lcoordinate, a=2160, b=4320):
-    lat_l = a - ((lcoordinate - 1) // b)
-    lon_l = (lcoordinate) % b - 1
-    return (lat_l, lon_l)
-
-
-def explore_prf(citymask, rivnum, elevation, rivara):
-    """
-    citymask:  g_mask_cropped,             city_mask
-    rivnum:    g_rivnum_cropped_city,      city_mask内のrivnumデータ
-    elevation: g_elv_cropped,              elevationデータ
-    rivara:    g_rivara_cropped,           rivaraデータ
-    """
-    
-    # rivnum_cityの流域番号をkey, 各流域のグリッド数をvalueに持つdictionary
-    unique_values, counts = np.unique(rivnum.compressed(), return_counts=True)
-    uid_dict = dict(zip(unique_values, counts))
-
-    # 流域グリッドが最大のkeyを見つける
-    max_key = max(uid_dict, key=uid_dict.get)
-
-    # 流域が2グリッド以上存在することを確認
-    if max_key > 1:
-
-        # 選ばれた流域内のelevation
-        elv_indices = np.argwhere(rivnum == max_key)
-        elv_values = [elevation[coord[0], coord[1]] for coord in elv_indices]
-    
-        # 標高最大の点　josui
-        elv_maxarg = np.argmax(elv_values)
-        josui_coord = elv_indices[elv_maxarg]
-        josui_array = np.zeros(rivnum.shape, dtype='float32')
-        josui_array[josui_coord[0], josui_coord[1]] = max_key
-
-        # 標高最大以外で集水面積が一番大きい場所(河口)
-        ara_indices = np.argwhere((citymask == 1) & (josui_array != rivnum[josui_coord[0], josui_coord[1]]))
-        ara_values = [rivara[coord[0], coord[1]] for coord in ara_indices]
-        # 空じゃないか確かめる
-        if ara_values:
-            ara_argmax = np.argmax(ara_values)
-            gesui_coord = ara_indices[ara_argmax]
-        else:
-            # 標高最小を選ぶ
-            print(f"ara_indices is empty -> argmin_elv for gesui")
-            elv_minarg = np.argmax(elv_values)
-            gesui_coord = elv_indices[elv_minarg]
-    
-    # すべての流域が1グリッド以下であるとき
-    else:
-
-        # city mask内のelevatoin
-        elv_indices = np.argwhere(citymask == 1)
-        elv_values = [elevation[coord[0], coord[1]] for coord in elv_indices]
-    
-        # josui
-        elv_maxarg = np.argmax(elv_values)
-        josui_coord = elv_indices[elv_maxarg]
-        josui_array = np.zeros(rivnum.shape, dtype='float32')
-        josui_array[josui_coord[0], josui_coord[1]] = rivnum[josui_coord[0], josui_coord[1]]
-        
-        # 標高最大以外で集水面積が一番大きい場所(河口)
-        ara_indices = np.argwhere((citymask == 1) & (josui_array != rivnum[josui_coord[0], josui_coord[1]]))
-        ara_values = [rivara[coord[0], coord[1]] for coord in ara_indices]
-        # 空じゃないか確かめる
-        if ara_values:
-            ara_argmax = np.argmax(ara_values)
-            gesui_coord = ara_indices[ara_argmax]
-        else:
-            # 標高最小を選ぶ
-            print(f"ara_indices is empty -> argmin_elv for gesui")
-            elv_minarg = np.argmax(elv_values)
-            gesui_coord = elv_indices[elv_minarg]
-
-    # gesui
-    gesui_array = np.ma.masked_all(rivnum.shape, dtype='float32')
-    gesui_array[gesui_coord[0], gesui_coord[1]] = rivnum[gesui_coord[0], gesui_coord[1]]
-
-    # josui
-    josui_array = np.ma.masked_all(rivnum.shape, dtype='float32')
-    josui_array[josui_coord[0], josui_coord[1]] = rivnum[josui_coord[0], josui_coord[1]]
-            
-    return josui_array, gesui_array
-
-#---------------------------------------------------------------------------------------------------------------
 #   Main Function
 #---------------------------------------------------------------------------------------------------------------
 
@@ -657,6 +570,93 @@ def explore(target_index, remove_grid, innercity_grid, width, save_flag=False):
         print('gesui save_flag is false')
 
 #---------------------------------------------------------------------------------------------------------------
+# MODULES
+#---------------------------------------------------------------------------------------------------------------
+
+def l_coordinate_to_tuple(lcoordinate, a=2160, b=4320):
+    lat_l = a - ((lcoordinate - 1) // b)
+    lon_l = (lcoordinate) % b - 1
+    return (lat_l, lon_l)
+
+
+def explore_prf(citymask, rivnum, elevation, rivara):
+    """
+    citymask:  g_mask_cropped,             city_mask
+    rivnum:    g_rivnum_cropped_city,      city_mask内のrivnumデータ
+    elevation: g_elv_cropped,              elevationデータ
+    rivara:    g_rivara_cropped,           rivaraデータ
+    """
+
+    # rivnum_cityの流域番号をkey, 各流域のグリッド数をvalueに持つdictionary
+    unique_values, counts = np.unique(rivnum.compressed(), return_counts=True)
+    uid_dict = dict(zip(unique_values, counts))
+
+    # 流域グリッドが最大のkeyを見つける
+    max_key = max(uid_dict, key=uid_dict.get)
+
+    # 流域が2グリッド以上存在することを確認
+    if max_key > 1:
+
+        # 選ばれた流域内のelevation
+        elv_indices = np.argwhere(rivnum == max_key)
+        elv_values = [elevation[coord[0], coord[1]] for coord in elv_indices]
+
+        # 標高最大の点　josui
+        elv_maxarg = np.argmax(elv_values)
+        josui_coord = elv_indices[elv_maxarg]
+        josui_array = np.zeros(rivnum.shape, dtype='float32')
+        josui_array[josui_coord[0], josui_coord[1]] = max_key
+
+        # 標高最大以外で集水面積が一番大きい場所(河口)
+        ara_indices = np.argwhere((citymask == 1) & (josui_array != rivnum[josui_coord[0], josui_coord[1]]))
+        ara_values = [rivara[coord[0], coord[1]] for coord in ara_indices]
+        # 空じゃないか確かめる
+        if ara_values:
+            ara_argmax = np.argmax(ara_values)
+            gesui_coord = ara_indices[ara_argmax]
+        else:
+            # 標高最小を選ぶ
+            print(f"ara_indices is empty -> argmin_elv for gesui")
+            elv_minarg = np.argmax(elv_values)
+            gesui_coord = elv_indices[elv_minarg]
+
+    # すべての流域が1グリッド以下であるとき
+    else:
+
+        # city mask内のelevatoin
+        elv_indices = np.argwhere(citymask == 1)
+        elv_values = [elevation[coord[0], coord[1]] for coord in elv_indices]
+
+        # josui
+        elv_maxarg = np.argmax(elv_values)
+        josui_coord = elv_indices[elv_maxarg]
+        josui_array = np.zeros(rivnum.shape, dtype='float32')
+        josui_array[josui_coord[0], josui_coord[1]] = rivnum[josui_coord[0], josui_coord[1]]
+
+        # 標高最大以外で集水面積が一番大きい場所(河口)
+        ara_indices = np.argwhere((citymask == 1) & (josui_array != rivnum[josui_coord[0], josui_coord[1]]))
+        ara_values = [rivara[coord[0], coord[1]] for coord in ara_indices]
+        # 空じゃないか確かめる
+        if ara_values:
+            ara_argmax = np.argmax(ara_values)
+            gesui_coord = ara_indices[ara_argmax]
+        else:
+            # 標高最小を選ぶ
+            print(f"ara_indices is empty -> argmin_elv for gesui")
+            elv_minarg = np.argmax(elv_values)
+            gesui_coord = elv_indices[elv_minarg]
+
+    # gesui
+    gesui_array = np.ma.masked_all(rivnum.shape, dtype='float32')
+    gesui_array[gesui_coord[0], gesui_coord[1]] = rivnum[gesui_coord[0], gesui_coord[1]]
+
+    # josui
+    josui_array = np.ma.masked_all(rivnum.shape, dtype='float32')
+    josui_array[josui_coord[0], josui_coord[1]] = rivnum[josui_coord[0], josui_coord[1]]
+
+    return josui_array, gesui_array
+
+#---------------------------------------------------------------------------------------------------------------
 # Main loop
 #---------------------------------------------------------------------------------------------------------------
 
@@ -666,7 +666,7 @@ def main():
 #   Initialization
 #---------------------------------------------------------------------------------------------------------------
 
-    save_flag = True
+    save_flag = False
     remove_grid = 5 # minimum number of grids in one basin
     innercity_grid = 2 # minimum number of main river grid within city mask
     width = 2 # lonlat delta degree from city center
@@ -676,7 +676,7 @@ def main():
 #---------------------------------------------------------------------------------------------------------------
 
     # number of the city (1-1860)
-    for target_index in range(1217, 1861):
+    for target_index in range(1, 1861):
         explore(target_index, remove_grid, innercity_grid, width, save_flag=save_flag)
 
 if __name__ == '__main__':

@@ -24,8 +24,6 @@ def explore_citymask(index, err_count):
     modified_center_path = f'{h08dir}/dat/cty_cnt_/{POP}/modified/city_{index:08d}.gl5'
     new_center_path = f'{h08dir}/dat/cty_cnt_/{POP}/modified/city_{index:08d}.gl5'
     dict_path = f'{h08dir}/dat/dwn_twn_/city_{index:08d}.pickle'
-    color_path = f"{h08dir}/dat/cty_msk_/{POP}/city_clrd0000.gl5"
-    monochrome_path = f"{h08dir}/dat/cty_msk_/{POP}/city_00000000.gl5"
 
     #-----------------------------------------------
     # Input Constants

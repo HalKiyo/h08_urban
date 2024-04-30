@@ -9,6 +9,7 @@ modified by kajiyama @20240402
 modified by kajiyama @20240430
 + no prf flag
 """
+import os
 import math
 import numpy as np
 import matplotlib.pyplot as plt
@@ -21,8 +22,6 @@ def explore(city_num, save_flag=False):
 #----------------------------------------------------------------------------------------
 #   Init
 #----------------------------------------------------------------------------------------
-
-    root_dir = '/mnt/c/Users/tsimk/Downloads/dotfiles/h08/global_city'
 
     NAME= 'W5E5'
     MAP= '.CAMA'
@@ -37,10 +36,36 @@ def explore(city_num, save_flag=False):
     exp_range = 24 # grid radius of exploring square area 100km
     distance_condition = 50 #km
 
+#----------------------------------------------------------------------------------------
+#   PATH
+#----------------------------------------------------------------------------------------
+
+    root_dir = '/mnt/c/Users/tsimk/Downloads/dotfiles/h08/global_city'
+    dis_dir = f"{root_dir}/dat/riv_out_"
+    can_in_path = f"{root_dir}/dat/can_ext_/existing_origin{SUF}"
+    can_out_path = f"{root_dir}/dat/can_ext_/existing_destination_1{SUF}"
+    elv_path = f"{root_dir}/dat/elv_min_/elevtn{MAP}{SUF}"
+    rivnum_path = f"{root_dir}/dat/riv_num_/rivnum{MAP}{SUF}"
+    prf_path = f"{root_dir}/dat/cty_prf_/{POP}/city_{city_num:08}{SUF}"
+    cnt_path = f"{root_dir}/dat/cty_cnt_/{POP}/modified/city_{city_num:08}{SUF}"
+    msk_path = f"{root_dir}/dat/{POP}/city_{city_num:08}{SUF}"
+
+#----------------------------------------------------------------------------------------
+#   Whether valid mask or not
+#----------------------------------------------------------------------------------------
+
+    if not os.path.exists(msk_path):
+        print(f"{city_num} is invalid mask")
+        return
+
+#----------------------------------------------------------------------------------------
+#   Load
+#----------------------------------------------------------------------------------------
+
     # river discharge data
     for year in range(year_start, year_end, 1):
 
-        dis_path = f"{root_dir}/dat/riv_out_/{NAME}LR__{year}0000{SUF}"
+        dis_path = f"{dis_dir}/{NAME}LR__{year}0000{SUF}"
         riv_dis_tmp = np.fromfile(dis_path, dtype=dtype).reshape(lat_num, lon_num)
 
         if year == year_start:
@@ -52,37 +77,28 @@ def explore(city_num, save_flag=False):
     riv_dis = riv_dis/(year_end - year_start)
 
     # canal map
-    can_in_path = f"{root_dir}/dat/can_ext_/existing_origin{SUF}"
     can_in = np.fromfile(can_in_path, dtype=dtype).reshape(lat_num, lon_num)
-    can_out_path = f"{root_dir}/dat/can_ext_/existing_destination_1{SUF}"
     can_out = np.fromfile(can_out_path, dtype=dtype).reshape(lat_num, lon_num)
 
     # elevation map
-    elv_path = f"{root_dir}/dat/elv_min_/elevtn{MAP}{SUF}"
     elv = np.fromfile(elv_path, dtype=dtype).reshape(lat_num, lon_num)
 
     # water shed number map
-    rivnum_path = f"{root_dir}/dat/riv_num_/rivnum{MAP}{SUF}"
     rivnum = np.fromfile(rivnum_path, dtype=dtype).reshape(lat_num, lon_num)
+
+    # city mask data
+    city_mask = np.fromfile(msk_path, dtype=dtype).reshape(lat_num, lon_num)
+
+    # purification plant location
+    prf = np.fromfile(prf_path, dtype=dtype).reshape(lat_num, lon_num)
 
 #-------------------------------------------------------------------------------------------
 #   JOB
 #-------------------------------------------------------------------------------------------
 
-    # city mask data
-    msk_path = f"{root_dir}/dat/{POP}/city_{city_num:08}{SUF}"
-    if not os.path.exists(msk_path):
-        print(f"{city_num} is invalid mask")
-        return
-    city_mask = np.fromfile(msk_path, dtype=dtype).reshape(lat_num, lon_num)
-
     # maximum elevation within city mask
-    elv_max = max(elv[city_mask == 1])
+    #elv_max = max(elv[city_mask == 1])
     #print(elv_max) # 278.7
-
-    # purification plant location
-    prf_path = f"{root_dir}/dat/cty_prf_/{POP}/city_{city_num:08}{SUF}"
-    prf = np.fromfile(prf_path, dtype=dtype).reshape(lat_num, lon_num)
 
     # prf location
     indices = np.where(prf == 1)
@@ -283,7 +299,7 @@ def lonlat_distance(lat_a, lon_a, lat_b, lon_b):
 
 def main():
     save_flag = False
-    for city_num in range(1, 1861, 1):   ##cheak city number##
+    for city_num in range(1, 1861, 1):
         explore(city_num, save_flag)
 
 

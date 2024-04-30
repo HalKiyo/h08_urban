@@ -41,7 +41,7 @@ make_citycenter_gpw4_30s.py => gpw4(30seconds)
 
 # citymask
 make_citymask_kajiyama.py => original(full WUP)
-make_downtown.py => gpw4 + downtown(strict)
+make_downtown.py => gpw4 + downtown(/dat/cty_msk_/gpw4/)=> pickle(/dat/dwn_twn_)
 make_cluster.py => gpw4 + downtown(city_cluster)
 
 # jogesui
