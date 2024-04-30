@@ -79,9 +79,9 @@ def explore_prf(citymask, rivnum, elevation, rivara):
         ara_indices = np.argwhere((citymask == 1) & (josui_array != rivnum[josui_coord[0], josui_coord[1]]))
         ara_values = [rivara[coord[0], coord[1]] for coord in ara_indices]
         # 空じゃないか確かめる
-        if ara_avalues:
+        if ara_values:
             ara_argmax = np.argmax(ara_values)
-            gesui_coord = ara_indices[ara_arg]
+            gesui_coord = ara_indices[ara_argmax]
         else:
             # 標高最小を選ぶ
             print(f"ara_indices is empty -> argmin_elv for gesui")
@@ -676,7 +676,7 @@ def main():
 #---------------------------------------------------------------------------------------------------------------
 
     # number of the city (1-1860)
-    for target_index in range(1, 1861):
+    for target_index in range(1217, 1861):
         explore(target_index, remove_grid, innercity_grid, width, save_flag=save_flag)
 
 if __name__ == '__main__':
