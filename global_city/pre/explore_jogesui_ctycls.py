@@ -3,8 +3,7 @@ Author Kajiyama @ 20240402
 edited by Kajiyama @ 20240430
 + if no PRF due to basin number or no main river in downtown
 + if grid_num <= 1, no PRF
-+ elif no main river in downtown, PRF=highest elevation
-+ elif main river too short (<= 2), PRF=higher grid of main river
++ elif no main river in downtown, PRF=highest elevation, SWG=largest catchment
 """
 
 import os
@@ -83,6 +82,8 @@ def explore_prf(citymask, rivnum, elevation, rivara):
     return josui_array, gesui_array
 
 #---------------------------------------------------------------------------------------------------------------
+#   Main Function
+#---------------------------------------------------------------------------------------------------------------
 
 def explore(target_index, remove_grid, innercity_grid, width, save_flag=False):
     """
@@ -114,6 +115,7 @@ def explore(target_index, remove_grid, innercity_grid, width, save_flag=False):
     # facility data
     prf_save_dir = f"{root_dir}/dat/cty_prf_/{POP}"
     swg_save_dir = f"{root_dir}/dat/cty_swg_/{POP}"
+    nonprf_dir = f"{root_dir}/dat/non_prf_/{POP}"
 
 #---------------------------------------------------------------------------------------------------------------
 #   City Lon Lat Information
@@ -190,6 +192,16 @@ def explore(target_index, remove_grid, innercity_grid, width, save_flag=False):
     g_mask = np.ma.masked_where(g_mask >= 1E20, g_mask)
     g_mask_cropped = g_mask[lat_start:lat_end, lon_start:lon_end]
     g_mask_cropped = np.flipud(g_mask_cropped)
+
+#---------------------------------------------------------------------------------------------------------------
+#   Load elevation data (g_elv_cropped)
+#---------------------------------------------------------------------------------------------------------------
+
+    g_elv = np.fromfile(elvmin_path, 'float32').reshape(latgrd, longrd)
+    g_elv = np.flipud(g_elv)
+    g_elv = np.ma.masked_where(g_elv >= 1E20, g_elv)
+    g_elv_cropped = g_elv[lat_start:lat_end, lon_start:lon_end]
+    g_elv_cropped = np.flipud(g_elv_cropped)
 
 #---------------------------------------------------------------------------------------------------------------
 #   Load basin data (g_rivnum_cropped)
@@ -502,6 +514,52 @@ def explore(target_index, remove_grid, innercity_grid, width, save_flag=False):
         josui_array[matching_position[0], matching_position[1]] = uid
 
 #---------------------------------------------------------------------------------------------------------------
+#   Gesui map 24 x 24 (josui_array)
+#---------------------------------------------------------------------------------------------------------------
+
+    gesui_array = copy.deepcopy(rivara_max_array_B)
+
+#---------------------------------------------------------------------------------------------------------------
+#   Check whehter no prf
+#---------------------------------------------------------------------------------------------------------------
+
+    # intake_exploreの時に同流域を探索するかどうかのflag
+    no_prf_flag = False
+
+    # josui_arrayに値が存在するかどうか
+    josui_array = np.ma.filled(josui_array, fill_value=0)
+    prf_coords = np.where(josui_array>0)
+
+    if len(prf_coords[0]) == 0:
+        print(f"no purification")
+
+        # intake_exploreでの同流域探索をon
+        no_prf_flag = True
+
+        josui_array, gesui_array = explore_prf(g_mask_cropped, 
+                                               g_rivnum_cropped_city, 
+                                               g_elv_cropped, 
+                                               g_rivara_cropped,
+                                               )
+
+#---------------------------------------------------------------------------------------------------------------
+#   Check whehter no prf
+#---------------------------------------------------------------------------------------------------------------
+
+    # text save
+    if save_flag is True:
+        result_path = f"{nonprf_dir}/nonprf_flag.txt"
+        if target_index == 1:
+            with open(result_path, 'w') as file:
+                file.write(f"{target_index}| {city_name}| {no_prf_flag}\n")
+        else:
+            with open(result_path, 'a') as file:
+                file.write(f"{target_index}| {city_name}| {no_prf_flag}\n")
+        print(f"{result_path} saved")
+    else:
+        print('nonprf save_flag is false')
+
+#---------------------------------------------------------------------------------------------------------------
 #   Save file (josui_array)
 #---------------------------------------------------------------------------------------------------------------
 
@@ -552,7 +610,7 @@ def explore(target_index, remove_grid, innercity_grid, width, save_flag=False):
     gesui_for_save = np.ma.masked_all(g_rivara.shape, dtype='float32')
 
     #　cropp区間の値を変換(世界地図はひっくり返っている)
-    gesui_for_save[lat_start:lat_end, lon_start:lon_end] = np.flipud(rivara_max_array_B)
+    gesui_for_save[lat_start:lat_end, lon_start:lon_end] = np.flipud(gesui_array)
 
     # 浄水場を1, それ以外を0とするバイナリーファイルに変換
     gesui_for_save = np.ma.filled(gesui_for_save, fill_value=0)
@@ -582,11 +640,12 @@ def explore(target_index, remove_grid, innercity_grid, width, save_flag=False):
 #---------------------------------------------------------------------------------------------------------------
 
 def main():
+
 #---------------------------------------------------------------------------------------------------------------
 #   Initialization
 #---------------------------------------------------------------------------------------------------------------
 
-    save_flag = False
+    save_flag = True
     remove_grid = 5 # minimum number of grids in one basin
     innercity_grid = 2 # minimum number of main river grid within city mask
     width = 2 # lonlat delta degree from city center
