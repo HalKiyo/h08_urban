@@ -187,6 +187,9 @@ def explore(target_index, remove_grid, innercity_grid, width, save_flag=False):
 #   Load city mask data (g_mask_cropped)
 #---------------------------------------------------------------------------------------------------------------
 
+    if not os.path.exists(f'{cmsk_dir}/city_{city_num:08d}.gl5'):
+        print(f"{city_num} is invalid mask")
+        return
     g_mask = np.fromfile(f'{cmsk_dir}/city_{city_num:08d}.gl5', 'float32').reshape(latgrd, longrd)
     g_mask = np.flipud(g_mask)
     g_mask = np.ma.masked_where(g_mask >= 1E20, g_mask)
@@ -541,6 +544,7 @@ def explore(target_index, remove_grid, innercity_grid, width, save_flag=False):
                                                g_elv_cropped, 
                                                g_rivara_cropped,
                                                )
+        print(f"non_prf -> tentative prf")
 
 #---------------------------------------------------------------------------------------------------------------
 #   Check whehter no prf
