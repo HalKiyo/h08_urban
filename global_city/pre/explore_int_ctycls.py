@@ -14,7 +14,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 
-def explore(city_num):
+def explore(city_num, save_flag=False):
     print('-------------------------')
     print(f"city_num {city_num}")
 
@@ -70,7 +70,10 @@ def explore(city_num):
 #-------------------------------------------------------------------------------------------
 
     # city mask data
-    msk_path = f"{root_dir}/dat/cty_msk_/{POP}/city_{city_num:08}{SUF}"
+    msk_path = f"{root_dir}/dat/{POP}/city_{city_num:08}{SUF}"
+    if not os.path.exists(msk_path):
+        print(f"{city_num} is invalid mask")
+        return
     city_mask = np.fromfile(msk_path, dtype=dtype).reshape(lat_num, lon_num)
 
     # maximum elevation within city mask
@@ -227,12 +230,15 @@ def explore(city_num):
         intake = np.zeros((lat_num, lon_num))
 
     # save
-    savepath = f"{root_dir}/dat/cty_int_/{POP}/city_{city_num:08}{SUF}"
-    intake.astype(np.float32).tofile(savepath)
-    print(f"{savepath} saved")
-    displaypath = f'{root_dir}/dat/cty_int_/fig/intake_display_{POP}_{city_num:08}{SUF}'
-    display_data.astype(np.float32).tofile(displaypath)
-    print(f"{displaypath} saved")
+    if save_flag is True:
+        savepath = f"{root_dir}/dat/cty_int_/{POP}/city_{city_num:08}{SUF}"
+        intake.astype(np.float32).tofile(savepath)
+        print(f"{savepath} saved")
+        displaypath = f'{root_dir}/dat/cty_int_/fig/intake_display_{POP}_{city_num:08}{SUF}'
+        display_data.astype(np.float32).tofile(displaypath)
+        print(f"{displaypath} saved")
+    else:
+        print(f"save_flag is {save_flag}")
 
 
 def xy2lonlat(x, y, lat_num=2160, lon_num=4320):
@@ -276,8 +282,9 @@ def lonlat_distance(lat_a, lon_a, lat_b, lon_b):
 
 
 def main():
+    save_flag = False
     for city_num in range(1, 1861, 1):   ##cheak city number##
-        explore(city_num)
+        explore(city_num, save_flag)
 
 
 if __name__ == '__main__':
