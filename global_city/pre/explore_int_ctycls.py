@@ -6,6 +6,8 @@ modified by kajiyama @20240402
 + downtown mask
 + not to exceed ocean mask
 + earth mover's distance
+modified by kajiyama @20240430
++ no prf flag
 """
 import math
 import numpy as np
@@ -26,13 +28,13 @@ def explore(city_num):
     MAP= '.CAMA'
     SUF = '.gl5'
     dtype= 'float32'
-    POP='gpw4'
+    POP='vld_cty_'
     year_start = 2019
     year_end = 2020
     lat_num = 2160
     lon_num = 4320
     can_exp = 2    # grid radius for canal grid modification exploring
-    exp_range = 24 # grid radius of exploring square area
+    exp_range = 24 # grid radius of exploring square area 100km
     distance_condition = 50 #km
 
     # river discharge data
@@ -203,37 +205,6 @@ def explore(city_num):
                                                 YY = Y
                                                 XX = X
                                                 print(f"distance: {d_min}")
-
-        """
-        # deprecated
-        # explore grids
-        for p in range(-exp_range, exp_range+1, 1):
-            for q in range(-exp_range, exp_range+1, 1):
-
-                # explored grid indices from city center
-                X = x + p
-                Y = y + q
-                #print(x, y) # 651 3836
-                display_data[X, Y] = 1
-
-                # out of city mask
-                if city_mask[X, Y] != 1:
-
-                    # intake point shoud be higher than city's maximum elevation
-                    if elv[X, Y] > elv_max:
-
-                        # river num (watershed) is not overlapped with that of inner city
-                        if rivnum[X, Y] not in cty_rivnum:
-                            display_data[X, Y] = 2
-
-                            # check if maximum
-                            if riv_dis[X,Y]/1000. > riv_max:
-                                # update riv
-                                riv_max = riv_dis[X,Y]/1000.
-                                #print(f'riv_max {X}, {Y} updated {riv_max}')
-                                XX = X
-                                YY = Y
-        """
 
     if riv_max > 0:
 
