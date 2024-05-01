@@ -45,7 +45,7 @@ def explore(target_index, remove_grid, innercity_grid, width, save_flag=False):
     # facility data
     prf_save_dir = f"{root_dir}/dat/cty_prf_/{POP}"
     swg_save_dir = f"{root_dir}/dat/cty_swg_/{POP}"
-    nonprf_dir = f"{root_dir}/dat/non_prf_/{POP}"
+    nonprf_path = f"{root_dir}/dat/non_prf_/{POP}/nonprf_flag.txt"
 
 #---------------------------------------------------------------------------------------------------------------
 #   City Lon Lat Information
@@ -482,14 +482,13 @@ def explore(target_index, remove_grid, innercity_grid, width, save_flag=False):
 
     # text save
     if save_flag is True:
-        result_path = f"{nonprf_dir}/nonprf_flag.txt"
         if target_index == 1:
-            with open(result_path, 'w') as file:
+            with open(nonprf_path, 'w') as file:
                 file.write(f"{target_index}|{no_prf_flag}\n")
         else:
-            with open(result_path, 'a') as file:
+            with open(nonprf_path, 'a') as file:
                 file.write(f"{target_index}|{no_prf_flag}\n")
-        print(f"{result_path} saved")
+        print(f"{nonprf_path} saved")
     else:
         print('nonprf save_flag is false')
 

@@ -1,13 +1,13 @@
 """
 Author Doi @ 20210331
 modified by kajiyama @20240224
-+ inter basin water transfer should be prepared using shumilova 2018
++ inter basin water transfer by shumilova 2018
 modified by kajiyama @20240402
 + downtown mask
 + not to exceed ocean mask
 + earth mover's distance
 modified by kajiyama @20240430
-+ no prf flag
++ no prf flag action
 """
 import os
 import math
@@ -46,9 +46,12 @@ def explore(city_num, save_flag=False):
     can_out_path = f"{root_dir}/dat/can_ext_/existing_destination_1{SUF}"
     elv_path = f"{root_dir}/dat/elv_min_/elevtn{MAP}{SUF}"
     rivnum_path = f"{root_dir}/dat/riv_num_/rivnum{MAP}{SUF}"
+    nonprf_path = f"{root_dir}/dat/non_prf_/{POP}/nonprf_flag.txt"
     prf_path = f"{root_dir}/dat/cty_prf_/{POP}/city_{city_num:08}{SUF}"
-    cnt_path = f"{root_dir}/dat/cty_cnt_/{POP}/modified/city_{city_num:08}{SUF}"
+    cnt_path = f"{root_dir}/dat/cty_cnt_/gpw4/modified/city_{city_num:08}{SUF}"
     msk_path = f"{root_dir}/dat/{POP}/city_{city_num:08}{SUF}"
+    savepath = f"{root_dir}/dat/cty_int_/{POP}/city_{city_num:08}{SUF}"
+    displaypath = f'{root_dir}/dat/cty_int_/fig/intake_display_{POP}_{city_num:08}{SUF}'
 
 #----------------------------------------------------------------------------------------
 #   Whether valid mask or not
@@ -92,13 +95,17 @@ def explore(city_num, save_flag=False):
     # purification plant location
     prf = np.fromfile(prf_path, dtype=dtype).reshape(lat_num, lon_num)
 
+    # no purification flag
+    with open(nonprf_path, 'r') as input_file:
+        lines = input_file.readlines()
+    line = lines[city_num-1]
+    parts = line.split('|')
+    parts = [item.strip() for item in parts]
+    no_prf_flag = parts[1]
+
 #-------------------------------------------------------------------------------------------
 #   JOB
 #-------------------------------------------------------------------------------------------
-
-    # maximum elevation within city mask
-    #elv_max = max(elv[city_mask == 1])
-    #print(elv_max) # 278.7
 
     # prf location
     indices = np.where(prf == 1)
@@ -114,7 +121,6 @@ def explore(city_num, save_flag=False):
     #print(cty_rivnum) # [848.0, 2718.0, 4850.0, 6065.0, 0]
 
     # city center data
-    cnt_path = f"{root_dir}/dat/cty_cnt_/{POP}/modified/city_{city_num:08}{SUF}"
     city_center = np.fromfile(cnt_path, dtype=dtype).reshape(lat_num, lon_num)
 
     # indices of city center
@@ -177,41 +183,54 @@ def explore(city_num, save_flag=False):
     # if no canal
     else:
         canal = 'canal_no'
-        if prfelv_lst.size == 0:
-            print("no purification plant")
-        else:
 
-            ### make search list
-            search_lst = []
-            for p in range(-exp_range, exp_range+1, 1):
-                for q in range(-exp_range, exp_range+1, 1):
-                        Y, X = latcnt + p, loncnt + q
+        ### make search list
+        search_lst = []
+        for p in range(-exp_range, exp_range+1, 1):
+            for q in range(-exp_range, exp_range+1, 1):
+                    Y, X = latcnt + p, loncnt + q
 
-                        # not explored yet
-                        if 0 <= Y < lat_num and 0<= X < lon_num:
-                            # distance btw prf and explored grid
-                            d_list = []
+                    # not explored yet
+                    if 0 <= Y < lat_num and 0<= X < lon_num:
+                        # distance btw prf and explored grid
+                        d_list = []
 
-                            for prf_y, prf_x in zip(lat_coords, lon_coords):
-                                LON, LAT = xy2lonlat(X, Y)
-                                prf_lon, prf_lat = xy2lonlat(prf_x, prf_y)
-                                distance = lonlat_distance(LAT, LON, prf_lat, prf_lon)
-                                d_list.append(distance)
+                        for prf_y, prf_x in zip(lat_coords, lon_coords):
+                            LON, LAT = xy2lonlat(X, Y)
+                            prf_lon, prf_lat = xy2lonlat(prf_x, prf_y)
+                            distance = lonlat_distance(LAT, LON, prf_lat, prf_lon)
+                            d_list.append(distance)
 
-                            # closer than IBT max distance
-                            d_min = np.min(d_list)
-                            elv_min = prfelv_lst[np.argmin(d_list)]
+                        # closer than IBT max distance
+                        d_min = np.min(d_list)
+                        elv_min = prfelv_lst[np.argmin(d_list)]
 
-                            if d_min <= distance_condition:
-                                search_lst.append([riv_dis[Y, X], Y, X])
-                                display_data[Y, X] = 1
+                        if d_min <= distance_condition:
+                            search_lst.append([riv_dis[Y, X], Y, X])
+                            display_data[Y, X] = 1
 
-                                # out of city mask
-                                if city_mask[Y, X] != 1:
+                            # out of city mask
+                            if city_mask[Y, X] != 1:
 
-                                    # intake point shoud be higher than elevation of closest purification plant
-                                    if elv[Y, X] > elv_min:
+                                # intake point shoud be higher than elevation of closest purification plant
+                                if elv[Y, X] > elv_min:
 
+                                    # including same watershed
+                                    if no_prf_flag is True:
+                                        print(f"no_prf_flag: {no_prf_flag}")
+                                        display_data[Y, X] = 2
+
+                                        # check if maximum
+                                        if riv_dis[Y, X]/1000. > riv_max:
+                                            # update riv
+                                            riv_max = riv_dis[Y, X]/1000.
+                                            #print(f'riv_max {X}, {Y} updated {riv_max}')
+                                            YY = Y
+                                            XX = X
+                                            print(f"distance: {d_min}")
+
+                                    # exclude same water shed
+                                    else:
                                         # river num (watershed) is not overlapped with that of inner city
                                         if rivnum[Y, X] not in cty_rivnum:
                                             display_data[Y, X] = 2
@@ -228,10 +247,9 @@ def explore(city_num, save_flag=False):
     if riv_max > 0:
 
         # save file for display check
-        #display_data[rivnum == rivnum[YY, XX]] = 3
-        display_data[city_mask == 1] =           4
-        display_data[city_center == 1] =         5
-        display_data[YY, XX] =                   6
+        display_data[YY, XX] =                   3
+        #display_data[city_mask == 1] =           4
+        #display_data[city_center == 1] =         5
 
         # save file for binary
         intake = np.zeros((lat_num, lon_num))
@@ -247,10 +265,8 @@ def explore(city_num, save_flag=False):
 
     # save
     if save_flag is True:
-        savepath = f"{root_dir}/dat/cty_int_/{POP}/city_{city_num:08}{SUF}"
         intake.astype(np.float32).tofile(savepath)
         print(f"{savepath} saved")
-        displaypath = f'{root_dir}/dat/cty_int_/fig/intake_display_{POP}_{city_num:08}{SUF}'
         display_data.astype(np.float32).tofile(displaypath)
         print(f"{displaypath} saved")
     else:
@@ -298,7 +314,7 @@ def lonlat_distance(lat_a, lon_a, lat_b, lon_b):
 
 
 def main():
-    save_flag = False
+    save_flag = True
     for city_num in range(1, 1861, 1):
         explore(city_num, save_flag)
 
