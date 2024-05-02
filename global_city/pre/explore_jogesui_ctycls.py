@@ -119,7 +119,15 @@ def explore(target_index, remove_grid, innercity_grid, width, save_flag=False):
 
     if not os.path.exists(f'{cmsk_dir}/city_{city_num:08d}.gl5'):
         print(f"{city_num} is invalid mask")
+        if city_num == 1:
+            with open(nonprf_path, 'w') as file:
+                file.write(f"{city_num}|True\n")
+        else:
+            with open(nonprf_path, 'a') as file:
+                file.write(f"{city_num}|True\n")
+        print('nonprf save_flag is false')
         return
+
     g_mask = np.fromfile(f'{cmsk_dir}/city_{city_num:08d}.gl5', 'float32').reshape(latgrd, longrd)
     g_mask = np.flipud(g_mask)
     g_mask = np.ma.masked_where(g_mask >= 1E20, g_mask)
@@ -665,7 +673,7 @@ def main():
 #   Initialization
 #---------------------------------------------------------------------------------------------------------------
 
-    save_flag = False
+    save_flag = True
     remove_grid = 5 # minimum number of grids in one basin
     innercity_grid = 2 # minimum number of main river grid within city mask
     width = 2 # lonlat delta degree from city center

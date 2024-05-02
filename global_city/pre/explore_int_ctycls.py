@@ -102,6 +102,8 @@ def explore(city_num, save_flag=False):
     parts = line.split('|')
     parts = [item.strip() for item in parts]
     no_prf_flag = parts[1]
+    if no_prf_flag == 'True':
+        print(f"no_prf_flag: {no_prf_flag}")
 
 #-------------------------------------------------------------------------------------------
 #   JOB
@@ -217,7 +219,6 @@ def explore(city_num, save_flag=False):
 
                                     # including same watershed
                                     if no_prf_flag == 'True':
-                                        print(f"no_prf_flag: {no_prf_flag}")
                                         display_data[Y, X] = 2
 
                                         # check if maximum
@@ -244,7 +245,6 @@ def explore(city_num, save_flag=False):
                                                 XX = X
                                                 print(f"distance: {d_min}")
 
-    exit()
     if riv_max > 0:
 
         # save file for display check
@@ -316,7 +316,7 @@ def lonlat_distance(lat_a, lon_a, lat_b, lon_b):
 
 def main():
     save_flag = True
-    for city_num in range(11, 1861, 1):
+    for city_num in range(1, 1861, 1):
         explore(city_num, save_flag)
 
 
