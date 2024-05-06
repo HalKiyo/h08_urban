@@ -2,6 +2,7 @@
     - dotfiles/h08/global_city/dat/cty_lst_/gpw4/WUP2018_300k_2010.txt
 2. Load city mask file
     - dat/cty_msk_/gpw4/city_{citynum:08}.gl5
+    - dat/vld_cty_/city_{citynum:08}.gl5
 3. lndmask
 4. Determine geological info like below
     | L | 1728 |
@@ -9,7 +10,10 @@
     | LONLAT | “138 141 34 38” |
     | SUF | .tk5 |
 5. Create LtoLONLAT conversion file
-    - Downloads/H08_20230612/map/pre/basmap.sh
+    - Downloads/H08_20230612/map/pre/prep_basmap.sh
+    >>> dat/grd_ara_/grdara.tk5.txt
+    >>> dat/l2x_l2y_/l2x.tk5.txt
+    >>> dat/l2x_l2y_/l2y.tk5.txt
 6. cama
 7. rivnxl
     - create masked{SUFRGN}.CAMA.gl5 under /riv_nxl_/

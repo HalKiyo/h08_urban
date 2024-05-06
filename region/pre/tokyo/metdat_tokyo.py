@@ -8,7 +8,6 @@ def main():
     # basic information
     tag = '.tk5'
     city_num = 1
-    POP = 'gpw4'
     #
     resolution=12
     SUF ='.gl5'

@@ -10,7 +10,10 @@
     | LONLAT | “138 141 34 38” |
     | SUF | .tk5 |
 5. Create LtoLONLAT conversion file
-    - Downloads/H08_20230612/map/pre/basmap.sh
+    - Downloads/H08_20230612/map/pre/prep_basmap.sh
+    >>> dat/grd_ara_/grdara.tk5.txt
+    >>> dat/l2x_l2y_/l2x.tk5.txt
+    >>> dat/l2x_l2y_/l2y.tk5.txt
 6. cama
 7. rivnxl
     - create masked{SUFRGN}.CAMA.gl5 under /riv_nxl_/
