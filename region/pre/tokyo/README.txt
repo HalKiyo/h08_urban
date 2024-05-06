@@ -2,6 +2,7 @@
     - dotfiles/h08/global_city/dat/cty_lst_/gpw4/WUP2018_300k_2010.txt
 2. Load city mask file
     - dat/cty_msk_/gpw4/city_{citynum:08}.gl5
+    - dat/vld_cty_/city_{citynum:08}.gl5
 3. lndmask
 4. Determine geological info like below
     | L | 1728 |
