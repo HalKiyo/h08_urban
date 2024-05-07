@@ -30,3 +30,6 @@
     - GDP.txt
     - map/dat/nat_cod_/C05_____20000000.txt
     - map/org/MISC_Maps/natwat.txt
+14. make_directory.sh
+15. move_directory.sh
+16. 
