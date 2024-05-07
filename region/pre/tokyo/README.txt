@@ -32,4 +32,8 @@
     - map/org/MISC_Maps/natwat.txt
 14. make_directory.sh
 15. move_directory.sh
-16. 
+16. Convert / to = for sharing
+    - convert_filenames.sh
+17. gunzip the all files
+    - tar -cvf savefilename.tar /path/to/savedir/
+    - gzip savefilename.tar
