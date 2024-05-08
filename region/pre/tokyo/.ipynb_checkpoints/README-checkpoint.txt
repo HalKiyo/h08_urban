@@ -15,8 +15,8 @@
     >>> dat/l2x_l2y_/l2x.tk5.txt
     >>> dat/l2x_l2y_/l2y.tk5.txt
 6. cama
-7. rivnxl
     - create masked{SUFRGN}.CAMA.gl5 under /riv_nxl_/
+7. rivnxl
     - pre/prep_rivnxl_region.sh
 8. mapdat
 9. metdat.py
@@ -30,3 +30,11 @@
     - GDP.txt
     - map/dat/nat_cod_/C05_____20000000.txt
     - map/org/MISC_Maps/natwat.txt
+14. make_directory.sh
+15. move_directory.sh
+16. RUN the model
+17. Convert / to - for sharing
+    - convert_filenames.sh
+18. gunzip the all files
+    - tar -cvf savefilename.tar /path/to/savedir/
+    - gzip savefilename.tar

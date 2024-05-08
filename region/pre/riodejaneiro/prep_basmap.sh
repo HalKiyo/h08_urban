@@ -24,10 +24,22 @@
 #SUF=.gl5
 
 #5min x 5min of tokyo (.tk5)
-L=1728
-XY="36 48"
-LONLAT="138 141 34 38"
-SUF=.tk5
+#L=1728
+#XY="36 48"
+#LONLAT="138 141 34 38"
+#SUF=.tk5
+
+#5min x 5min of rio (.ro5)
+L=4032
+XY="84 48"
+LONLAT="-47 -40 -24 -20"
+SUF=.ro5
+
+#30sec x 30sec of global (.30s)
+#L=933120000
+#XY="43200 21600"
+#LONLAT="-180 180 -90 90"
+#SUF=.30s
 
 ############################################################
 # Output (Do not edit here unless you are an expert)

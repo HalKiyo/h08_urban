@@ -6,7 +6,7 @@
 # Setting (Edit here to city SUFFIX)
 #--------------------------------------------------------------
 
-original_extentions=".tk5"
+original_extentions=".ro5"
 
 #--------------------------------------------------------------
 # Input (Edit here according to your H08 directory path)
