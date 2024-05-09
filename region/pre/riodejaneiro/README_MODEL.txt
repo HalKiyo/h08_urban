@@ -1,14 +1,13 @@
 # .sh file
+SUF=.ro5
 L=4032
 XY="84 48"
 L2X=../../map/dat/l2x_l2y_/l2x.ro5.txt
 L2Y=../../map/dat/l2x_l2y_/l2y.ro5.txt
 LONLAT="-47 -40 -24 -20"
-SUF=.ro5
+ARG="$L $XY $L2X $L2Y $LONLAT"
 
 #.f file
-n0lall=84*48
-n0llnd=382
 n0l=4032
 
 #Makefile
@@ -49,9 +48,49 @@ $(TARGET3) : $(TARGET3).o $(COMPONENT3)
     -  riv/bin/main_tk5.sh
         - SUF=.ro5
     -  cpl/pst/list_watbal_tk5.sh
+        - RUN="LR__"
 
 4. crop model
+    - crp/bin/main_tk5.f
+        - n0lall=84*48
+        - htstat $ARG sum map/dat/lnd_msk_/lndmsk.CAMA.ro5
+        - n0llnd=770
+        - (bash sumhtstat.sh)
     - crp/bin/main_tk5.sh(1st crop)
     - map/bin/calc_crptyp_tk5.sh
     - map/bin/calc_crpfrc_tk5.sh
     - crp/bin/main_tk5.sh(2nd crop)
+
+5. dam map
+    -  riv/pst/calc_mean_tk5.sh
+    -  riv/pst/calc_flddro_tk5.sh
+    -  map/bin/main_dam_tk5.sh
+        - RUN=D_L_ & RUN=D_M_ respectively
+
+6. environmental flow model
+    -  riv/pst/calc_envout_tk5.sh
+
+7. intake model
+    -  map/pre/prep_map_lcan_tk5.sh
+        - MAX=1
+    -  prog_map_K14_tk5.f
+        - n0l=4032
+        - make all
+    -  map/org/K14/bin2txt.sh
+    -  prep_map_K14_tk5.sh
+
+8. desalination model
+    -  crp/pre/prep_tk5.sh
+    -  map/pre/pre_mapIIASA_SSAP_tk5.sh
+    -  prog_map_cstlin_tk5.f
+    -  map/prep/prep_map_cstlin_tk5.sh
+    -  map/pre/prep_map_despot_tk5.sh
+
+9. couple model 
+    -  cpl/bin/main_tk5.sh(N_C_)
+        - OPTNNBS=yes
+        - DAM=no
+    -  cpl/pst/calc_mean_tk5.sh
+    -  cpl/bin/main_tk5.sh
+        - OPTNNBS=no
+        - DAM=yes
