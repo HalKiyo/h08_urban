@@ -76,8 +76,8 @@ $(TARGET3) : $(TARGET3).o $(COMPONENT3)
     -  prog_map_K14_tk5.f
         - n0l=4032
         - make all
-    -  map/org/K14/bin2txt.sh
     -  prep_map_K14_tk5.sh
+        - produce binary file filled with 0 for exp canal as NONdata
 
 8. desalination model
     -  crp/pre/prep_tk5.sh
