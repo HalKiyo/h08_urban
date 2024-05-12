@@ -33,6 +33,7 @@ $(TARGET3) : $(TARGET3).o $(COMPONENT3)
 
 2. land model
     -  lnd/pre/prep_tk5.sh
+    -  map/pre/prep_map_despot_tk5.sh
     -  lnd/pre/prep_gamtau_tk5.sh
     -  lnd/pre/prep_gwr_tk5.sh
     -  lnd/bin/main_tk5.f
@@ -51,14 +52,16 @@ $(TARGET3) : $(TARGET3).o $(COMPONENT3)
         - RUN="LR__"
 
 4. crop model
+    - crp/pre/prep_tk5.sh
+    - map/bin/calc_crptyp_tk5.sh
+    - map/bin/calc_crpfrc_tk5.sh
     - crp/bin/main_tk5.f
         - n0lall=84*48
         - htstat $ARG sum map/dat/lnd_msk_/lndmsk.CAMA.ro5
         - n0llnd=770
         - (bash sumhtstat.sh)
     - crp/bin/main_tk5.sh(1st crop)
-    - map/bin/calc_crptyp_tk5.sh
-    - map/bin/calc_crpfrc_tk5.sh
+    - crp/pst/calc_crpcal_tk5.sh
     - crp/bin/main_tk5.sh(2nd crop)
 
 5. dam map
@@ -80,14 +83,20 @@ $(TARGET3) : $(TARGET3).o $(COMPONENT3)
         - produce binary file filled with 0 for exp canal as NONdata
 
 8. desalination model
-    -  crp/pre/prep_tk5.sh
-    -  map/pre/pre_mapIIASA_SSAP_tk5.sh
+    -  map/pre/pre_map_IIASA_SSAP_tk5.sh
     -  prog_map_cstlin_tk5.f
+        - n0l=4032
+        - n0x=84, n0y=48
+        - make all
     -  map/prep/prep_map_cstlin_tk5.sh
-    -  map/pre/prep_map_despot_tk5.sh
 
 9. couple model 
+    -  cpl/prep_tk5.sh
+    -  cpl.bin/main_tk5.f
+        - n0l=4032
+        - make all
     -  cpl/bin/main_tk5.sh(N_C_)
+        - SUF
         - OPTNNBS=yes
         - DAM=no
     -  cpl/pst/calc_mean_tk5.sh
