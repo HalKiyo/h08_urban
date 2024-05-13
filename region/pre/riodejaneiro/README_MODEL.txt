@@ -96,6 +96,8 @@ $(TARGET3) : $(TARGET3).o $(COMPONENT3)
         - n0l=4032
         - make all
     -  cpl/bin/main_tk5.sh(N_C_)
+        - adm/Mkinclude
+            - switch -debug mode to -03 optimizatoin
         - SUF
         - OPTNNBS=yes
         - DAM=no
