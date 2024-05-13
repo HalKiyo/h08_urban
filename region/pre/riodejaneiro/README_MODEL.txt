@@ -100,6 +100,6 @@ $(TARGET3) : $(TARGET3).o $(COMPONENT3)
         - OPTNNBS=yes
         - DAM=no
     -  cpl/pst/calc_mean_tk5.sh
-    -  cpl/bin/main_tk5.sh
+    -  cpl/bin/main_tk5.sh(LECD)
         - OPTNNBS=no
         - DAM=yes
