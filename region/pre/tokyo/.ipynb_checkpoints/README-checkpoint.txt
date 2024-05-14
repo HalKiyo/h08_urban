@@ -34,6 +34,7 @@
 15. move_directory.sh
 16. RUN the model
 17. Convert / to - for sharing
+    - create savedirectory research/H08/regional_model/fileshare/gdrive20240514/riodejaneiro
     - convert_filenames.sh
 18. gunzip the all files
     - tar -cvf savefilename.tar /path/to/savedir/

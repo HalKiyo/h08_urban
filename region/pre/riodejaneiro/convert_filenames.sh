@@ -5,8 +5,8 @@
 #######################################################
 #  Setting (Edit here to city SUFFIX)
 #######################################################
-original_extension=".tk5"
-converted_extension="=tk5"
+original_extension=".ro5"
+converted_extension="=ro5"
 #######################################################
 #  Input (Edit here according to your H08 direcotory path)
 ###########################################################
@@ -15,14 +15,14 @@ H08DIR="/mnt/c/Users/tsimk/Downloads/H08_20230612/"
 ###########################################################
 #  Output (Edit here according to your load direcotory path)
 ###########################################################
-SAVEDIR="/mnt/c/Users/tsimk/Downloads/research/H08/regional_model/fileshare/gdrive20240510/tokyo/"
+SAVEDIR="/mnt/c/Users/tsimk/Downloads/research/H08/regional_model/fileshare/gdrive20240514/riodejaneiro/"
 
 ###########################################################
 #  Job (restore name)
 ###########################################################
 cd "${H08DIR}"
 
-find "$H08DIR" -type f -name "*.tk5" -print0 | while IFS= read -r -d $'\0' file; do
+find "$H08DIR" -type f -name "*.ro5" -print0 | while IFS= read -r -d $'\0' file; do
     relative_path=$(echo "$file" | sed "s|^$H08DIR||")
     new_file=$(echo "$relative_path" | sed 's/\//-/g')
     save_file=${SAVEDIR}${new_file}
