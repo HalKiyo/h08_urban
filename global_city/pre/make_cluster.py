@@ -161,6 +161,12 @@ def clustering(index, save_dict):
 #-----------------------------------------------------------------------
 
 def main():
+    """
+    loop 1860 cities in WUP
+    clustering returns {gradient, mask_num, cover_rate, invalid_index}
+    if A - B <= pg_range, then that's valid_index
+    if invalid, then gradient, mask_num, cover_rate = -1, -1, -1
+    """
     save_dict = {'gradient': [],
                  'mask_num': [],
                  'cover_rate': [],
