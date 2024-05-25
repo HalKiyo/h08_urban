@@ -4,26 +4,8 @@ L=2304
 XY="48 48"
 L2X=../../map/dat/l2x_l2y_/l2x.ls5.txt
 L2Y=../../map/dat/l2x_l2y_/l2y.ls5.txt
-LONLAT="-47 -40 -24 -20"
+LONLAT="-120 -116 32 36"
 ARG="$L $XY $L2X $L2Y $LONLAT"
-
-#.f file
-n0l=4032
-
-#Makefile
-make all
-"""
-OBJS = main_tk5
-TARGET3 = main_tk5
-COMPONENT3 = ${DIRLND}calc_leakyb.o ${DILND}calc_ts_nxt.o \
-             ${DIRLIB}read_binary.o ${DILIB}wrte_binary.o \
-             ${DIRLIB}read_result.o \
-             ${DIRLIB}wrte_bints2.o \
-             ${DIRLIB}igetday.o ${DILIB}calc_spinup.o \
-             ${DIRLIB}conv_rhtoqa.o ${DILIB}conv_rstors.o \
-$(TARGET3) : $(TARGET3).o $(COMPONENT3)
-    $(FC) -o $@ $@.o $(COMPONENT3)
-"""
 
 1. meteorologicla data 
     - met/pre/prep_mean_tk5.sh
@@ -33,18 +15,19 @@ $(TARGET3) : $(TARGET3).o $(COMPONENT3)
 
 2. land model
     -  lnd/pre/prep_tk5.sh
-    -  map/pre/prep_map_despot_tk5.sh
     -  lnd/pre/prep_gamtau_tk5.sh
     -  lnd/pre/prep_gwr_tk5.sh
+        - if debug mode, error will arises due to no proper debbugging point
     -  lnd/bin/main_tk5.f
-        - n0l=4032
+        - n0l=2304
         - make all
     -  lnd/bin/main_tk5.sh
         - SUF=.ls5
 
 3. river model
+    -  riv/pre/prep_tk5.sh
     -  riv/bin/main_tk5.f
-        - n0l=4032
+        - n0l=2304
         - make all
     -  riv/bin/main_tk5.sh
         - SUF=.ls5
@@ -56,9 +39,9 @@ $(TARGET3) : $(TARGET3).o $(COMPONENT3)
     - map/bin/calc_crptyp_tk5.sh
     - map/bin/calc_crpfrc_tk5.sh
     - crp/bin/main_tk5.f
-        - n0lall=84*48
+        - n0lall=48*48
         - htstat $ARG sum map/dat/lnd_msk_/lndmsk.CAMA.ls5
-        - n0llnd=770
+        - n0llnd=72
         - (bash sumhtstat.sh)
     - crp/bin/main_tk5.sh(1st crop)
     - crp/pst/calc_crpcal_tk5.sh
@@ -89,6 +72,7 @@ $(TARGET3) : $(TARGET3).o $(COMPONENT3)
         - n0x=84, n0y=48
         - make all
     -  map/prep/prep_map_cstlin_tk5.sh
+    -  map/pre/prep_map_despot_tk5.sh
 
 9. couple model 
     -  cpl/prep_tk5.sh
