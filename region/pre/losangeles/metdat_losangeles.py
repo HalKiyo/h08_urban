@@ -16,8 +16,8 @@ def main():
     #
     left = -120
     right = -116
-    bottom = -32
-    top = -36
+    bottom = 32
+    top = 36
     #
     nx, ny = (right - left)*resolution, (top - bottom)*resolution
     rgnshape = (ny, nx)

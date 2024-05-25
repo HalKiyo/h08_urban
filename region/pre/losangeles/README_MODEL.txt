@@ -1,9 +1,9 @@
 # .sh file
-SUF=.ro5
-L=4032
-XY="84 48"
-L2X=../../map/dat/l2x_l2y_/l2x.ro5.txt
-L2Y=../../map/dat/l2x_l2y_/l2y.ro5.txt
+SUF=.ls5
+L=2304
+XY="48 48"
+L2X=../../map/dat/l2x_l2y_/l2x.ls5.txt
+L2Y=../../map/dat/l2x_l2y_/l2y.ls5.txt
 LONLAT="-47 -40 -24 -20"
 ARG="$L $XY $L2X $L2Y $LONLAT"
 
@@ -40,14 +40,14 @@ $(TARGET3) : $(TARGET3).o $(COMPONENT3)
         - n0l=4032
         - make all
     -  lnd/bin/main_tk5.sh
-        - SUF=.ro5
+        - SUF=.ls5
 
 3. river model
     -  riv/bin/main_tk5.f
         - n0l=4032
         - make all
     -  riv/bin/main_tk5.sh
-        - SUF=.ro5
+        - SUF=.ls5
     -  cpl/pst/list_watbal_tk5.sh
         - RUN="LR__"
 
@@ -57,7 +57,7 @@ $(TARGET3) : $(TARGET3).o $(COMPONENT3)
     - map/bin/calc_crpfrc_tk5.sh
     - crp/bin/main_tk5.f
         - n0lall=84*48
-        - htstat $ARG sum map/dat/lnd_msk_/lndmsk.CAMA.ro5
+        - htstat $ARG sum map/dat/lnd_msk_/lndmsk.CAMA.ls5
         - n0llnd=770
         - (bash sumhtstat.sh)
     - crp/bin/main_tk5.sh(1st crop)
