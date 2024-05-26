@@ -1,3 +1,4 @@
+import os
 import pickle
 import numpy as np
 
@@ -187,6 +188,32 @@ def main():
 
 #-----------------------------------------------------------------------
 
+def summarize():
+    POP = 'vld_cty_'
+    lat_shape = 2160
+    lon_shape = 4320
+    dtype = 'float32'
+    h08dir = '/mnt/c/Users/tsimk/Downloads/dotfiles/h08/global_city'
+    summary_path = f"{h08dir}/dat/{POP}/city_00000000.gl5"
+    summary = np.zeros((lat_shape, lon_shape))
+
+    for index in range(1, 1861):
+        mask_path = f"{h08dir}/dat/{POP}/city_{index:08}.gl5"
+        if not os.path.exists(mask_path):
+            print(f'{index} is invalid mask')
+        else:
+            tmp = np.fromfile(mask_path, dtype=dtype).reshape(lat_shape, lon_shape)
+            if np.sum(summary[tmp==1]) < 1:
+                summary[tmp == 1] = index
+                print(f'{index} is valid mask')
+            else:
+                print(f'{index} is overlaped')
+
+    summary.astype(np.float32).tofile(summary_path)
+    print(f'{summary_path} is saved')
+
+#-----------------------------------------------------------------------
+
 def check():
     """
     save_dict = {'gradient': [],
@@ -216,8 +243,10 @@ def check():
     print(invalid_index)
     print(f"len(invalid_index): {len(invalid_index)}")
 
+#-----------------------------------------------------------------------
 
 if __name__ == '__main__':
     #main()
+    #summarize()
     check()
 
