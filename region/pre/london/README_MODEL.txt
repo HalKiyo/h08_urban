@@ -41,7 +41,7 @@ ARG="$L $XY $L2X $L2Y $LONLAT"
     - crp/bin/main_tk5.f
         - n0lall=48*36
         - htstat $ARG sum map/dat/lnd_msk_/lndmsk.CAMA.ln5
-        - n0llnd=68
+        - n0llnd=257
         - (bash sumhtstat.sh)
     - crp/bin/main_tk5.sh(1st crop)
     - crp/pst/calc_crpcal_tk5.sh
@@ -66,7 +66,7 @@ ARG="$L $XY $L2X $L2Y $LONLAT"
         - produce binary file filled with 0 for exp canal as NONdata
 
 8. desalination model
-    -  map/pre/pre_map_IIASA_SSAP_tk5.sh
+    -  map/pre/prep_map_IIASA_SSAP_tk5.sh
     -  prog_map_cstlin_tk5.f
         - n0l=1728
         - n0x=48, n0y=36
@@ -75,8 +75,8 @@ ARG="$L $XY $L2X $L2Y $LONLAT"
     -  map/pre/prep_map_despot_tk5.sh
 
 9. couple model 
-    -  cpl/prep_tk5.sh
-    -  cpl.bin/main_tk5.f
+    -  cpl/pre/prep_tk5.sh
+    -  cpl/bin/main_tk5.f
         - n0l=1728
         - make all
     -  cpl/bin/main_tk5.sh(N_C_)
