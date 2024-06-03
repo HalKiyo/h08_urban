@@ -373,14 +373,23 @@ def summarize():
     h08dir = '/mnt/c/Users/tsimk/Downloads/dotfiles/h08/global_city'
     wup_path = f'{h08dir}/dat/cty_lst_/{POP}/WUP2018_300k_2010.txt'
     color_path = f"{h08dir}/dat/cty_msk_/{POP}/city_clrd0000.gl5"
+    monochrome_path = f"{h08dir}/dat/cty_msk_/{POP}/city_00000000.gl5"
     ovlp_color_path = f"{h08dir}/dat/cty_msk_/{POP}/city_clrdovlp.gl5"
     ovlp_monochrome_path = f"{h08dir}/dat/cty_msk_/{POP}/city_0000ovlp.gl5"
+    textpath = h08dir + f'/dat/cty_lst_/{POP}/citymask_overlap.txt'
 
     # city_name
-    city_list []
+    name_list =  []
+    pop_list = []
     for l in open(wup_path).readlines():
+        data = l[:].split('\t')
+        data = [item.strip() for item in data]
+        pop_list.append(float(data[3]))
         name_list.append(data[4])
-    city_name = name_list[index-1]
+
+    # overlap text
+    with open(textpath, 'w') as file:
+        file.write(f"index | pop | grid_num | name|\n")
 
     # shape
     lat_shape = 2160
@@ -395,6 +404,7 @@ def summarize():
 
     # city index loop
     for index in range(1, 1861):
+        city_name = name_list[index-1]
 
         # load city mask
         mask_path = f"{h08dir}/dat/cty_msk_/{POP}/city_{index:08}.gl5"
@@ -403,6 +413,7 @@ def summarize():
         if not os.path.exists(mask_path):
             print(f'{index} is invalid mask')
             save_path = None
+            ovlp_save_path = None
         else:
             tmp = np.fromfile(mask_path, dtype=dtype).reshape(lat_shape, lon_shape)
             # overlap check
@@ -418,13 +429,19 @@ def summarize():
             else:
                 if color_flag is True:
                     overlap[tmp == 1] = index
+                    ovlp_save_path = ovlp_color_path
                     save_path = ovlp_color_path
                 else:
                     overlap[tmp == 1] = 1
-                    save_path = ovlp_monochrome_path
+                    ovlp_save_path = ovlp_monochrome_path
+
+                with open(textpath, 'a') as file:
+                    file.write(f"{index}| {pop_list[index]}| {np.sum(tmp)}| {city_name[index]}\n")
+
                 print(f'{index} is overlaped')
 
     summary.astype(np.float32).tofile(save_path)
+    overlap.astype(np.float32).tofile(ovlp_save_path)
     print(f'{save_path} is saved')
 
     return summary
