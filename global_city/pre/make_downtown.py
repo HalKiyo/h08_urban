@@ -405,6 +405,7 @@ def summarize():
     # city index loop
     for index in range(1, 1861):
         city_name = name_list[index-1]
+        city_pop = pop_list[index-1]
 
         # load city mask
         mask_path = f"{h08dir}/dat/cty_msk_/{POP}/city_{index:08}.gl5"
@@ -436,7 +437,7 @@ def summarize():
                     ovlp_save_path = ovlp_monochrome_path
 
                 with open(textpath, 'a') as file:
-                    file.write(f"{index}| {pop_list[index]}| {np.sum(tmp)}| {city_name[index]}\n")
+                    file.write(f"{index}| {city_pop}| {np.sum(tmp)}| {city_name}\n")
 
                 print(f'{index} is overlaped')
 
