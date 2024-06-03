@@ -1,3 +1,4 @@
+import os
 import math
 import pickle
 import numpy as np
@@ -370,8 +371,16 @@ def summarize():
 
     # paths
     h08dir = '/mnt/c/Users/tsimk/Downloads/dotfiles/h08/global_city'
+    wup_path = f'{h08dir}/dat/cty_lst_/{POP}/WUP2018_300k_2010.txt'
     color_path = f"{h08dir}/dat/cty_msk_/{POP}/city_clrd0000.gl5"
-    monochrome_path = f"{h08dir}/dat/cty_msk_/{POP}/city_00000000.gl5"
+    ovlp_color_path = f"{h08dir}/dat/cty_msk_/{POP}/city_clrdovlp.gl5"
+    ovlp_monochrome_path = f"{h08dir}/dat/cty_msk_/{POP}/city_0000ovlp.gl5"
+
+    # city_name
+    city_list []
+    for l in open(wup_path).readlines():
+        name_list.append(data[4])
+    city_name = name_list[index-1]
 
     # shape
     lat_shape = 2160
@@ -382,29 +391,45 @@ def summarize():
 
     # make save array
     summary = np.empty((lat_shape, lon_shape))
+    overlap = np.empty((lat_shape, lon_shape))
 
     # city index loop
     for index in range(1, 1861):
 
         # load city mask
-        mask_name = f"{h08dir}/dat/cty_msk_/{POP}/city_{index:08}.gl5"
-        tmp = np.fromfile(mask_name, dtype=dtype).reshape(lat_shape, lon_shape)
+        mask_path = f"{h08dir}/dat/cty_msk_/{POP}/city_{index:08}.gl5"
 
-        if color_flag is True:
-
-            summary[tmp == 1] = index
-            summary.astype(np.float32).tofile(color_path)
-            print(f'{color_path} is saved')
-
+        # mask existance
+        if not os.path.exists(mask_path):
+            print(f'{index} is invalid mask')
+            save_path = None
         else:
-            summary[tmp == 1] = 1
-            summary.astype(np.float32).tofile(monochrome_path)
-            print(f'{monochrome_path} is saved')
+            tmp = np.fromfile(mask_path, dtype=dtype).reshape(lat_shape, lon_shape)
+            # overlap check
+            if np.sum(summary[tmp==1]) < 1:
+                # color or monotchrome
+                if color_flag is True:
+                    summary[tmp == 1] = index
+                    save_path = color_path
+                else:
+                    summary[tmp == 1] = 1
+                    save_path = monochrome_path
+                print(f'{index} is valid mask')
+            else:
+                if color_flag is True:
+                    overlap[tmp == 1] = index
+                    save_path = ovlp_color_path
+                else:
+                    overlap[tmp == 1] = 1
+                    save_path = ovlp_monochrome_path
+                print(f'{index} is overlaped')
+
+    summary.astype(np.float32).tofile(save_path)
+    print(f'{save_path} is saved')
 
     return summary
 
-def main():
-    round_flag = 'Second'
+def main(round_flag):
 
     if round_flag == 'First':
         err_count = {'0': 0, '1': 0, '2': 0, '3':0, '4':0}
@@ -423,4 +448,5 @@ def main():
 
 
 if __name__ == '__main__':
-    main()
+    round_flag = 'Second'
+    main(round_flag)
