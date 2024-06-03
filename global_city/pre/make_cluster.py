@@ -189,28 +189,92 @@ def main():
 #-----------------------------------------------------------------------
 
 def summarize():
+
+    # colored
+    color_flag = True
+    #
     POP = 'vld_cty_'
+    #
     lat_shape = 2160
     lon_shape = 4320
-    dtype = 'float32'
-    h08dir = '/mnt/c/Users/tsimk/Downloads/dotfiles/h08/global_city'
-    summary_path = f"{h08dir}/dat/{POP}/city_00000000.gl5"
-    summary = np.zeros((lat_shape, lon_shape))
+    dtype= 'float32'
 
+    # paths
+    h08dir = '/mnt/c/Users/tsimk/Downloads/dotfiles/h08/global_city'
+    color_path = f"{h08dir}/dat/{POP}/city_clrd0000.gl5"
+    monochrome_path = f"{h08dir}/dat/{POP}/city_00000000.gl5"
+    ovlp_color_path = f"{h08dir}/dat/{POP}/city_clrdovlp.gl5"
+    ovlp_monochrome_path = f"{h08dir}/dat/{POP}/city_0000ovlp.gl5"
+    # paths
+    wup_path = f'{h08dir}/dat/cty_lst_/gpw4/WUP2018_300k_2010.txt'
+    textpath = h08dir + f'/dat/cty_lst_/gpw4/downtown_overlap.txt'
+
+    # city_name
+    name_list =  []
+    pop_list = []
+    for l in open(wup_path).readlines():
+        data = l[:].split('\t')
+        data = [item.strip() for item in data]
+        pop_list.append(float(data[3]))
+        name_list.append(data[4])
+
+    # overlap text
+    with open(textpath, 'w') as file:
+        file.write(f"index | pop | grid_num | name|\n")
+
+    # shape
+    lat_shape = 2160
+    lon_shape = 4320
+
+    # date type
+    dtype= 'float32'
+
+    # make save array
+    summary = np.empty((lat_shape, lon_shape))
+    overlap = np.empty((lat_shape, lon_shape))
+
+    # city index loop
     for index in range(1, 1861):
+        city_name = name_list[index-1]
+        city_pop = pop_list[index-1]
+
+        # load city mask
         mask_path = f"{h08dir}/dat/{POP}/city_{index:08}.gl5"
+
+        # mask existance
         if not os.path.exists(mask_path):
             print(f'{index} is invalid mask')
+            save_path = None
+            ovlp_save_path = None
         else:
             tmp = np.fromfile(mask_path, dtype=dtype).reshape(lat_shape, lon_shape)
+            # overlap check
             if np.sum(summary[tmp==1]) < 1:
-                summary[tmp == 1] = index
+                # color or monotchrome
+                if color_flag is True:
+                    summary[tmp == 1] = index
+                    save_path = color_path
+                else:
+                    summary[tmp == 1] = 1
+                    save_path = monochrome_path
                 print(f'{index} is valid mask')
             else:
+                if color_flag is True:
+                    overlap[tmp == 1] = index
+                    ovlp_save_path = ovlp_color_path
+                    save_path = ovlp_color_path
+                else:
+                    overlap[tmp == 1] = 1
+                    ovlp_save_path = ovlp_monochrome_path
+
+                with open(textpath, 'a') as file:
+                    file.write(f"{index}| {city_pop}| {np.sum(tmp)}| {city_name}\n")
+
                 print(f'{index} is overlaped')
 
-    summary.astype(np.float32).tofile(summary_path)
-    print(f'{summary_path} is saved')
+    summary.astype(np.float32).tofile(save_path)
+    overlap.astype(np.float32).tofile(ovlp_save_path)
+    print(f'{save_path} is saved')
 
 #-----------------------------------------------------------------------
 
@@ -247,6 +311,6 @@ def check():
 
 if __name__ == '__main__':
     #main()
-    #summarize()
-    check()
+    summarize()
+    #check()
 
