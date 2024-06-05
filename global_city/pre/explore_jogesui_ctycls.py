@@ -1,7 +1,6 @@
 """
 Author Kajiyama @ 20240402
 edited by Kajiyama @ 20240430
-+ if no PRF due to basin number or no main river in downtown
 + if grid_num <= 1, no PRF
 + elif no main river in downtown, PRF=highest elevation, SWG=largest catchment
 """
