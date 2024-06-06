@@ -253,24 +253,26 @@ def summarize():
                 # color or monotchrome
                 if color_flag is True:
                     summary[tmp == 1] = index
-                    save_path = color_path
                 else:
                     summary[tmp == 1] = 1
-                    save_path = monochrome_path
                 print(f'{index} is valid mask')
             else:
                 if color_flag is True:
                     overlap[tmp == 1] = index
-                    ovlp_save_path = ovlp_color_path
-                    save_path = ovlp_color_path
                 else:
                     overlap[tmp == 1] = 1
-                    ovlp_save_path = ovlp_monochrome_path
 
                 with open(textpath, 'a') as file:
                     file.write(f"{index}| {city_pop}| {np.sum(tmp)}| {city_name}\n")
 
                 print(f'{index} is overlaped')
+
+    if color_flag is True:
+        save_path = color_path
+        ovlp_save_path = ovlp_color_path
+    else:
+        save_path = monochrome_path
+        ovlp_save_path = ovlp_monochrome_path
 
     summary.astype(np.float32).tofile(save_path)
     print(f'{save_path} is saved')
