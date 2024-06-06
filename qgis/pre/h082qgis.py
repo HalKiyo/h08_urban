@@ -26,8 +26,8 @@ def main():
     loadpath = '/mnt/c/Users/tsimk/Downloads/dotfiles/h08/global_city/dat/cty_swg_/gpw3/city_00000000.gl5'
     savepath = '/mnt/c/Users/tsimk/Downloads/dotfiles/h08/qgis/dat/cty_msk_gpw3_00000000.tif'
     """
-    loadpath = '/mnt/c/Users/tsimk/Downloads/dotfiles/h08/global_city/dat/cty_swg_/gpw4/city_00000001.gl5'
-    savepath = '/mnt/c/Users/tsimk/Downloads/dotfiles/h08/qgis/dat/cty_swg_00000001.tif'
+    loadpath = '/mnt/c/Users/tsimk/Downloads/dotfiles/h08/global_city/dat/vld_cty_/city_00000000.gl5'
+    savepath = '/mnt/c/Users/tsimk/Downloads/dotfiles/h08/qgis/dat/cty_vld_lst_00000000.tif'
     bin2las(loadpath, savepath)
 
 if __name__ == '__main__':

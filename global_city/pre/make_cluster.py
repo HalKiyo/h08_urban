@@ -273,8 +273,9 @@ def summarize():
                 print(f'{index} is overlaped')
 
     summary.astype(np.float32).tofile(save_path)
-    overlap.astype(np.float32).tofile(ovlp_save_path)
     print(f'{save_path} is saved')
+    overlap.astype(np.float32).tofile(ovlp_save_path)
+    print(f'{ovlp_save_path} is saved')
 
 #-----------------------------------------------------------------------
 
