@@ -120,10 +120,10 @@ def explore(target_index, remove_grid, innercity_grid, width, save_flag=False):
         print(f"{city_num} is invalid mask")
         if city_num == 1:
             with open(nonprf_path, 'w') as file:
-                file.write(f"{city_num}|True\n")
+                file.write(f"{city_num}|NoMASK\n")
         else:
             with open(nonprf_path, 'a') as file:
-                file.write(f"{city_num}|True\n")
+                file.write(f"{city_num}|NoMASK\n")
         print('nonprf save_flag is false')
         return
 
