@@ -35,7 +35,8 @@ def explore(city_num, save_flag=False):
     lat_num = 2160
     lon_num = 4320
     can_exp = 2    # grid radius for canal grid modification exploring
-    exp_range = 96 # grid radius of exploring square area 500km
+    can_check_range = 10 # grid radius of exploring square area 100km from city center
+    exp_range = 24 # explore intake point range of square area 240 km from city center
     distance_condition = 30 #km #McDonald 2011 shows ~22km 80% of the city has water 100L/capita/day for 10million people
 
 #----------------------------------------------------------------------------------------
@@ -145,11 +146,12 @@ def explore(city_num, save_flag=False):
 
     # canal_out around xxx km of city center
     can_mask = np.zeros((lat_num, lon_num))
-    for ibt_lat in range(-exp_range, exp_range+1):
-        for ibt_lon in range(-exp_range, exp_range+1):
+    for ibt_lat in range(-can_check_range, can_check_range+1):
+        for ibt_lon in range(-can_check_range, can_check_range+1):
             can_mask[latcnt+ibt_lat, loncnt+ibt_lon] = 1
     can_check = can_mask*can_out
     #print(np.sum(can_check)) # 0
+    can_check_value = np.sum(can_check)
 
     # up & down stream of prfs
     riv_path_array = updown_stream(city_num, riv_nxlonlat_cropped)
@@ -159,8 +161,10 @@ def explore(city_num, save_flag=False):
     # display data
     display_data = np.zeros((lat_num, lon_num))
 
+    # ignoring any existing canal
+    can_check_value = 0
     # if canal exists
-    if np.sum(can_check)>0:
+    if can_check_value>0:
         canal = 'canal_yes'
         if prfelv_lst.size == 0:
             print("no purification plant")
