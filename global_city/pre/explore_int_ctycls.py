@@ -8,6 +8,8 @@ modified by kajiyama @20240402
 + earth mover's distance
 modified by kajiyama @20240430
 + no prf flag action
+modified by kajiyama @20240719
++ same basin enabled in case sub_river (subbasin) has larger discharge
 """
 import os
 import math
@@ -33,8 +35,8 @@ def explore(city_num, save_flag=False):
     lat_num = 2160
     lon_num = 4320
     can_exp = 2    # grid radius for canal grid modification exploring
-    exp_range = 24 # grid radius of exploring square area 100km
-    distance_condition = 50 #km
+    exp_range = 96 # grid radius of exploring square area 500km
+    distance_condition = 30 #km #McDonald 2011 shows ~22km 80% of the city has water 100L/capita/day for 10million people
 
 #----------------------------------------------------------------------------------------
 #   PATH
@@ -135,7 +137,7 @@ def explore(city_num, save_flag=False):
     # init maximum river discharge
     riv_max = 0
 
-    # canal_out around 100km of city center
+    # canal_out around xxx km of city center
     can_mask = np.zeros((lat_num, lon_num))
     for ibt_lat in range(-exp_range, exp_range+1):
         for ibt_lon in range(-exp_range, exp_range+1):
@@ -273,6 +275,15 @@ def explore(city_num, save_flag=False):
     else:
         print(f"save_flag is {save_flag}")
 
+def sub_river():
+    # if in same basin but sub_river (subbasin) has larger discharge
+    # turn on intake point exploration
+    ### what to check
+    # not in same main river paths from prf grids
+    # step1: get river paths of all prf grids
+    # step2: check if grid is not on that path
+    # step3: explore 
+
 
 def xy2lonlat(x, y, lat_num=2160, lon_num=4320):
     if 0 <= x <= lon_num:
@@ -315,7 +326,7 @@ def lonlat_distance(lat_a, lon_a, lat_b, lon_b):
 
 
 def main():
-    save_flag = True
+    save_flag = False
     for city_num in range(1, 1861, 1):
         explore(city_num, save_flag)
 
