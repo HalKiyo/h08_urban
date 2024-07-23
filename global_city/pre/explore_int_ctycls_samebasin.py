@@ -241,7 +241,7 @@ def explore(city_num, save_flag=False):
                                         # check if maximum
                                         if riv_dis[Y, X]/1000. > riv_max:
                                             # update riv
-                                            riv_max = riv_dis[Y, X]/1000.
+                                            riv_max = riv_dis[Y, X]/1000. # kg/s => m3/s
                                             #print(f'riv_max {X}, {Y} updated {riv_max}')
                                             YY = Y
                                             XX = X
@@ -272,7 +272,7 @@ def explore(city_num, save_flag=False):
         # save file for binary
         intake = np.zeros((lat_num, lon_num))
         intake[YY, XX] = 1
-        print(f"riv_max  {riv_max}\n"
+        print(f"riv_max  {riv_max} m3/s\n"
               f"{canal}")
 
     else:
@@ -358,7 +358,6 @@ def updown_stream(city_num, riv_nxlonlat_cropped):
                 if target_coord in visited_coords:
                     break
                 visited_coords.add(target_coord)
-                target_row, target_col = target_coord
                 matched_coords = np.argwhere(np.all(target_coord == riv_nxlonlat_cropped, axis=2))
                 if len(matched_coords) == 0:
                     break
