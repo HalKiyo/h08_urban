@@ -10,7 +10,7 @@ modified by kajiyama @20240430
 + no prf flag action
 modified by kajiyama @20240719
 + same basin enabled in case sub_river (subbasin) has larger discharge
-+ updown sreampath is created in dotfiles/h08/wsi/pre/
++ updown sreampath is created in dotfiles/h08/wsi/pre/int/intake_samebasin.ipynb
 """
 import os
 import math
@@ -38,7 +38,7 @@ def explore(city_num, save_flag=False):
     can_exp = 2    # grid radius for canal grid modification exploring
     can_check_range = 10 # grid radius of exploring square area 100km from city center
     exp_range = 24 # explore intake point range of square area 240 km from city center
-    distance_condition = 30 #km #McDonald 2011 shows ~22km 80% of the city has water 100L/capita/day for 10million people
+    distance_condition = 100 #km #McDonald 2011 shows ~22km 80% of the city has water 100L/capita/day for 10million people
 
 #----------------------------------------------------------------------------------------
 #   PATH
@@ -58,8 +58,8 @@ def explore(city_num, save_flag=False):
     msk_path = f"{root_dir}/dat/{POP}/city_{city_num:08}{SUF}"
 
     # this directory name should be modified for distance_condition
-    savepath = f"{root_dir}/dat/cty_int_/{POP}samebasin/city_{city_num:08}{SUF}"
-    displaypath = f'{root_dir}/dat/cty_int_/fig_samebasin/intake_display_{POP}_{city_num:08}{SUF}'
+    savepath = f"{root_dir}/dat/cty_int_/{distance_condition}km_samebasin/city_{city_num:08}{SUF}"
+    displaypath = f'{root_dir}/dat/cty_int_/fig_{distance_condition}km_samebasin/intake_display_{POP}_{city_num:08}{SUF}'
 
 #----------------------------------------------------------------------------------------
 #   Whether valid mask or not
@@ -156,19 +156,17 @@ def explore(city_num, save_flag=False):
     #print(np.sum(can_check)) # 0
     can_check_value = np.sum(can_check)
 
-    """
     # up & down stream of prfs
-    if os.exists(updown_path):
-        riv_path_array = np.fromfile(updown_path, dtype=dtype).reshape(lat_num, lon_num)
-        print(f"{updown_path} is existing")
-    else:
+    if not os.path.exists(updown_path):
         print(f"{updown_path} doesn't exist")
         print(f"riv_path array is now created")
         riv_path_array = updown_stream(city_num, riv_nxlonlat_cropped)
+    else:
+        riv_path_array = np.fromfile(updown_path, dtype=dtype).reshape(lat_num, lon_num)
+        print(f"{updown_path} is existing")
 
     ng_grids = np.where(riv_path_array != 0)
     ng_coords = set(zip(ng_grids[0], ng_grids[1]))
-    """
 
     # display data
     display_data = np.zeros((lat_num, lon_num))
@@ -257,7 +255,7 @@ def explore(city_num, save_flag=False):
                                             #print(f'riv_max {X}, {Y} updated {riv_max}')
                                             YY = Y
                                             XX = X
-                                            print(f"distance: {d_min}")
+                                            print(f"distance: {d_min} km")
 
                                     # exclude up&down stream of prfs
                                     else:
@@ -272,7 +270,7 @@ def explore(city_num, save_flag=False):
                                                 #print(f'riv_max {X}, {Y} updated {riv_max}')
                                                 YY = Y
                                                 XX = X
-                                                print(f"distance: {d_min}")
+                                                print(f"distance: {d_min} km")
 
     if riv_max > 0:
 
@@ -430,7 +428,7 @@ def lonlat_distance(lat_a, lon_a, lat_b, lon_b):
 
 def main():
     save_flag = True
-    for city_num in range(920, 1861, 1):
+    for city_num in range(1, 1861, 1):
         explore(city_num, save_flag)
 
 
