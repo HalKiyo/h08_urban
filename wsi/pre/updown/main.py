@@ -1,5 +1,5 @@
 ######################################################################
-# Before run this script, please prepare basin_to_cities data
+# Before run this script, please prepare (pre.py)basin_to_cities data
 # This script summarize wsi/pre/updown/abandon_prf_or_intake.ipynb
 ######################################################################
 
