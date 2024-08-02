@@ -5,8 +5,10 @@
 
 import os
 import json
+import copy
 import numpy as np
 import pandas as pd
+from collections import defaultdict
 
 def main():
     #
@@ -157,7 +159,9 @@ def main():
 
         print(f'**********rivnum{list(new_basin_to_cities.keys())[key_index]}: update done***************')
 
-    return df_new
+    df_update = int_update(df_new)
+
+    return df_update
 
 def l_coordinate_to_tuple(lcoordinate, a=2160, b=4320):
     lat_l = ((lcoordinate - 1) // b)
@@ -240,7 +244,7 @@ def is_valid_edge(city1, city2, coords_dict):
     else:
         return False
 
-def updown(new_basin_to_cities, key_index=0, distance=100):
+def updown(new_basin_to_cities, rivout_gl5, riv_nxlonlat_cropped, key_index=0, distance=100):
     # get uid and city list
     keys_list = list(new_basin_to_cities.keys())
     uid = keys_list[key_index]
@@ -248,8 +252,12 @@ def updown(new_basin_to_cities, key_index=0, distance=100):
     rivnum_list = [int(i) for i in rivnum_list]
     print(f'uid: {uid}')
 
-    # remove overlap
+    # rivnum
     h08dir = '/mnt/c/Users/tsimk/Downloads/dotfiles/h08'
+    rivnum_path = f'{h08dir}/global_city/dat/riv_num_/rivnum.CAMA.gl5'
+    rivnum_gl5 = np.fromfile(rivnum_path, dtype='float32').reshape(2160, 4320)
+
+    # remove overlap
     overlap_path = f'{h08dir}/global_city/dat/cty_lst_/gpw4/overlap_hidden_only.txt'
     with open(overlap_path, 'r') as f:
         numbers = [int(line.strip()) for line in f]
@@ -264,9 +272,6 @@ def updown(new_basin_to_cities, key_index=0, distance=100):
     # coord of purficication
     coords_a = []
     for city_num in rivnum_list_removed:
-        # rivnum
-        rivnum_path = f'{h08dir}/global_city/dat/riv_num_/rivnum.CAMA.gl5'
-        rivnum_gl5 = np.fromfile(rivnum_path, dtype='float32').reshape(2160, 4320)
 
         # prf
         prf_dir = f'{h08dir}/global_city/dat/cty_prf_'
@@ -550,5 +555,81 @@ def explore(result_dict):
             break  # 全てのflagが'Done'であればループを終了
     return result_dict
 
+def int_update(df_new, distance=100):
+    # ava_intが更新されなかった都市=上下流の干渉が存在しない都市
+    nan_indexes = df_new[df_new['ava_int'].isna()]['index'].tolist()
+
+    # 同じ流域に存在するときprf_intをabandonするべきだろうか？ → 条件を統一するためにabandonするものとする
+
+    h08dir = '/mnt/c/Users/tsimk/Downloads/dotfiles/h08'
+    rivnum_path = f'{h08dir}/global_city/dat/riv_num_/rivnum.CAMA.gl5'
+    rivout_path = f'{h08dir}/wsi/dat/riv_out_/W5E5LR__00000000.gl5'
+    overlap_path = f'{h08dir}/global_city/dat/cty_lst_/gpw4/overlap_hidden_only.txt'
+    prf_dir = f'{h08dir}/global_city/dat/cty_prf_'
+    int_dir = f'{h08dir}/global_city/dat/cty_int_/{distance}km_samebasin'
+
+    rivnum_gl5 = np.fromfile(rivnum_path, dtype='float32').reshape(2160, 4320)
+    rivout_gl5 = np.fromfile(rivout_path, dtype='float32').reshape(2160, 4320)
+
+    with open(overlap_path, 'r') as f:
+        numbers = [int(line.strip()) for line in f]
+
+    nan_list_removed = [num for num in nan_indexes if num not in numbers]
+    nan_list_removed = [int(i) for i in nan_list_removed]
+
+    for city_num in nan_list_removed:
+
+        prf_path = f'{prf_dir}/vld_cty_/city_{city_num:08}.gl5'
+        int_path = f'{int_dir}/city_{city_num:08}.gl5'
+
+        if not os.path.exists(prf_path):
+            print(f'{city_num} is invalid prf')
+
+        else:
+            prf = np.fromfile(prf_path, dtype='float32').reshape(2160, 4320)
+            intake = np.fromfile(int_path, dtype='float32').reshape(2160, 4320)
+
+            int_rivnum = rivnum_gl5[intake==1]
+
+            if int_rivnum.size != 0:
+
+                int_rivnum = rivnum_gl5[intake==1][0]
+
+                flag, largest, all_int = prf_int_flag(prf, intake, int_rivnum, rivnum_gl5, rivout_gl5)
+
+                dis_prf = np.sum(rivout_gl5[prf==1])* 60 * 60 * 24 * 365 / (1000) # m3/year
+                els_prf = np.sum(rivout_gl5[(prf==1) & (rivnum_gl5!=int_rivnum)])* 60 * 60 * 24 * 365 / (1000) # m3/year
+                dis_int = np.sum(rivout_gl5[intake==1])*60*60*24*365/1000 # m3/year
+
+                if not df_new[df_new['index'] == int(city_num)].empty:
+
+                    if flag == 'both-prf':
+                        availability = dis_prf
+                        ibt = 0
+                    if flag == 'both-intake':
+                        availability = dis_int + els_prf
+                        ibt = 0
+                    if flag == 'prf':
+                        availability = dis_prf
+                        ibt = dis_int
+                    if flag == 'intake':
+                        availability = els_prf
+                        ibt = dis_int
+                else:
+                    print(f"No matching index found for city_num: {city_num}")
+
+            else:
+
+                availability = np.sum(rivout_gl5[prf==1])* 60 * 60 * 24 * 365 / (1000) # m3/year
+                ibt = 0
+
+            ava_int = availability + ibt
+            mpcy_int = (availability+ibt)/float(df_new.loc[df_new['index'] == int(city_num), 'pop'])
+            df_new.loc[df_new['index'] == int(city_num), 'ava_int'] = ava_int
+            df_new.loc[df_new['index'] == int(city_num), 'mpcy_int'] = mpcy_int
+            print(f'city_num: {city_num}, ava: {availability/1e9}, ava_int: {ava_int/1e9}, mpcy_int: {mpcy_int}')
+
+    return df_new
+
 if __name__ == '__main__':
-    main()
+    df_update = main()
