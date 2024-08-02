@@ -13,7 +13,6 @@ def main():
     distance = 100
     # init
     h08dir = '/mnt/c/Users/tsimk/Downloads/dotfiles/h08'
-    pop_path = f'{h08dir}/global_city/dat/pop_tot_/GPW4ag__20100000.gl5'
     rivnxl_path = f"{h08dir}/global_city/dat/riv_nxl_/rivnxl.CAMA.gl5"
     rivout_path = f'{h08dir}/wsi/dat/riv_out_/W5E5LR__00000000.gl5'
     rivnum_path = f'{h08dir}/global_city/dat/riv_num_/rivnum.CAMA.gl5'
@@ -31,102 +30,9 @@ def main():
     column_names = ['index', 'flag', 'rate', 'wup', 'pop', 'ava', 'mpcy', 'potential', 'region', 'country', 'cityname', '12region']
     df = pd.read_csv(mcy_pop_water_path, delimiter='|', header=None, names=column_names)
 
+
     ####################################################################################
     # JOB
-    ####################################################################################
-    # explore all key_index & make df_new
-    # df_newを作ってdfのavailabilityの部分を更新する
-    ####################################################################################
-
-    # make save df
-    df_new = df.copy()
-
-    # load joson file
-    new_basin_to_cities = load_json(distance=distance) # keys = all basins with multiple cities 180?
-
-    # basin loop
-    for key_index in range(len(new_basin_to_cities.keys())):
-
-        # result_dictが更新されないことが大事
-        result_dict =  make_result_dict(new_basin_to_cities, rivout_gl5, riv_nxlonlat_cropped, key_index=key_index) # keys = all cities in key_index basin
-
-        riv_num = list(new_basin_to_cities.keys())[key_index]
-        city_num_lst = list(result_dict.keys())
-
-        for city_num in city_num_lst:
-
-            rate, discharge = discharge_rate(city_num, riv_num, distance=distance)
-            print(f'rate {rate}')
-            print(f'discharge {discharge/1e9}')
-            #
-            filtered_df = df[df['index'] == city_num]
-            if filtered_df.empty:
-                print(f'City number {city_num} not found in the data.')
-            #
-            mpcy = filtered_df.reset_index(drop=True).loc[0, 'mpcy']
-            est_pop = filtered_df.reset_index(drop=True).loc[0, 'pop']
-            #
-            # take all available water
-            if mpcy <= 1000:
-                print(f'shortage: mpcy={mpcy}')
-                consumption = discharge
-            #
-            # take population * ratio * 1000m3/year
-            else:
-                print(f'no shortage: mpcy={mpcy}')
-                consumption = 1000*est_pop*rate
-                if consumption < discharge:
-                    consumption = consumption
-                else:
-                    consumption = discharge
-            #
-            print(f'consumption: {consumption/1e9}')
-            result_dict[city_num][0] = discharge
-            result_dict[city_num][1] = consumption
-            print(f'--------------------------------------')
-
-        print(f'**********rivnum{list(new_basin_to_cities.keys())[key_index]}: calculation done***************')
-        print(f'--------------------------------------')
-
-        # explore
-        result_dict_mod = explore(result_dict)
-
-        for city_num in result_dict_mod:
-            city_num = int(city_num)
-            riv_num = int(float(riv_num))
-
-            prf_path = f'{prf_dir}/vld_cty_/city_{city_num:08}.gl5'
-            prf = np.fromfile(prf_path, dtype='float32').reshape(2160, 4320)
-
-            int_path = f'{int_dir}/city_{city_num:08}.gl5'
-            intake = np.fromfile(int_path, dtype='float32').reshape(2160, 4320)
-            ibt = np.sum(rivout_gl5[intake==1])*60*60*24*365/1000 # m3/year
-
-            dis_els = np.sum(rivout_gl5[(prf==1) & (rivnum_gl5!=riv_num)])* 60 * 60 * 24 * 365 / (1000) # m3/year
-            dis_mod = result_dict_mod[city_num][0]
-            if dis_els:
-                availability = dis_els + dis_mod
-            else:
-                availability = dis_mod
-            print(f'dis_els:{dis_els}, dis_mod:{dis_mod}, availability:{availability/1e9} billion m3/year')
-            print(f"mpcy: {availability/(df_new.loc[df_new['index'] == city_num, 'pop'])}")
-            print(f'ava_int: {(availability+ibt)/1e9} billion m3/year')
-            print(f"mpcy_int: {(availability+ibt)/df_new.loc[df_new['index'] == city_num, 'pop']}")
-            print(f'--------------------------------------')
-
-            df_new.loc[df_new['index'] == city_num, 'ava'] = availability
-            df_new.loc[df_new['index'] == city_num, 'mpcy'] = availability/df_new.loc[df_new['index'] == city_num, 'pop']
-            df_new.loc[df_new['index'] == city_num, 'ava_int'] = availability + ibt
-            df_new.loc[df_new['index'] == city_num, 'mpcy_int'] = (availability+ibt)/df_new.loc[df_new['index'] == city_num, 'pop']
-
-    return df_new
-
-    ####################################################################################
-    # ここからが本番
-    # explore all key_index & make df_new
-    # it takes soooo long time
-    # df_newを作ってdfのavailabilityの部分を更新する
-    distance = 100
     ####################################################################################
 
     # 保存用変数を作る
@@ -134,12 +40,6 @@ def main():
 
     # 複数都市を有する流域データを読み込む
     new_basin_to_cities = load_json() # keys = all basins with multiple cities 180?
-
-    h08dir = '/mnt/c/Users/tsimk/Downloads/dotfiles/h08'
-    rivout_path = f'{h08dir}/wsi/dat/riv_out_/W5E5LR__00000000.gl5'
-    rivnum_path = f'{h08dir}/global_city/dat/riv_num_/rivnum.CAMA.gl5'
-    rivout_gl5 = np.fromfile(rivout_path, dtype='float32').reshape(2160, 4320)
-    rivnum_gl5 = np.fromfile(rivnum_path, dtype='float32').reshape(2160, 4320)
 
     # basin loop
     for key_index in range(len(new_basin_to_cities.keys())):
@@ -155,11 +55,9 @@ def main():
         for city_num in city_num_lst:
 
             # get default discharge
-            rate, discharge = discharge_rate(city_num, riv_num, rivara_gl5)
+            rate, discharge = discharge_rate(city_num, riv_num, rivout_gl5, rivnum_gl5, rivara_gl5)
 
             # multiple basin cities
-            if rate < 1:
-                rate_cities.append(city_num)
             print(f'city_num: {city_num}, riv_num: {riv_num}')
             print(f'rate {rate}')
             print(f'discharge {discharge/1e9}')
@@ -198,9 +96,6 @@ def main():
             riv_num = int(float(riv_num))
 
             h08dir = '/mnt/c/Users/tsimk/Downloads/dotfiles/h08'
-            msk_dir = f'{h08dir}/global_city/dat/vld_cty_'
-            ctymsk_path = f'{msk_dir}/city_{city_num:08}.gl5'
-            ctymsk = np.fromfile(ctymsk_path, dtype='float32').reshape(2160, 4320)
 
             prf_dir = f'{h08dir}/global_city/dat/cty_prf_'
             prf_path = f'{prf_dir}/vld_cty_/city_{city_num:08}.gl5'
@@ -263,7 +158,6 @@ def main():
         print(f'**********rivnum{list(new_basin_to_cities.keys())[key_index]}: update done***************')
 
     return df_new
-
 
 def l_coordinate_to_tuple(lcoordinate, a=2160, b=4320):
     lat_l = ((lcoordinate - 1) // b)
@@ -340,8 +234,12 @@ def updown(new_basin_to_cities, rivout_gl5, riv_nxlonlat_cropped, key_index=0, d
     rivnum_list = new_basin_to_cities[uid]
     rivnum_list = [int(i) for i in rivnum_list]
 
-    # remove overlap
+    # rivnum
     h08dir = '/mnt/c/Users/tsimk/Downloads/dotfiles/h08'
+    rivnum_path = f'{h08dir}/global_city/dat/riv_num_/rivnum.CAMA.gl5'
+    rivnum_gl5 = np.fromfile(rivnum_path, dtype='float32').reshape(2160, 4320)
+
+    # remove overlap
     overlap_path = f'{h08dir}/global_city/dat/cty_lst_/gpw4/overlap_hidden_only.txt'
     with open(overlap_path, 'r') as f:
         numbers = [int(line.strip()) for line in f]
@@ -353,9 +251,6 @@ def updown(new_basin_to_cities, rivout_gl5, riv_nxlonlat_cropped, key_index=0, d
     # coord of purficication
     coords_a = []
     for city_num in rivnum_list_removed:
-        # rivnum
-        rivnum_path = f'{h08dir}/global_city/dat/riv_num_/rivnum.CAMA.gl5'
-        rivnum_gl5 = np.fromfile(rivnum_path, dtype='float32').reshape(2160, 4320)
 
         # prf
         prf_dir = f'{h08dir}/global_city/dat/cty_prf_'
@@ -471,7 +366,7 @@ def make_result_dict(new_basin_to_cities, rivout_gl5, riv_nxlonlat_cropped, key_
 # result_dictのavaの中に1流域からの想定取水量を入力する
 # 一つの流域に二つ取水点がある可能性がある→prfかintakeの流量が多い方を選ぶ
 ####################################################################################
-def discharge_rate(city_num, riv_num, rivara_gl5, distance=100):
+def discharge_rate(city_num, riv_num, rivout_gl5, rivnum_gl5, rivara_gl5, distance=100):
     # riv_num以外からの取水がupdownでどのような影響を受けるかを考慮できない?
     # largestはriv_numでの理想流量を計算するためのもの．(prfかintかいずれかから1つのみ)
     # all_intはcityが複数のriv_numから取水している場合のすべての取水点
@@ -481,9 +376,6 @@ def discharge_rate(city_num, riv_num, rivara_gl5, distance=100):
     print(f'city_num, riv_num, {city_num}, {riv_num}')
 
     h08dir = '/mnt/c/Users/tsimk/Downloads/dotfiles/h08'
-    msk_dir = f'{h08dir}/global_city/dat/vld_cty_'
-    ctymsk_path = f'{msk_dir}/city_{city_num:08}.gl5'
-    ctymsk = np.fromfile(ctymsk_path, dtype='float32').reshape(2160, 4320)
 
     prf_dir = f'{h08dir}/global_city/dat/cty_prf_'
     prf_path = f'{prf_dir}/vld_cty_/city_{city_num:08}.gl5'
@@ -493,32 +385,7 @@ def discharge_rate(city_num, riv_num, rivara_gl5, distance=100):
     int_path = f'{int_dir}/city_{city_num:08}.gl5'
     intake = np.fromfile(int_path, dtype='float32').reshape(2160, 4320)
 
-    prf_coord = np.where((prf == 1) & (rivnum_gl5 == riv_num))
-    int_coord = np.where((intake==1) & (rivnum_gl5 == riv_num))
-
-    if prf_coord[0].size != 0 and int_coord[0].size != 0:
-        prf_runout = rivout_gl5[prf_coord][0] * 60 * 60 * 24 * 365 / (1000)
-        int_runout = rivout_gl5[int_coord][0] * 60 * 60 * 24 * 365 / (1000)
-        print(f"city_num: {city_num}, prf: {prf_runout/1e9}, int: {int_runout/1e9}")
-        if prf_runout > int_runout:
-            print(f'prf_runout > int_runout')
-            largest = prf
-            all_int = prf
-        else:
-            print(f'int_runout > prf_runout')
-            prf[prf_coord] = 0 
-            largest = intake
-            all_int = intake
-    elif prf_coord[0].size != 0 and int_coord[0].size == 0:
-        print(f'int out of riv_num')
-        largest = prf
-        all_int = prf + intake
-    elif prf_coord[0].size == 0 and int_coord[0].size != 0:
-        print(f'prf out of riv_num')
-        largest = intake
-        all_int = prf + intake
-    else:
-        print('Error no prf no int')
+    flag, largest, all_int = prf_int_flag(prf, intake, riv_num, rivnum_gl5, rivout_gl5)
 
     # rateを計算するための変数群
     rivnum_mask = np.ma.masked_where(all_int == 0, rivnum_gl5)
@@ -621,143 +488,5 @@ def explore(result_dict):
             break  # 全てのflagが'Done'であればループを終了
     return result_dict
 
-####################################################################################
-# ここからが本番
-# explore all key_index & make df_new
-# it takes soooo long time
-# df_newを作ってdfのavailabilityの部分を更新する
-distance = 100
-####################################################################################
-
-# 保存用変数を作る
-df_new = df.copy()
-
-# 複数都市を有する流域データを読み込む
-new_basin_to_cities = load_json() # keys = all basins with multiple cities 180?
-
-h08dir = '/mnt/c/Users/tsimk/Downloads/dotfiles/h08'
-rivout_path = f'{h08dir}/wsi/dat/riv_out_/W5E5LR__00000000.gl5'
-rivnum_path = f'{h08dir}/global_city/dat/riv_num_/rivnum.CAMA.gl5'
-rivout_gl5 = np.fromfile(rivout_path, dtype='float32').reshape(2160, 4320)
-rivnum_gl5 = np.fromfile(rivnum_path, dtype='float32').reshape(2160, 4320)
-
-# basin loop
-for key_index in range(len(new_basin_to_cities.keys())):
-
-    # result_dictが更新されないことが大事
-    result_dict =  make_result_dict(new_basin_to_cities, rivout_gl5, riv_nxlonlat_cropped, key_index=key_index) # keys = all cities in key_index basin
-
-    # rivnumを取得する
-    riv_num = list(new_basin_to_cities.keys())[key_index]
-    city_num_lst = list(result_dict.keys())
-
-    # city_numを取得する
-    for city_num in city_num_lst:
-
-        # get default discharge
-        rate, discharge = discharge_rate(city_num, riv_num, rivara_gl5)
-
-        # multiple basin cities
-        if rate < 1:
-            rate_cities.append(city_num)
-        print(f'city_num: {city_num}, riv_num: {riv_num}')
-        print(f'rate {rate}')
-        print(f'discharge {discharge/1e9}')
-
-        # check if df works OK
-        filtered_df = df[df['index'] == city_num]
-        if filtered_df.empty:
-            print(f'City number {city_num} not found in the data.')
-
-        # population in downtown
-        est_pop = filtered_df.reset_index(drop=True).loc[0, 'pop']
-
-        # calc demand from one basin(riv_num)
-        demand = est_pop*rate*1000
-
-        # ロジックを考える
-        #demandが1000m3/year * populationだとして
-        #consumptionはsupply > demand or supply < demandによって変化するべき
-        #consumptionについてはexplore内で計算する必要がある
-
-        print(f'supply: {discharge/1e9}')
-        print(f'demand: {demand/1e9}')
-        result_dict[city_num][0] = discharge
-        result_dict[city_num][1] = demand
-        print(f'--------------------------------------')
-
-    print(f'**********rivnum{list(new_basin_to_cities.keys())[key_index]}: discharge done***************')
-    print(f'--------------------------------------')
-
-    # explore
-    result_dict_mod = explore(result_dict)
-
-    # update availability of cities in result_dict_mod
-    for city_num in result_dict_mod:
-        city_num = int(city_num)
-        riv_num = int(float(riv_num))
-
-        h08dir = '/mnt/c/Users/tsimk/Downloads/dotfiles/h08'
-        msk_dir = f'{h08dir}/global_city/dat/vld_cty_'
-        ctymsk_path = f'{msk_dir}/city_{city_num:08}.gl5'
-        ctymsk = np.fromfile(ctymsk_path, dtype='float32').reshape(2160, 4320)
-
-        prf_dir = f'{h08dir}/global_city/dat/cty_prf_'
-        prf_path = f'{prf_dir}/vld_cty_/city_{city_num:08}.gl5'
-        prf = np.fromfile(prf_path, dtype='float32').reshape(2160, 4320)
-
-        int_dir = f'{h08dir}/global_city/dat/cty_int_/{distance}km_samebasin'
-        int_path = f'{int_dir}/city_{city_num:08}.gl5'
-        intake = np.fromfile(int_path, dtype='float32').reshape(2160, 4320)
-
-        flag, largest, all_int = prf_int_flag(prf, intake, riv_num, rivnum_gl5, rivout_gl5)
-
-        # discharge of prfs and intake
-        els_prf = np.sum(rivout_gl5[(prf==1) & (rivnum_gl5!=riv_num)])* 60 * 60 * 24 * 365 / (1000) # m3/year
-        dis_int = np.sum(rivout_gl5[(intake==1) & (rivnum_gl5!=riv_num)])* 60 * 60 * 24 * 365 / (1000) # m3/year
-
-        # 同一流域にintakeとprfがあり: prfを選択
-        if flag == 'both-prf':
-            dis_els = els_prf
-            ibt = 0
-        if flag == 'both-intake':
-            dis_els = els_prf
-            ibt = 0
-        if flag == 'prf':
-            dis_els = els_prf
-            ibt = dis_int
-        if flag == 'intake':
-            dis_els = els_prf
-            ibt = 0
-
-        # 都市がriv_num以外にprfを持つ場合
-        dis_mod = result_dict_mod[city_num][0]
-        if dis_els:
-            availability = dis_els + dis_mod
-        else:
-            availability = dis_mod
-
-        # update
-        new_mpcy = availability/df_new.loc[df_new['index'] == city_num, 'pop']
-        new_mpcy = new_mpcy.iloc[0]
-        ava_int = availability + ibt
-        mpcy_int = ava_int/df_new.loc[df_new['index'] == city_num, 'pop']
-        mpcy_int = mpcy_int.iloc[0]
-
-        print(f'city_num: {city_num}')
-        print(f'dis_els:{dis_els/1e9} billion m3/year')
-        print(f'dis_mod:{dis_mod/1e9} billion m3/year')
-        print(f'ibt: {ibt/1e9} billion m3/year')
-        print(f'availability:{availability/1e9} billion m3/year')
-        print(f"new_mpcy: {new_mpcy}")
-        print(f'ava_int: {ava_int/1e9} billion m3/year')
-        print(f"mpcy_int: {mpcy_int}")
-        print(f'--------------------------------------')
-
-        # overwrite df_new
-        df_new.loc[df_new['index'] == city_num, 'ava'] = availability
-        df_new.loc[df_new['index'] == city_num, 'mpcy'] = new_mpcy
-        df_new.loc[df_new['index'] == city_num, 'ava_int'] = ava_int
-        df_new.loc[df_new['index'] == city_num, 'mpcy_int'] = mpcy_int
-
-    print(f'**********rivnum{list(new_basin_to_cities.keys())[key_index]}: update done***************')
+if __name__ == '__main__':
+    main()
