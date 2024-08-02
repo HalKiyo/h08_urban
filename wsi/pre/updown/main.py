@@ -226,31 +226,47 @@ def prf_int_flag(prf, intake, riv_num, rivnum_gl5, rivout_gl5):
 
     return flag, largest, all_int
 
-def updown(new_basin_to_cities, rivout_gl5, riv_nxlonlat_cropped, key_index=0, distance=100):
+def is_valid_edge(city1, city2, coords_dict):
+    for coord, city_list in coords_dict.items():
+        if len(city_list) > 1:
+            if city1 in city_list and city2 in city_list:
+                if city1 > city2:
+                    continue
+                else:
+                    city1, city2 = None, None
+
+    if city1 and city2:
+        return True
+    else:
+        return False
+
+def updown(new_basin_to_cities, key_index=0, distance=100):
     # get uid and city list
     keys_list = list(new_basin_to_cities.keys())
     uid = keys_list[key_index]
-    print(f'uid: {uid}')
     rivnum_list = new_basin_to_cities[uid]
     rivnum_list = [int(i) for i in rivnum_list]
-
-    # rivnum
-    h08dir = '/mnt/c/Users/tsimk/Downloads/dotfiles/h08'
-    rivnum_path = f'{h08dir}/global_city/dat/riv_num_/rivnum.CAMA.gl5'
-    rivnum_gl5 = np.fromfile(rivnum_path, dtype='float32').reshape(2160, 4320)
+    print(f'uid: {uid}')
 
     # remove overlap
+    h08dir = '/mnt/c/Users/tsimk/Downloads/dotfiles/h08'
     overlap_path = f'{h08dir}/global_city/dat/cty_lst_/gpw4/overlap_hidden_only.txt'
     with open(overlap_path, 'r') as f:
         numbers = [int(line.strip()) for line in f]
     rivnum_list_removed = [num for num in rivnum_list if num not in numbers]
     rivnum_list_removed = [int(i) for i in rivnum_list_removed]
-    print('cities in uid')
-    print(rivnum_list_removed)
+    print(f'city_list: {rivnum_list_removed}')
+
+    # rivout
+    rivout_path = f'{h08dir}/wsi/dat/riv_out_/W5E5LR__00000000.gl5'
+    rivout_gl5 = np.fromfile(rivout_path, dtype='float32').reshape(2160, 4320)
 
     # coord of purficication
     coords_a = []
     for city_num in rivnum_list_removed:
+        # rivnum
+        rivnum_path = f'{h08dir}/global_city/dat/riv_num_/rivnum.CAMA.gl5'
+        rivnum_gl5 = np.fromfile(rivnum_path, dtype='float32').reshape(2160, 4320)
 
         # prf
         prf_dir = f'{h08dir}/global_city/dat/cty_prf_'
@@ -262,36 +278,71 @@ def updown(new_basin_to_cities, rivout_gl5, riv_nxlonlat_cropped, key_index=0, d
         int_path = f'{int_dir}/city_{city_num:08}.gl5'
         intake = np.fromfile(int_path, dtype='float32').reshape(2160, 4320)
 
+        # 1. prfのみが対象流域内(uid)
+        # 2. intのみが対象流域内(uid)
+        # 3. prfとintどちらもが対象領域内(uid)
         uid = int(float(uid))
         prf_coord = np.where((prf == 1) & (rivnum_gl5 == uid))
-        int_coord = np.where((intake==1) & (rivnum_gl5 == uid))
+        int_coord = np.where((intake == 1) & (rivnum_gl5 == uid))
 
-        if prf_coord[0].size != 0 and int_coord[0].size == 0:
-            coords_a.append([prf_coord, city_num])
-        elif prf_coord[0].size == 0 and int_coord[0].size != 0:
-            coords_a.append([int_coord, city_num])
-        elif prf_coord[0].size != 0 and int_coord[0].size != 0:
+        if prf_coord[0].size != 0 and int_coord[0].size != 0:
+
             prf_runout = rivout_gl5[prf_coord][0] * 60 * 60 * 24 * 365 / (1000)
             int_runout = rivout_gl5[int_coord][0] * 60 * 60 * 24 * 365 / (1000)
-            print(f"city_num: {city_num}, prf: {prf_runout/1e9}, int: {int_runout/1e9}")
+
             if prf_runout > int_runout:
                 larger_coord = prf_coord
             else:
                 larger_coord = int_coord
-            coords_a.append([larger_coord, city_num])
+
+        elif prf_coord[0].size != 0 and int_coord[0].size == 0:
+            larger_coord = prf_coord
+
+        elif prf_coord[0].size == 0 and int_coord[0].size != 0:
+            larger_coord = int_coord
+
         else:
+            larger_coord = prf_coord
             continue
+
+        coords_a.append([larger_coord, city_num])
+
+    ####################################################################################
+    # 同流域内で取水点がかぶっている都市を取水点ごとにリストにする
+    ####################################################################################
+
+    # 同じ座標に対して city_num のリストを作成するための辞書
+    coords_dict = defaultdict(list)
+
+    # coords_a の要素をループして座標をキーに city_num をリストに追加
+    for coord, city_num in coords_a:
+        coord_tuple = (tuple(coord[0]), tuple(coord[1]))
+        coords_dict[coord_tuple].append(city_num)
+
+    ####################################################################################
+    # Down stream explore start
+    ####################################################################################
 
     # down
     edges = []
     riv_path_array = np.zeros((2160, 4320))
+
+    # city_num loop 
     for idx in range(len(coords_a)):
+
+        cityup = coords_a[idx][1]
+        #print(f'-----------------------------------------------------------')
+        #print(f'cityup: {cityup}')
+        #print(f'coord: {(coords_a[idx][0][0][0], coords_a[idx][0][1][0])}')
+
         visited_coords = set()
+
+        # coords_a[idx][0] = (array([732]), array([3086]))
         riv_path_array[coords_a[idx][0][0][0], coords_a[idx][0][1][0]] = idx
 
         # coordinates of prf and intake
         coords_b = coords_a.copy()
-        coords_b.pop(idx) 
+        coords_b.pop(idx)
 
         if len(coords_a) > 0:
             target_coord = (coords_a[idx][0][0][0], coords_a[idx][0][1][0])
@@ -309,13 +360,24 @@ def updown(new_basin_to_cities, rivout_gl5, riv_nxlonlat_cropped, key_index=0, d
                 riv_path_array[next_coord[0], next_coord[1]] = idx
                 target_coord = next_coord
 
-        for cind, coord in enumerate(coords_b):
+        for coord in coords_b:
+            citydwn = coord[1]
+
             if coord[0][0].size == 0:
                 continue
             else:
                 standard_coord = (coord[0][0][0], coord[0][1][0])
                 if standard_coord in visited_coords:
-                    edges.append((coords_a[idx][1], coord[1]))
+                    edge_flag = is_valid_edge(cityup, citydwn, coords_dict)
+                    if edge_flag:
+                        #print(f'citydwn: {citydwn}')
+                        edges.append((cityup, citydwn))
+                    else:
+                        #print(f'invalid: {citydwn}')
+                        continue
+                else:
+                    #print(f'No: {citydwn}')
+                    continue
 
     # edgesは2都市間のupstreamとdownstreamの関係をすべて保存したリスト
     return edges, riv_path_array, coords_a, rivnum_list_removed
