@@ -66,3 +66,4 @@ pulp
 ortoolpy
 rasterio
 xlrd
+adjustText
