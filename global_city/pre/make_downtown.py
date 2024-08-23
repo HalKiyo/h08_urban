@@ -399,8 +399,8 @@ def summarize():
     dtype= 'float32'
 
     # make save array
-    summary = np.empty((lat_shape, lon_shape))
-    overlap = np.empty((lat_shape, lon_shape))
+    summary = np.empty((lat_shape, lon_shape)) # exclude overlap citymask
+    overlap = np.empty((lat_shape, lon_shape)) # only overlap citymask
 
     # city index loop
     for index in range(1, 1861):

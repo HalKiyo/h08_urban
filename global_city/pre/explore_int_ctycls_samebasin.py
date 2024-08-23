@@ -362,7 +362,9 @@ def updown_stream(city_num, riv_nxlonlat_cropped):
         for row, col in visited_coords:
             riv_path_array[row, col] = city_num
 
-        # up stream exploration
+        ###################################################################################
+        # up stream exploration recursive calculation
+        ###################################################################################
         def explore_upstream(target_coord, visited_coords, riv_nxlonlat_cropped, city_num):
             while True:
                 if target_coord in visited_coords:
@@ -374,6 +376,7 @@ def updown_stream(city_num, riv_nxlonlat_cropped):
                 unvisited_matched = [tuple(coord) for coord in matched_coords if tuple(coord) not in visited_coords]
                 for up_coord in unvisited_matched:
                     explore_upstream(up_coord, visited_coords, riv_nxlonlat_cropped, city_num)
+        ###################################################################################
 
         # execute function
         target_coord = (prf_coords[0][pid], prf_coords[1][pid])

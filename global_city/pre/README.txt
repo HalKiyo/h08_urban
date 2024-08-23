@@ -40,8 +40,8 @@ make_citycenter_gpw4.sh => gpw4
 make_citycenter_gpw4_30s.py => gpw4(30seconds)
 
 # citymask
-make_citymask_kajiyama.py => original(full WUP)
-make_downtown.py => gpw4 + downtown(/dat/cty_msk_/gpw4/)=> pickle(/dat/dwn_twn_)
+make_citymask_kajiyama.py => for gpw3
+make_downtown.py => (FULL WUP) gpw4/dat/cty_msk_/gpw4/) => (TRAJECTORIES) pickle(/dat/dwn_twn_)
 make_cluster.py => gpw4 + downtown(city_cluster)
 
 # jogesui
@@ -50,4 +50,5 @@ explore_jogesui_ctycls.py => gpw4 + downtown(city_cluster)
 
 # intake
 explore_intake.py => original
+explore_int_ctycls.py => gpw4 + downtown(city_cluster)
 explore_int_ctycls.py => gpw4 + downtown(city_cluster)
