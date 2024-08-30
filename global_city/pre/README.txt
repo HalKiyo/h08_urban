@@ -51,4 +51,4 @@ explore_jogesui_ctycls.py => gpw4 + downtown(city_cluster)
 # intake
 explore_intake.py => original
 explore_int_ctycls.py => gpw4 + downtown(city_cluster)
-explore_int_ctycls.py => gpw4 + downtown(city_cluster)
+explore_int_ctycls_samebasin.py => gpw4 + downtown(city_cluster) + samebasin_int enabled if in subbasin
