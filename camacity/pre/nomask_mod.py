@@ -25,38 +25,6 @@ def nomsk_check():
 
     return nomsk_cities
 
-def main(nomsk_cities):
-    gpwdir = '/mnt/c/Users/tsimk/Downloads/dotfiles/h08/global_city/dat/cty_msk_/gpw4'
-    dct = {'1': 0,
-           '2': 0,
-           '3': 0,
-           'x': 0}
-    for i in nomsk_cities:
-        mask_path = f"{gpwdir}/city_{i:08}.gl5"
-        mask = np.fromfile(mask_path, dtype='float32').reshape(2160, 4320)
-        grid_num = int(np.sum(mask))
-        if grid_num == 1:
-            dct['1'] += 1
-        if grid_num == 2:
-            dct['2'] += 1
-        if grid_num == 3:
-            dct['3'] += 1
-        if grid_num >= 4:
-            dct['x'] += 1
-        print(i, np.sum(mask))
-
-    print(dct)
-
-def check_pickle():
-    pickle_path = '/mnt/c/Users/tsimk/Downloads/dotfiles/h08/global_city/dat/vld_cty_/city_00000000.pickle'
-    with open(pickle_path, 'rb') as file:
-        load_dict = pickle.load(file)
-
-    inv_ind = load_dict['invalid_index']
-
-    for i in inv_ind:
-        print(load_dict['gradient'][i-1])
-
 def cluster_judge(nomsk_cities):
     # ここでやりたいこと
     # initが小さすぎるやつはNoMASKではじく
@@ -121,7 +89,5 @@ def cluster_judge(nomsk_cities):
 
 if __name__ == '__main__':
     nomsk_cities = nomsk_check()
-    #main(nomsk_cities)
-    #check_pickle()
     cluster_judge(nomsk_cities)
 
