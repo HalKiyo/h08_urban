@@ -2,7 +2,7 @@ import os
 import math
 import pickle
 import numpy as np
-import matplotlib.pyplot as plt
+#import matplotlib.pyplot as plt
 
 def explore_citymask(index, err_count):
 
@@ -40,10 +40,10 @@ def explore_citymask(index, err_count):
     lowlim = 100
 
     # EN.2: initial grid threshold
-    threshold = 100
+    threshold = 300
 
     # EN.3: downtown rate
-    downtown_rate = 1.5
+    downtown_rate = 10
 
     # EN.3: grid sum
     grdlim = 3
@@ -334,7 +334,12 @@ def explore_citymask(index, err_count):
     # SAVE FILE
     #------------------------------------------------
 
+    # update error
+    err_count[f'{err_flag}'] += 1
+    print(err_count)
 
+
+    """
     # result path save
     resultpath = h08dir + f'/dat/cty_lst_/{POP}/result_downtown.txt'
 
@@ -345,10 +350,6 @@ def explore_citymask(index, err_count):
         with open(resultpath, 'a') as file:
             file.write(f"{index}| {city_name}| {best_masked_pop}| {un_pop}| {best_coverage}| {grid_num}| {err_flag}\n")
 
-    # update error
-    err_count[f'{err_flag}'] += 1
-    print(err_count)
-
     # binary file saved (latest version)
     maskpath_bin = h08dir + f'/dat/cty_msk_/{POP}/city_{index:08}.gl5'
     best_mask.astype(np.float32).tofile(maskpath_bin)
@@ -356,6 +357,7 @@ def explore_citymask(index, err_count):
     # dict save
     with open(dict_path, 'wb') as handle:
         pickle.dump(save_dict, handle)
+    """
 
 
     return err_count
@@ -450,6 +452,18 @@ def summarize():
 def main(round_flag):
 
     if round_flag == 'First':
+        ########################################################
+        # err_flag = 1  #initial grid threshold
+        # if gwp_pop_density[rpl_y, rpl_x] <= threshold(100)-> cluster(300):
+        # err_flag = 2  # if largest grid in searched grid is too small, stop exploring
+        # if next_density <= lowlim(100):
+        ########################################################
+        # err_flag = 3  # not activated
+        # elif next_density > previous_density and best_coverage > downtown_rate and grid_num >= grdlim:
+        # err_flag = 4  # not activated
+        # elif density_ratio < lowrat:
+        ########################################################
+
         err_count = {'0': 0, '1': 0, '2': 0, '3':0, '4':0}
         # python make_downtown.py > make_downtown.log
         for index in range(1, 1861):
@@ -458,13 +472,13 @@ def main(round_flag):
     elif round_flag == 'Second':
         summary = summarize()
 
-        plt.imshow(summary, cmap='rainbow')
-        plt.show()
+        #plt.imshow(summary, cmap='rainbow')
+        #plt.show()
 
     else:
         print(f"round flag is wrong {round_flag}")
 
 
 if __name__ == '__main__':
-    round_flag = 'Second'
+    round_flag = 'First'
     main(round_flag)
