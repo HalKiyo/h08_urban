@@ -1,6 +1,7 @@
 **/dat/
 global_city/pre/*.log
 global_city/pre/log/
+camacity/org/
 qgis/org/
 qgis/out/
 wsi/pre/intake/city*.ipynb
