@@ -11,12 +11,12 @@ modified by kajiyama @20240430
 modified by kajiyama @20240719
 + same basin enabled in case sub_river (subbasin) has larger discharge
 + updown sreampath is created in dotfiles/h08/wsi/pre/int/intake_samebasin.ipynb
+modified by kajiyama @20241120
++ 5m lower elevation is allowed to adjust situation in Lasvegas
 """
 import os
 import math
 import numpy as np
-import matplotlib.pyplot as plt
-
 
 def explore(city_num, save_flag=False):
     print('-------------------------')

@@ -70,7 +70,6 @@ def explore(target_index, remove_grid, innercity_grid, width, save_flag=False):
     city_name  = parts[11].replace("\"", "").replace("?", "").replace("/", "") # 都市名
     ovlp_state = parts[1]
     clst_state = parts[2]
-    grid_count = int(float(parts[7]))
 
     # widthを使用して外枠の座標を計算
     lonmin = float(cnt_lon - width)
@@ -122,7 +121,7 @@ def explore(target_index, remove_grid, innercity_grid, width, save_flag=False):
 #   Load city mask data (g_mask_cropped)
 #---------------------------------------------------------------------------------------------------------------
 
-    if clst_state == 'NoMK':
+    if clst_state == 'NoMK' or ovlp_state == 'RMVD':
         if city_num == 1:
             with open(nonprf_path, 'w') as file:
                 file.write(f"{city_num}|NoMASK\n")
@@ -143,6 +142,7 @@ def explore(target_index, remove_grid, innercity_grid, width, save_flag=False):
 #   external operation
 #---------------------------------------------------------------------------------------------------------------
 
+    grid_count = int(float(parts[7]))
     if grid_count == 1:
         if city_num == 1:
             with open(nonprf_path, 'w') as file:
