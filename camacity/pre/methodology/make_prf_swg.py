@@ -7,6 +7,8 @@ edited by Kajiyama @ 20241120
 + if grid_num = 2  PRF=higher elevation, SWG=lower elevation
 + No main river, PRF=highest elevation in same basin, SWG=lowest elevation in same basin
 + No main river & no same basin, PRF=highest elevation in MASK, SWG=lowest elevation MASK
+edited by Kajiyama @ 20241127
++ No main river, largest rivout is prf, lowest elevatoin is swg
 """
 
 import os
@@ -42,6 +44,7 @@ def explore(target_index, remove_grid, innercity_grid, width, save_flag=False):
     rivnum_path      = f"{glob_dir}/dat/riv_num_/rivnum.CAMA.gl5"
     rivara_path      = f"{glob_dir}/dat/riv_ara_/rivara.CAMA.gl5"
     rivnxl_path      = f"{glob_dir}/dat/riv_nxl_/rivnxl.CAMA.gl5"
+    rivout_path      = f"{glob_dir}/dat/riv_out_/W5E5LR__20190000.gl5"
     # facility data
     prf_save_dir     = f"{root_dir}/dat/cty_prf_"
     swg_save_dir     = f"{root_dir}/dat/cty_swg_"
@@ -191,6 +194,18 @@ def explore(target_index, remove_grid, innercity_grid, width, save_flag=False):
     g_rivara_cropped = g_rivara[lat_start:lat_end, lon_start:lon_end]
     g_rivara_cropped = np.flipud(g_rivara_cropped)
     g_rivara_cropped = np.ma.masked_where(~np.isfinite(g_rivara_cropped) | (g_rivara_cropped == 0), g_rivara_cropped)
+
+#---------------------------------------------------------------------------------------------------------------
+#   Load annual steamflow 2010-2019 mean (g_rivout_cropped)
+#---------------------------------------------------------------------------------------------------------------
+
+    g_rivout = np.fromfile(rivout_path, 'float32').reshape(latgrd, longrd)
+    g_rivout = np.flipud(g_rivout)
+    g_rivout = np.ma.masked_where(g_rivout >= 1E20, g_rivout)
+    g_rivout_cropped = g_rivout[lat_start:lat_end, lon_start:lon_end]
+    g_rivout_cropped = np.flipud(g_rivout_cropped)
+    g_rivout_cropped = np.ma.masked_where(~np.isfinite(g_rivout_cropped) | (g_rivout_cropped == 0), g_rivout_cropped)
+
 
 #---------------------------------------------------------------------------------------------------------------
 #   Load river's next l coordinate data (g_rivnxl_cropped)
@@ -508,6 +523,7 @@ def explore(target_index, remove_grid, innercity_grid, width, save_flag=False):
                                                g_rivnum_cropped_city, 
                                                g_elv_cropped, 
                                                g_rivara_cropped,
+                                               g_rivout_cropped,
                                                )
         print(f"non_prf -> tentative prf")
 
@@ -584,80 +600,27 @@ def l_coordinate_to_tuple(lcoordinate, a=2160, b=4320):
     return (lat_l, lon_l)
 
 
-def explore_prf(citymask, city_num, rivnum, elevation, rivara):
+def explore_prf(citymask, city_num, rivnum, elevation, rivara, rivout):
     """
     citymask:  g_mask_cropped,             city_mask
     rivnum:    g_rivnum_cropped_city,      city_mask内のrivnumデータ
     elevation: g_elv_cropped,              elevationデータ
     rivara:    g_rivara_cropped,           rivaraデータ
+    rivout:    g_rivout_cropped,           rivoutデータ
     """
+    mask_indices = np.argwhere(citymask != 0)
+    dis_values = [rivout[coord[0], coord[1]] for coord in mask_indices]
+    dis_maxarg = np.argmax(dis_values)
+    josui_coord = mask_indices[dis_maxarg]
+    josui_array = np.zeros(rivnum.shape, dtype='float32')
+    josui_array[josui_coord[0], josui_coord[1]] = 1
 
-    # rivnum_cityの流域番号をkey, 各流域のグリッド数をvalueに持つdictionary
-    unique_values, counts = np.unique(rivnum.compressed(), return_counts=True)
-    uid_dict = dict(zip(unique_values, counts))
-
-    # 流域グリッドが最大のkeyを見つける
-    max_key = max(uid_dict, key=uid_dict.get)
-
-    # 流域が2グリッド以上存在することを確認
-    if max_key > 1:
-
-        # 選ばれた流域内のelevation
-        elv_indices = np.argwhere(rivnum == max_key)
-        elv_values = [elevation[coord[0], coord[1]] for coord in elv_indices]
-
-        # 標高最大の点　josui
-        elv_maxarg = np.argmax(elv_values)
-        josui_coord = elv_indices[elv_maxarg]
-        josui_array = np.zeros(rivnum.shape, dtype='float32')
-        josui_array[josui_coord[0], josui_coord[1]] = max_key
-
-        # 標高最大以外で集水面積が一番大きい場所(河口)
-        ara_indices = np.argwhere((citymask == city_num) & (josui_array != rivnum[josui_coord[0], josui_coord[1]]))
-        ara_values = [rivara[coord[0], coord[1]] for coord in ara_indices]
-        # 空じゃないか確かめる
-        if ara_values:
-            ara_argmax = np.argmax(ara_values)
-            gesui_coord = ara_indices[ara_argmax]
-        else:
-            # 標高最小を選ぶ
-            print(f"ara_indices is empty -> argmin_elv for gesui")
-            elv_minarg = np.argmax(elv_values)
-            gesui_coord = elv_indices[elv_minarg]
-
-    # すべての流域が1グリッド以下であるとき
-    else:
-
-        # city mask内のelevatoin
-        elv_indices = np.argwhere(citymask == city_num)
-        elv_values = [elevation[coord[0], coord[1]] for coord in elv_indices]
-
-        # josui
-        elv_maxarg = np.argmax(elv_values)
-        josui_coord = elv_indices[elv_maxarg]
-        josui_array = np.zeros(rivnum.shape, dtype='float32')
-        josui_array[josui_coord[0], josui_coord[1]] = rivnum[josui_coord[0], josui_coord[1]]
-
-        # 標高最大以外で集水面積が一番大きい場所(河口)
-        ara_indices = np.argwhere((citymask == city_num) & (josui_array != rivnum[josui_coord[0], josui_coord[1]]))
-        ara_values = [rivara[coord[0], coord[1]] for coord in ara_indices]
-        # 空じゃないか確かめる
-        if ara_values:
-            ara_argmax = np.argmax(ara_values)
-            gesui_coord = ara_indices[ara_argmax]
-        else:
-            # 標高最小を選ぶ
-            print(f"ara_indices is empty -> argmin_elv for gesui")
-            elv_minarg = np.argmax(elv_values)
-            gesui_coord = elv_indices[elv_minarg]
-
-    # gesui
-    gesui_array = np.ma.masked_all(rivnum.shape, dtype='float32')
-    gesui_array[gesui_coord[0], gesui_coord[1]] = rivnum[gesui_coord[0], gesui_coord[1]]
-
-    # josui
-    josui_array = np.ma.masked_all(rivnum.shape, dtype='float32')
-    josui_array[josui_coord[0], josui_coord[1]] = rivnum[josui_coord[0], josui_coord[1]]
+    elv_indices = np.argwhere((citymask != 0) & (josui_array != 1))
+    elv_values = [rivout[coord[0], coord[1]] for coord in elv_indices]
+    elv_minarg = np.argmin(elv_values)
+    gesui_coord = elv_indices[elv_minarg]
+    gesui_array = np.zeros(rivnum.shape, dtype='float32')
+    gesui_array[gesui_coord[0], gesui_coord[1]] = 1
 
     return josui_array, gesui_array
 
