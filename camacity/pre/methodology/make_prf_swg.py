@@ -616,7 +616,7 @@ def explore_prf(citymask, city_num, rivnum, elevation, rivara, rivout):
     josui_array[josui_coord[0], josui_coord[1]] = 1
 
     elv_indices = np.argwhere((citymask != 0) & (josui_array != 1))
-    elv_values = [rivout[coord[0], coord[1]] for coord in elv_indices]
+    elv_values = [elevation[coord[0], coord[1]] for coord in elv_indices]
     elv_minarg = np.argmin(elv_values)
     gesui_coord = elv_indices[elv_minarg]
     gesui_array = np.zeros(rivnum.shape, dtype='float32')
