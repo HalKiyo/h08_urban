@@ -30,42 +30,44 @@ def explore(city_num, save_flag=False):
     MAP= '.CAMA'
     SUF = '.gl5'
     dtype= 'float32'
-    POP='vld_cty_'
     year_start = 2019
     year_end = 2020
     lat_num = 2160
     lon_num = 4320
     can_exp = 2    # grid radius for canal grid modification exploring
-    can_check_range = 10 # grid radius of exploring square area 100km from city center
-    exp_range = 24 # explore intake point range of square area 240 km from city center
+    can_check_range = 10 # grid radius of exploring square area 90km from city center
+    exp_range = 30 # explore intake point range of square area 270km from city center
     distance_condition = 100 #km #McDonald 2011 shows ~22km 80% of the city has water 100L/capita/day for 10million people
 
 #----------------------------------------------------------------------------------------
 #   PATH
 #----------------------------------------------------------------------------------------
 
-    root_dir = '/mnt/c/Users/tsimk/Downloads/dotfiles/h08/global_city'
-    dis_dir = f"{root_dir}/dat/riv_out_"
-    can_in_path = f"{root_dir}/dat/can_ext_/existing_origin{SUF}"
-    can_out_path = f"{root_dir}/dat/can_ext_/existing_destination_1{SUF}"
-    elv_path = f"{root_dir}/dat/elv_min_/elevtn{MAP}{SUF}"
-    rivnum_path = f"{root_dir}/dat/riv_num_/rivnum{MAP}{SUF}"
-    rivnxl_path = f"{root_dir}/dat/riv_nxl_/rivnxl.CAMA.gl5"
-    nonprf_path = f"{root_dir}/dat/non_prf_/{POP}/nonprf_flag.txt"
-    prf_path = f"{root_dir}/dat/cty_prf_/{POP}/city_{city_num:08}{SUF}"
-    updown_path = f"{root_dir}/dat/prf_updw/{POP}/city_{city_num:08}{SUF}"
-    cnt_path = f"{root_dir}/dat/cty_cnt_/gpw4/modified/city_{city_num:08}{SUF}"
-    msk_path = f"{root_dir}/dat/{POP}/city_{city_num:08}{SUF}"
+    glb_dir = '/mnt/c/Users/tsimk/Downloads/dotfiles/h08/global_city'
+    cama_dir = '/mnt/c/Users/tsimk/Downloads/dotfiles/h08/camacity'
+    dis_dir = f"{glb_dir}/dat/riv_out_"
+    can_in_path = f"{glb_dir}/dat/can_ext_/existing_origin{SUF}"
+    can_out_path = f"{glb_dir}/dat/can_ext_/existing_destination_1{SUF}"
+    elv_path = f"{glb_dir}/dat/elv_min_/elevtn{MAP}{SUF}"
+    rivnum_path = f"{glb_dir}/dat/riv_num_/rivnum{MAP}{SUF}"
+    rivnxl_path = f"{glb_dir}/dat/riv_nxl_/rivnxl.CAMA.gl5"
+    cnt_path = f"{glb_dir}/dat/cty_cnt_/gpw4/modified/city_{city_num:08}{SUF}"
+    nonprf_path = f"{cama_dir}/dat/non_prf_/nonprf_flag.txt"
+    prf_path = f"{cama_dir}/dat/cty_prf_/prf_clrd0000{SUF}"
+    updown_path = f"{cama_dir}/dat/prf_updw/city_{city_num:08}{SUF}"
+    msk_path = f"{cama_dir}/dat/cty_msk_/city_clrd0000{SUF}"
 
     # check if directories exist in dat/cty_int/
-    savepath = f"{root_dir}/dat/cty_int_/{distance_condition}km_samebasin/city_{city_num:08}{SUF}"
-    displaypath = f'{root_dir}/dat/cty_int_/fig_{distance_condition}km_samebasin/intake_display_{POP}_{city_num:08}{SUF}'
+    savepath = f"{cama_dir}/dat/cty_aqd_/{distance_condition}km_samebasin/city_{city_num:08}{SUF}"
+    displaypath = f'{cama_dir}/dat/cty_aqd_/fig_{distance_condition}km_samebasin/intake_display_{city_num:08}{SUF}'
 
 #----------------------------------------------------------------------------------------
 #   Whether valid mask or not
 #----------------------------------------------------------------------------------------
 
-    if not os.path.exists(msk_path):
+    prf = np.fromfile(prf_path, dtype=dtype).reshape(lat_num, lon_num)
+    prf_coord = np.where(prf==city_num)
+    if len(prf_coord) == 0:
         print(f"{city_num} is invalid mask")
         return
 
@@ -104,38 +106,28 @@ def explore(city_num, save_flag=False):
     # city mask data
     city_mask = np.fromfile(msk_path, dtype=dtype).reshape(lat_num, lon_num)
 
-    # purification plant location
-    prf = np.fromfile(prf_path, dtype=dtype).reshape(lat_num, lon_num)
+    # city center data
+    city_center = np.fromfile(cnt_path, dtype=dtype).reshape(lat_num, lon_num)
 
-    # no purification flag
-    with open(nonprf_path, 'r') as input_file:
-        lines = input_file.readlines()
-    line = lines[city_num-1]
-    parts = line.split('|')
-    parts = [item.strip() for item in parts]
-    no_prf_flag = parts[1]
-    if no_prf_flag == 'True':
-        print(f"no_prf_flag: {no_prf_flag}")
+    # display data
+    display_data = np.zeros((lat_num, lon_num))
 
 #-------------------------------------------------------------------------------------------
 #   JOB
 #-------------------------------------------------------------------------------------------
 
     # prf location
-    indices = np.where(prf == 1)
-    prfelv_lst = elv[prf==1]
+    indices = np.where(prf == city_num)
+    prfelv_lst = elv[prf == city_num]
     #print(prfelv_lst) [7, 71.1, 119.4]
     lat_coords = indices[0]
     lon_coords = indices[1]
     #print(x_coords, y_coords) > [648, 651, 652] [3834, 3831, 3830]
 
     # prf watershed
-    rivnum_unq = np.unique(rivnum[prf == 1])
+    rivnum_unq = np.unique(rivnum[prf == city_num])
     cty_rivnum = [i for i in rivnum_unq]
     #print(cty_rivnum) # [848.0, 2718.0, 4850.0, 6065.0, 0]
-
-    # city center data
-    city_center = np.fromfile(cnt_path, dtype=dtype).reshape(lat_num, lon_num)
 
     # indices of city center
     indices = np.where(city_center==1) # tuple
@@ -144,23 +136,21 @@ def explore(city_num, save_flag=False):
     #print(x) #651
     #print(y) #3836
 
-    # init maximum river discharge
-    riv_max = 0
-
     # canal_out around xxx km of city center
     can_mask = np.zeros((lat_num, lon_num))
     for ibt_lat in range(-can_check_range, can_check_range+1):
         for ibt_lon in range(-can_check_range, can_check_range+1):
             can_mask[latcnt+ibt_lat, loncnt+ibt_lon] = 1
     can_check = can_mask*can_out
-    #print(np.sum(can_check)) # 0
     can_check_value = np.sum(can_check)
 
     # up & down stream of prfs
     if not os.path.exists(updown_path):
         print(f"{updown_path} doesn't exist")
-        print(f"riv_path array is now created")
+        print(f"riv_path array is now under creating ...")
         riv_path_array = updown_stream(city_num, riv_nxlonlat_cropped)
+        riv_path_array.astype(np.float32).tofile(updown_path)
+        print(f"{updown_path} is saved")
     else:
         riv_path_array = np.fromfile(updown_path, dtype=dtype).reshape(lat_num, lon_num)
         print(f"{updown_path} is existing")
@@ -168,14 +158,15 @@ def explore(city_num, save_flag=False):
     ng_grids = np.where(riv_path_array != 0)
     ng_coords = set(zip(ng_grids[0], ng_grids[1]))
 
-    # display data
-    display_data = np.zeros((lat_num, lon_num))
-
     # ignoring any existing canal
     can_check_value = 0
+    # init maximum river discharge
+    riv_max = 0
+
     # if canal exists
     if can_check_value>0:
         canal = 'canal_yes'
+        print(canal)
         if prfelv_lst.size == 0:
             print("no purification plant")
         else:
@@ -212,7 +203,7 @@ def explore(city_num, save_flag=False):
     # if no canal
     else:
         canal = 'canal_no'
-
+        print(canal)
         ### make search list
         search_lst = []
         for p in range(-exp_range, exp_range+1, 1):
@@ -242,40 +233,29 @@ def explore(city_num, save_flag=False):
                             if city_mask[Y, X] != 1:
 
                                 # intake point shoud be higher than elevation of closest purification plant
-                                if elv[Y, X] > elv_min:
+                                #if elv[Y, X] > elv_min:
+                                # ignore elevation condition
+                                if elv[Y, X] > 0:
 
                                     # including same watershed
-                                    if no_prf_flag == 'True':
+                                    # exclude up&down stream of prfs
+                                    # river num (watershed) is not overlapped with that of inner city
+                                    if (Y,X) not in ng_coords:
                                         display_data[Y, X] = 2
 
                                         # check if maximum
                                         if riv_dis[Y, X]/1000. > riv_max:
                                             # update riv
-                                            riv_max = riv_dis[Y, X]/1000. # kg/s => m3/s
+                                            riv_max = riv_dis[Y, X]/1000.
                                             #print(f'riv_max {X}, {Y} updated {riv_max}')
                                             YY = Y
                                             XX = X
                                             print(f"distance: {d_min} km")
 
-                                    # exclude up&down stream of prfs
-                                    else:
-                                        # river num (watershed) is not overlapped with that of inner city
-                                        if (Y,X) not in ng_coords:
-                                            display_data[Y, X] = 2
-
-                                            # check if maximum
-                                            if riv_dis[Y, X]/1000. > riv_max:
-                                                # update riv
-                                                riv_max = riv_dis[Y, X]/1000.
-                                                #print(f'riv_max {X}, {Y} updated {riv_max}')
-                                                YY = Y
-                                                XX = X
-                                                print(f"distance: {d_min} km")
-
     if riv_max > 0:
 
         # save file for display check
-        display_data[YY, XX] =                   3
+        display_data[YY, XX] = 3
         #display_data[city_mask == 1] =           4
         #display_data[city_center == 1] =         5
 
@@ -332,10 +312,10 @@ def updown_stream(city_num, riv_nxlonlat_cropped):
     # step1: get river paths of all prf grids
     # step2: check if grid is not on that path
     # coord of purficication
-    root_dir = '/mnt/c/Users/tsimk/Downloads/dotfiles/h08/global_city'
-    prf_path = f"{root_dir}/dat/cty_prf_/vld_cty_/city_{city_num:08}.gl5"
+    cama_dir = '/mnt/c/Users/tsimk/Downloads/dotfiles/h08/camacity'
+    prf_path = f"{cama_dir}/dat/cty_prf_/prf_clrd0000.gl5"
     prf = np.fromfile(prf_path, dtype='float32').reshape(2160, 4320)
-    prf_coords = np.where(prf == 1)
+    prf_coords = np.where(prf==city_num)
     print(f'citynum: {city_num}, coord of prfs: {prf_coords}')
 
     # save variable
@@ -362,7 +342,6 @@ def updown_stream(city_num, riv_nxlonlat_cropped):
         for row, col in visited_coords:
             riv_path_array[row, col] = city_num
 
-        ###################################################################################
         # up stream exploration recursive calculation
         ###################################################################################
         def explore_upstream(target_coord, visited_coords, riv_nxlonlat_cropped, city_num):
