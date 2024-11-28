@@ -67,7 +67,7 @@ def explore(city_num, save_flag=False):
 
     prf = np.fromfile(prf_path, dtype=dtype).reshape(lat_num, lon_num)
     prf_coord = np.where(prf==city_num)
-    if len(prf_coord) == 0:
+    if all(len(arr) == 0 for arr in prf_coord):
         print(f"{city_num} is invalid mask")
         return
 
@@ -410,7 +410,7 @@ def lonlat_distance(lat_a, lon_a, lat_b, lon_b):
 
 def main():
     save_flag = True
-    for city_num in range(1, 1861, 1):
+    for city_num in range(681, 691, 1):
         explore(city_num, save_flag)
 
 
