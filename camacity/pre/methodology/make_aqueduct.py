@@ -410,7 +410,7 @@ def lonlat_distance(lat_a, lon_a, lat_b, lon_b):
 
 def main():
     save_flag = True
-    for city_num in range(681, 691, 1):
+    for city_num in arange(1, 1861, 1)
         explore(city_num, save_flag)
 
 
