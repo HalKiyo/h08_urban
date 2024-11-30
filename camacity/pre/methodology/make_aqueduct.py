@@ -58,7 +58,7 @@ def explore(city_num, save_flag=False):
     msk_path = f"{cama_dir}/dat/cty_msk_/city_clrd0000{SUF}"
 
     # check if directories exist in dat/cty_int/
-    savepath = f"{cama_dir}/dat/cty_aqd_/{distance_condition}km_samebasin/city_{city_num:08}{SUF}"
+    savepath = f"{cama_dir}/dat/cty_aqd_/{distance_condition}km_elevation/city_{city_num:08}{SUF}"
     displaypath = f'{cama_dir}/dat/cty_aqd_/fig_{distance_condition}km_samebasin/intake_display_{city_num:08}{SUF}'
 
 #----------------------------------------------------------------------------------------
@@ -233,9 +233,9 @@ def explore(city_num, save_flag=False):
                             if city_mask[Y, X] != 1:
 
                                 # intake point shoud be higher than elevation of closest purification plant
-                                #if elv[Y, X] > elv_min:
+                                if elv[Y, X] > elv_min:
                                 # ignore elevation condition
-                                if elv[Y, X] > 0:
+                                #if elv[Y, X] > 0:
 
                                     # including same watershed
                                     # exclude up&down stream of prfs
@@ -275,8 +275,8 @@ def explore(city_num, save_flag=False):
     if save_flag is True:
         intake.astype(np.float32).tofile(savepath)
         print(f"{savepath} saved")
-        display_data.astype(np.float32).tofile(displaypath)
-        print(f"{displaypath} saved")
+        #display_data.astype(np.float32).tofile(displaypath)
+        #print(f"{displaypath} saved")
     else:
         print(f"save_flag is {save_flag}")
 
@@ -410,7 +410,7 @@ def lonlat_distance(lat_a, lon_a, lat_b, lon_b):
 
 def main():
     save_flag = True
-    for city_num in arange(1, 1861, 1)
+    for city_num in range(1, 1861, 1):
         explore(city_num, save_flag)
 
 
