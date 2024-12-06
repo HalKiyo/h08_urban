@@ -1,0 +1,2 @@
+- tar -cvf savefilename.tar /path/to/savedir/
+- gzip savefilename.tar
