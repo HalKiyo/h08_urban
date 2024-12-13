@@ -10,9 +10,10 @@ modified by kajiyama @20240430
 + no prf flag action
 modified by kajiyama @20240719
 + same basin enabled in case sub_river (subbasin) has larger discharge
-+ updown sreampath is created in dotfiles/h08/wsi/pre/int/intake_samebasin.ipynb
++ updown sreampath is created in dotfiles/h08/camacity/dat/prf_updw/intake_samebasin.ipynb
 modified by kajiyama @20241120
 + 5m lower elevation is allowed to adjust situation in Lasvegas
++ above is deprecated
 """
 import os
 import math
