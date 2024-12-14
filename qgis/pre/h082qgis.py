@@ -23,11 +23,15 @@ def bin2las(loadpath, savepath):
 
 def main():
     """
+    #####################################################################################################
+    # This is exaple use case
     loadpath = '/mnt/c/Users/tsimk/Downloads/dotfiles/h08/global_city/dat/cty_swg_/gpw3/city_00000000.gl5'
     savepath = '/mnt/c/Users/tsimk/Downloads/dotfiles/h08/qgis/dat/cty_msk_gpw3_00000000.tif'
+    #
+    #####################################################################################################
     """
-    loadpath = '/mnt/c/Users/tsimk/Downloads/dotfiles/h08/camacity/dat/cty_aqd_/100km_elevation/aqd_layer004.gl5'
-    savepath = '/mnt/c/Users/tsimk/Downloads/dotfiles/h08/qgis/dat/aqd_layer004.tif'
+    loadpath = '/mnt/c/Users/tsimk/Downloads/dotfiles/h08/camacity/dat/cty_swg_/swg_clrd0000.gl5'
+    savepath = '/mnt/c/Users/tsimk/Downloads/dotfiles/h08/qgis/dat/camacity_clrd0000_swg.tif'
     bin2las(loadpath, savepath)
 
 if __name__ == '__main__':

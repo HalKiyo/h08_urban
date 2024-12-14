@@ -9,6 +9,8 @@ edited by Kajiyama @ 20241120
 + No main river & no same basin, PRF=highest elevation in MASK, SWG=lowest elevation MASK
 edited by Kajiyama @ 20241127
 + No main river, largest rivout is prf, lowest elevatoin is swg
+edited by Kajiyama @ 20241215
++ If swg is located in upstream of prf, swg location is replaced to the same grid of prf
 """
 
 import os
@@ -50,6 +52,7 @@ def explore(target_index, remove_grid, innercity_grid, width, save_flag=False):
     swg_save_dir     = f"{root_dir}/dat/cty_swg_"
     # auxiliary data
     nonprf_path      = f"{root_dir}/dat/non_prf_/nonprf_flag.txt"
+    updown_path      = f"{root_dir}/dat/prf_updw/city_{target_index:08}.gl5"
 
 #---------------------------------------------------------------------------------------------------------------
 #   City Lon Lat Information
@@ -525,7 +528,16 @@ def explore(target_index, remove_grid, innercity_grid, width, save_flag=False):
                                                g_rivara_cropped,
                                                g_rivout_cropped,
                                                )
-        print(f"non_prf -> tentative prf")
+        # updown check
+        swg_coord = np.where(gesui_array == 1)
+        print(f'swg_coord: {swg_coord}')
+        updown = np.fromfile(updown_path, dtype='float32').reshape(2160, 4320)
+        g_updwon = np.flipud(updown)
+        g_updown_cropped = g_updwon[lat_start:lat_end, lon_start:lon_end]
+        g_updown_cropped = np.flipud(g_updown_cropped)
+        if g_updown_cropped[swg_coord] != 0:
+            gesui_array = josui_array
+            print(f"swg = prf due to updown relationship")
 
 #---------------------------------------------------------------------------------------------------------------
 #   Check whehter no prf
