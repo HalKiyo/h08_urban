@@ -1,0 +1,128 @@
+42| 7118.41| 12.0| Dongguan
+43| 7025.221| 8.0| Hong Kong
+44| 6653.177| 6.0| Foshan
+122| 3061.727| 12.0| Ekurhuleni
+148| 2681.815| 11.0| Zhongshan
+158| 2559.434| 3.0| Incheon
+160| 2500.869| 9.0| Changzhou, Jiangsu
+206| 1973.566| 5.0| Taoyuan
+227| 1795.068| 13.0| Thrissur
+236| 1754.403| 8.0| Tijuana
+252| 1702.452| 9.0| Shaoxing
+268| 1616.044| 10.0| Malappuram
+283| 1550.944| 5.0| Karaj
+356| 1232.245| 5.0| Chaozhou
+423| 1059.501| 12.0| Changwon
+447| 992.577| 12.0| Antwerpen
+477| 943.549| 4.0| Zhenjiang, Jiangsu
+489| 924.813| 13.0| Hamah
+504| 900.0| 13.0| Ash-Shariqah (Sharjah)
+507| 895.893| 4.0| Xiangtan, Hunan
+529| 867.505| 3.0| Matola
+567| 813.064| 3.0| Ruian
+573| 806.579| 3.0| El Paso
+578| 804.337| 8.0| Islamabad
+586| 788.87| 10.0| Bergamo
+589| 785.427| 10.0| La Plata
+602| 772.046| 6.0| Tengzhou
+620| 740.512| 4.0| Wenling
+631| 731.189| 5.0| Liaoyang
+634| 728.457| 6.0| Reynosa
+641| 724.614| 19.0| Dayton
+678| 684.121| 9.0| Haicheng
+707| 660.914| 10.0| Xintai
+712| 657.835| 3.0| Cuttack
+718| 649.831| 4.0| Xianyang, Shaanxi
+734| 636.704| 4.0| s-Gravenhage (The Hague)
+751| 618.364| 12.0| Venezia
+753| 617.637| 7.0| Concord
+770| 606.226| 6.0| Busto Arsizio
+811| 580.371| 5.0| Essen
+831| 568.893| 10.0| Xinghua
+834| 566.112| 12.0| Gold Coast-Tweed Head
+839| 563.649| 8.0| New Haven
+873| 547.27| 5.0| Taixing
+906| 526.139| 4.0| Yuyao
+940| 509.265| 5.0| Sangli
+953| 500.314| 3.0| Tlaxcala
+961| 497.364| 6.0| Linhai
+968| 493.454| 4.0| Duisburg
+970| 491.989| 4.0| Gebze
+974| 489.77| 4.0| Matamoros
+976| 488.434| 10.0| Provo-Orem
+977| 488.018| 12.0| Worcester
+991| 475.202| 7.0| Kurashiki
+1036| 461.959| 7.0| Hanchuan
+1039| 461.242| 10.0| Fukuyama
+1066| 448.689| 5.0| Haimen
+1079| 441.732| 3.0| Como
+1083| 439.772| 7.0| Liling
+1085| 438.97| 3.0| Cherthala
+1092| 435.394| 7.0| Qianjiang
+1094| 434.786| 5.0| Cuautla Morelos
+1128| 417.085| 4.0| Longhai
+1138| 413.198| 3.0| Kayamkulam
+1182| 400.501| 14.0| Shizuishan
+1185| 399.838| 5.0| Jiaozhou
+1189| 399.173| 4.0| Hillah
+1208| 391.862| 11.0| St. Catharines-Niagara
+1212| 390.743| 3.0| Haining
+1230| 384.776| 10.0| Andizhan
+1260| 376.862| 3.0| Bochum
+1273| 373.208| 10.0| Dhule
+1285| 370.079| 4.0| Kaiping
+1306| 362.605| 4.0| Makiivka
+1328| 356.237| 5.0| Anqiu
+1336| 353.74| 7.0| Béthune
+1360| 349.242| 9.0| Durham
+1366| 348.155| 4.0| Yuhuan
+1367| 347.634| 3.0| Coatzacoalcos
+1381| 344.278| 3.0| Rampur
+1387| 342.916| 6.0| Laixi
+1400| 340.322| 4.0| Maebashi
+1421| 336.0| 8.0| Abakaliki
+1423| 335.553| 3.0| Sunderland
+1425| 334.554| 8.0| Valenciennes
+1436| 332.067| 5.0| Treviso
+1478| 322.697| 3.0| Ichalkaranji
+1484| 321.748| 7.0| Reggio Emilia
+1489| 319.947| 3.0| Windsor
+1498| 318.172| 4.0| Kissimmee
+1506| 316.32| 3.0| Córdoba
+1509| 315.498| 4.0| Bonn
+1523| 313.0| 5.0| Sumquayit
+1531| 312.459| 4.0| Dashiqiao
+1539| 311.698| 5.0| Preston
+1543| 310.938| 9.0| Central Coast
+1549| 309.842| 3.0| Nola
+1568| 305.654| 6.0| Newport
+1575| 303.799| 4.0| Hardwar
+1581| 302.604| 4.0| Kurume
+1582| 302.33| 3.0| Wah
+1589| 300.827| 3.0| Qufu
+1597| 299.123| 9.0| Izmit
+1610| 297.463| 4.0| Trenton
+1623| 295.25| 3.0| Yanshi
+1630| 293.44| 5.0| Manisa
+1650| 288.795| 3.0| Palakkad
+1653| 288.52| 6.0| Donggang
+1657| 287.063| 5.0| Lecco
+1668| 285.283| 5.0| Dewas
+1695| 279.125| 4.0| Yuanjiang
+1696| 279.121| 4.0| Navsari
+1704| 276.134| 3.0| Changge
+1707| 274.97| 11.0| Fangchenggang
+1710| 274.516| 8.0| Hailin
+1742| 263.141| 3.0| Huazhou
+1750| 258.703| 4.0| Ranipet
+1751| 258.681| 4.0| Lamphun
+1788| 245.155| 3.0| The Woodlands
+1803| 239.877| 4.0| Anning
+1804| 239.677| 4.0| Thuqbah
+1809| 235.196| 3.0| Baaqoobah
+1825| 226.004| 3.0| Mbouda
+1829| 221.31| 4.0| Khubar
+1834| 218.254| 5.0| Concord
+1837| 216.402| 3.0| Emeishan
+1842| 213.027| 6.0| Jiayuguan
+1857| 173.0| 3.0| Gwagwalada

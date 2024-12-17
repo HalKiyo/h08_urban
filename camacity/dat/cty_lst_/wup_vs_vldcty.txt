@@ -1,0 +1,1860 @@
+1|False|36859.626|31821850.0|eastern asia|Japan|Tokyo
+2|False|21987.895|22058268.0|southern asia|India|Delhi
+3|False|20314.309|14540163.0|eastern asia|China|Shanghai
+4|False|20136.681|20178100.0|central america|Mexico|Ciudad de México (Mexico City)
+5|False|19659.808|9675000.0|south america|Brazil|São Paulo
+6|False|19312.646|9448362.0|eastern asia|Japan|Kinki M.M.A. (Osaka)
+7|False|18365.262|8649229.0|northern america|United States of America|New York-Newark
+8|False|18257.413|14299211.0|southern asia|India|Mumbai (Bombay)
+9|False|16899.015|17007614.0|northern africa|Egypt|Al-Qahirah (Cairo)
+10|False|16441.252|13546804.0|eastern asia|China|Beijing
+11|True|14730.537|14907053.0|southern asia|Bangladesh|Dhaka
+12|False|14245.871|13270149.0|south america|Argentina|Buenos Aires
+13|False|14002.798|14466329.0|southern asia|India|Kolkata (Calcutta)
+14|False|12611.924|11612047.0|southern asia|Pakistan|Karachi
+15|False|12584.885|12603787.0|western asia|Turkey|Istanbul
+16|False|12373.884|9523183.0|south america|Brazil|Rio de Janeiro
+17|False|12160.151|5272369.0|northern america|United States of America|Los Angeles-Long Beach-Santa Ana
+18|False|11887.189|12384836.0|south-eastern asia|Philippines|Manila
+19|False|11461.264|11578511.0|eastern europe|Russian Federation|Moskva (Moscow)
+20|False|11243.667|5527689.5|eastern asia|China|Chongqing
+21|False|10460.118|8790675.0|western europe|France|Paris
+22|True|10441.182|9340670.0|western africa|Nigeria|Lagos
+23|False|10278.197|10401389.0|eastern asia|China|Guangzhou, Guangdong
+24|False|10222.916|7063726.5|eastern asia|China|Shenzhen
+25|False|10150.076|5831888.0|eastern asia|China|Tianjin
+26|False|9796.045|10413885.0|eastern asia|Republic of Korea|Seoul
+27|False|9625.579|9968967.0|south-eastern asia|Indonesia|Jakarta
+28|False|9381.673|7186274.5|middle africa|Democratic Republic of the Congo|Kinshasa
+29|False|9098.05|6518442.0|eastern asia|Japan|Chukyo M.M.A. (Nagoya)
+30|False|8919.759|8737948.0|south america|Peru|Lima
+31|False|8615.834|4466185.0|northern america|United States of America|Chicago
+32|False|8506.193|8580768.0|southern asia|India|Chennai (Madras)
+33|False|8432.132|8445332.0|southern asia|Pakistan|Lahore
+34|False|8417.705|3724252.25|south america|Colombia|Bogotá
+35|False|8295.564|8576774.0|southern asia|India|Bangalore
+36|False|8269.045|8515993.0|south-eastern asia|Thailand|Krung Thep (Bangkok)
+37|False|8058.52|8212381.0|western asia|Iran (Islamic Republic of)|Tehran
+38|False|8044.433|8103840.0|northern europe|United Kingdom|London
+39|True|7573.276|7657924.5|eastern asia|China|Chengdu
+40|False|7531.293|7601909.5|southern asia|India|Hyderabad
+41|False|7514.801|7528719.0|eastern asia|China|Wuhan
+42|False|7118.41|4928384.0|eastern asia|China|Dongguan
+43|True|7025.221|7093425.0|eastern asia|China, Hong Kong SAR|Hong Kong
+44|True|6653.177|6943091.0|eastern asia|China|Foshan
+45|False|6269.33|6280481.5|south america|Chile|Santiago
+46|False|6249.507|6049359.0|southern asia|India|Ahmadabad
+47|False|6189.37|6452629.0|south-eastern asia|Viet Nam|Thành Pho Ho Chí Minh (Ho Chi Minh City)
+48|False|6162.151|6192424.0|eastern asia|China|Nanjing, Jiangsu
+49|False|5849.051|5727241.0|eastern asia|China|Shenyang
+50|False|5809.953|5813845.5|south-eastern asia|Malaysia|Kuala Lumpur
+51|False|5787.392|5812778.0|southern europe|Spain|Madrid
+52|False|5757.938|4588000.5|eastern asia|China|Hangzhou
+53|False|5651.654|5732989.5|western asia|Iraq|Baghdad
+54|False|5526.294|5591175.0|eastern asia|China|Xi'an, Shaanxi
+55|True|5519.181|1871569.125|eastern asia|Japan|Kitakyushu-Fukuoka M.M.A.
+56|True|5517.777|1977228.5|northern america|United States of America|Miami
+57|False|5499.233|2603099.5|northern america|Canada|Toronto
+58|False|5449.069|3317975.75|northern america|United States of America|Philadelphia
+59|True|5409.346|4495444.0|south america|Brazil|Belo Horizonte
+60|False|5300.466|3272781.5|middle africa|Angola|Luanda
+61|False|5220.217|3648468.5|western asia|Saudi Arabia|Ar-Riyadh (Riyadh)
+62|False|5148.972|954692.25|northern america|United States of America|Dallas-Fort Worth
+63|False|5140.204|4731849.5|eastern asia|China|Haerbin
+64|True|5074.252|5080566.5|south-eastern asia|Singapore|Singapore
+65|False|4976.162|1739401.625|northern america|United States of America|Houston
+66|False|4959.608|5091058.5|southern asia|India|Pune (Poona)
+67|False|4933.548|3830974.0|southern europe|Spain|Barcelona
+68|False|4871.556|4734799.0|eastern europe|Russian Federation|Sankt Peterburg (Saint Petersburg)
+69|False|4604.365|2515949.0|northern america|United States of America|Washington, D.C.
+70|False|4544.198|1206602.75|northern america|United States of America|Atlanta
+71|False|4517.078|2969162.75|northern africa|Sudan|Al-Khartum (Khartoum)
+72|False|4511.941|3005821.0|eastern asia|China|Qingdao
+73|False|4444.691|4319076.5|southern asia|India|Surat
+74|False|4440.681|4441025.0|central america|Mexico|Guadalajara
+75|False|4381.041|4431207.0|south-eastern asia|Myanmar|Yangon
+76|False|4332.57|4403208.0|northern africa|Egypt|Al-Iskandariyah (Alexandria)
+77|False|4249.354|2679898.0|eastern africa|South Africa|Johannesburg
+78|False|4184.792|2625367.5|northern america|United States of America|Boston
+79|True|4180.4|3591333.5|eastern asia|China|Dalian
+80|False|4165.739|3972949.25|oceania|Australia|Sydney
+81|False|4165.596|4162846.0|western asia|Turkey|Ankara
+82|True|4111.999|4123486.5|central america|Mexico|Monterrey
+83|False|4106.06|4182184.25|southern asia|Bangladesh|Chittagong
+84|False|4038.536|4358160.0|eastern asia|China, Taiwan Province of China|Xinbei
+85|False|3997.251|2990441.0|eastern asia|China|Suzhou, Jiangsu
+86|False|3965.148|3169286.5|eastern asia|China|Ji'nan, Shandong
+87|False|3957.247|2765066.25|southern europe|Italy|Roma (Rome)
+88|False|3953.59|3956625.75|western africa|Côte d'Ivoire|Abidjan
+89|False|3932.257|1782763.25|oceania|Australia|Melbourne
+90|False|3896.932|3186358.0|northern america|Canada|Montréal
+91|False|3869.675|3897133.0|eastern africa|United Republic of Tanzania|Dar es Salaam
+92|False|3842.457|3848041.5|south america|Brazil|Pôrto Alegre
+93|False|3729.964|1394223.625|northern america|United States of America|Detroit
+94|False|3710.36|1905580.125|south america|Brazil|Brasília
+95|False|3649.247|3543696.5|northern america|United States of America|Phoenix-Mesa
+96|False|3629.582|3720506.0|eastern asia|China|Zhengzhou
+97|False|3623.042|3837986.0|eastern asia|China|Shantou
+98|False|3604.132|3608389.75|eastern africa|South Africa|Cape Town
+99|False|3577.206|3584461.25|eastern asia|China|Changchun
+100|False|3559.092|3657300.0|south america|Brazil|Recife
+101|False|3519.526|2673814.75|south america|Brazil|Fortaleza
+102|False|3469.917|3186843.25|eastern asia|China|Kunming
+103|False|3450.395|3478856.75|western europe|Germany|Berlin
+104|False|3449.605|1180472.5|western asia|Saudi Arabia|Jiddah
+105|False|3447.169|3490962.5|northern africa|Morocco|Dar-el-Beida (Casablanca)
+106|False|3426.059|3443276.0|south america|Colombia|Medellín
+107|False|3422.165|3211558.75|eastern asia|Republic of Korea|Busan
+108|False|3353.347|3406649.0|eastern asia|China|Shijiazhuang
+109|False|3343.124|3080036.5|south america|Brazil|Salvador
+110|False|3310.53|2906400.25|western asia|Israel|Tel Aviv-Yafo (Tel Aviv-Jaffa)
+111|False|3289.005|3345786.25|southern asia|Afghanistan|Kabul
+112|True|3282.535|1843795.875|northern america|United States of America|San Francisco-Oakland
+113|False|3236.589|3310512.0|eastern africa|Kenya|Nairobi
+114|False|3220.929|3280141.25|western africa|Nigeria|Kano
+115|False|3170.434|3213081.75|southern europe|Greece|Athínai (Athens)
+116|False|3155.126|3248672.25|eastern asia|China|Changsha
+117|False|3131.153|3285263.75|eastern asia|China|Taiyuan, Shanxi
+118|False|3126.469|3186784.5|eastern africa|Ethiopia|Addis Ababa
+119|False|3118.137|3035601.75|south america|Brazil|Curitiba
+120|False|3078.498|2773814.75|western asia|Syrian Arab Republic|Halab (Aleppo)
+121|False|3068.596|1671115.875|northern america|United States of America|Seattle
+122|False|3061.727|3310682.5|eastern africa|South Africa|Ekurhuleni
+123|False|3056.107|3063711.75|southern europe|Italy|Milano (Milan)
+124|True|3039.945|3048984.5|eastern asia|China|Xiamen
+125|False|3027.19|3078058.25|eastern asia|China|Hefei
+126|False|2991.656|3047508.25|southern asia|India|Jaipur
+127|False|2976.091|3011297.25|eastern asia|China|Fuzhou, Fujian
+128|False|2964.154|2969133.5|northern america|United States of America|San Diego
+129|False|2949.093|2965696.5|eastern africa|South Africa|Durban (Ethekwini)
+130|False|2906.384|2960523.5|southern asia|India|Kanpur
+131|False|2898.755|2963457.0|south america|Venezuela (Bolivarian Republic of)|Caracas
+132|False|2860.71|2900510.5|eastern asia|Dem. People's Republic of Korea|P'yongyang
+133|False|2853.715|2875327.75|southern asia|India|Lucknow
+134|False|2814.304|2851252.75|western africa|Nigeria|Ibadan
+135|False|2811.563|2403927.75|southern europe|Portugal|Lisboa (Lisbon)
+136|False|2811.02|2851456.5|south-eastern asia|Viet Nam|Hà Noi
+137|False|2810.979|2816881.75|eastern asia|China|Ürümqi (Wulumqi)
+138|False|2802.349|2818640.75|eastern asia|China|Nanning
+139|False|2794.81|2834192.0|eastern europe|Ukraine|Kyiv (Kiev)
+140|False|2792.846|2328639.25|south america|Brazil|Campinas
+141|False|2785.921|2414795.75|eastern asia|China|Ningbo
+142|False|2768.225|2838083.75|south-eastern asia|Indonesia|Surabaya
+143|False|2732.419|2499491.5|central america|Mexico|Puebla
+144|False|2722.011|2767005.5|eastern asia|China|Wuxi, Jiangsu
+145|False|2712.541|630904.0|eastern asia|Japan|Shizuoka-Hamamatsu M.M.A.
+146|True|2703.02|2733295.5|southern asia|Pakistan|Faisalabad
+147|False|2702.604|2702735.0|western asia|Turkey|Izmir
+148|True|2681.815|2865463.75|eastern asia|China|Zhongshan
+149|False|2677.944|2759839.25|eastern asia|China|Wenzhou
+150|False|2660.551|246444.515625|western asia|Iran (Islamic Republic of)|Mashhad
+151|False|2657.786|1184993.625|northern america|United States of America|Minneapolis-St. Paul
+152|NoMASK|2653.861|NA|eastern asia|China, Taiwan Province of China|Taibei
+153|False|2600.776|2625375.5|caribbean|Dominican Republic|Santo Domingo
+154|False|2588.553|2695625.75|eastern asia|China|Nanchang
+155|False|2586.826|2391847.0|south america|Paraguay|Asunción
+156|False|2585.951|2262887.5|eastern asia|Japan|Sapporo
+157|False|2559.942|2613310.5|central america|Guatemala|Ciudad de Guatemala (Guatemala City)
+158|False|2559.434|2953954.5|eastern asia|Republic of Korea|Incheon
+159|False|2537.77|2573682.0|northern europe|United Kingdom|Manchester
+160|False|2500.869|2776831.5|eastern asia|China|Changzhou, Jiangsu
+161|False|2495.938|2540621.0|eastern asia|China|Guiyang
+162|False|2492.304|2495414.75|south america|Ecuador|Guayaquil
+163|False|2478.159|1975578.375|caribbean|Puerto Rico|San Juan
+164|True|2471.478|2479219.25|southern asia|India|Nagpur
+165|False|2452.075|2059148.25|northern america|United States of America|Tampa-St. Petersburg
+166|False|2432.023|2435207.0|northern africa|Algeria|El Djazaïr  (Algiers)
+167|False|2428.921|2478217.5|northern europe|United Kingdom|Birmingham (West Midlands)
+168|NoMASK|2426.662|NA|western africa|Senegal|Dakar
+169|False|2418.777|2436011.75|eastern asia|China|Lanzhou
+170|False|2400.642|2573583.0|western asia|Syrian Arab Republic|Dimashq (Damascus)
+171|False|2397.718|2927107.5|south-eastern asia|Indonesia|Bandung
+172|False|2384.83|2392363.25|northern america|United States of America|Denver-Aurora
+173|False|2361.114|1492958.375|middle africa|Cameroon|Douala
+174|NoMASK|2349.367|NA|south-eastern asia|Indonesia|Bekasi
+175|False|2348.656|2398743.5|middle africa|Cameroon|Yaoundé
+176|False|2337.724|2354642.25|south america|Colombia|Cali
+177|False|2279.292|2364769.25|eastern asia|Republic of Korea|Daegu
+178|False|2278.216|2284175.5|northern america|Canada|Vancouver
+179|False|2249.637|1767780.0|eastern asia|China|Zibo
+180|True|2244.402|2247512.5|central asia|Uzbekistan|Tashkent
+181|False|2215.805|2298849.5|southern europe|Italy|Napoli (Naples)
+182|False|2206.935|1409798.625|northern america|United States of America|Baltimore
+183|False|2204.056|2206541.0|eastern asia|China|Tangshan, Hebei
+184|False|2175.648|2176689.5|eastern asia|Japan|Sendai
+185|False|2152.56|1442304.875|northern america|United States of America|St. Louis
+186|False|2143.068|2150821.0|caribbean|Cuba|La Habana (Havana)
+187|True|2140.638|2173426.75|caribbean|Haiti|Port-au-Prince
+188|True|2119.154|2174593.75|southern asia|India|Indore
+189|False|2101.292|2250258.0|south-eastern asia|Indonesia|Medan
+190|False|2097.737|1747770.0|eastern asia|Japan|Hiroshima
+191|False|2096.248|2114485.75|southern asia|India|Coimbatore
+192|False|2084.194|2092983.75|western asia|Yemen|Sana'a'
+193|False|2063.028|2084924.25|southern asia|India|Kochi (Cochin)
+194|False|2061.843|1804921.5|western asia|Azerbaijan|Baku
+195|True|2060.076|2091239.25|western africa|Ghana|Accra
+196|False|2048.878|2054837.5|south america|Brazil|Goiânia
+197|False|2023.669|2027493.375|southern asia|India|Patna
+198|False|2022.566|2029904.5|south america|Brazil|Belém
+199|False|2021.267|2067197.375|eastern africa|Madagascar|Antananarivo
+200|True|2015.559|2041695.0|eastern africa|Uganda|Kampala
+201|False|2014.201|2047129.0|northern africa|Tunisia|Tunis
+202|True|2009.668|2026229.25|western africa|Ghana|Kumasi
+203|False|2008.737|1894448.625|oceania|Australia|Brisbane
+204|False|1993.829|2046033.5|western asia|Kuwait|Al Kuwayt (Kuwait City)
+205|False|1990.263|1530963.375|western asia|Lebanon|Bayrut (Beirut)
+206|True|1973.566|2855876.5|eastern asia|China, Taiwan Province of China|Taoyuan
+207|False|1947.559|1992326.625|southern asia|India|Kozhikode (Calicut)
+208|False|1944.699|1392622.0|northern america|United States of America|Riverside-San Bernardino
+209|False|1940.107|1955904.625|central america|Mexico|Toluca de Lerdo
+210|True|1926.348|1491052.75|western europe|Belgium|Bruxelles-Brussel
+211|False|1903.071|1884639.5|northern america|United States of America|Las Vegas
+212|False|1889.202|1893416.0|eastern europe|Romania|Bucuresti (Bucharest)
+213|False|1885.545|1908572.5|western africa|Mali|Bamako
+214|False|1874.729|555623.5|western asia|United Arab Emirates|Dubayy (Dubai)
+215|False|1870.505|1910749.125|south america|Colombia|Barranquilla
+216|False|1857.095|1861213.5|northern america|United States of America|Portland
+217|True|1854.084|1909165.25|southern asia|India|Bhopal
+218|True|1853.492|1895034.125|south america|Venezuela (Bolivarian Republic of)|Maracaibo
+219|False|1849.991|1865574.0|eastern europe|Belarus|Minsk
+220|False|1829.578|1845870.75|eastern asia|China|Handan
+221|False|1822.395|1906887.5|southern asia|Pakistan|Rawalpindi
+222|True|1821.427|1439476.5|eastern asia|China|Weifang
+223|False|1816.186|1840494.75|western africa|Nigeria|Port Harcourt
+224|False|1813.724|1541856.25|western africa|Nigeria|Abuja
+225|NoMASK|1806.398|NA|south-eastern asia|Indonesia|Tangerang
+226|False|1798.158|1821741.625|southern asia|India|Vadodara
+227|False|1795.068|1917124.875|southern asia|India|Thrissur
+228|False|1788.998|1793541.75|south america|Brazil|Manaus
+229|False|1780.524|1311795.0|northern america|United States of America|Cleveland
+230|False|1776.521|1601793.75|eastern asia|China|Yantai
+231|False|1775.49|1532665.25|eastern asia|China|Huizhou
+232|False|1775.365|1804740.75|western europe|Germany|Hamburg
+233|False|1770.572|1773299.5|northern america|United States of America|San Antonio
+234|False|1768.292|1509103.5|northern europe|United Kingdom|West Yorkshire
+235|True|1757.122|1836666.25|eastern asia|China|Baotou
+236|False|1754.403|1853610.25|central america|Mexico|Tijuana
+237|NoMASK|1751.587|NA|south-eastern asia|Indonesia|Depok
+238|False|1742.041|1841905.375|western africa|Burkina Faso|Ouagadougou
+239|False|1736.536|1752767.375|southern europe|Italy|Torino (Turin)
+240|False|1734.398|1788669.75|eastern europe|Hungary|Budapest
+241|False|1733.375|1161598.625|northern america|United States of America|Pittsburgh
+242|False|1732.797|1733450.625|northern america|United States of America|Sacramento
+243|False|1731.53|1785424.625|southern asia|India|Agra
+244|False|1730.649|1739380.25|western europe|Austria|Wien (Vienna)
+245|False|1722.879|1756786.75|eastern africa|Zambia|Lusaka
+246|False|1722.357|1750077.75|eastern asia|China|Xuzhou
+247|False|1722.319|1471721.75|oceania|Australia|Perth
+248|False|1714.147|609729.8125|western asia|Iran (Islamic Republic of)|Esfahan
+249|False|1713.657|1752821.125|northern africa|Morocco|Rabat
+250|False|1707.956|1712527.5|eastern asia|China|Luoyang
+251|False|1702.689|1745230.625|eastern europe|Poland|Warszawa (Warsaw)
+252|False|1702.452|1769743.75|eastern asia|China|Shaoxing
+253|False|1699.609|1721476.875|southern asia|India|Visakhapatnam
+254|False|1685.342|1606638.875|south america|Brazil|Grande Vitória
+255|False|1667.771|1731032.25|northern america|United States of America|San Jose
+256|True|1666.32|1894463.5|eastern africa|South Africa|Pretoria
+257|False|1662.335|1798408.0|south america|Brazil|Baixada Santista
+258|False|1659.407|1670950.75|south america|Uruguay|Montevideo
+259|False|1647.283|924144.75|south america|Venezuela (Bolivarian Republic of)|Valencia
+260|True|1647.271|1755308.0|southern asia|Pakistan|Gujranwala
+261|False|1642.23|1642989.25|middle africa|Democratic Republic of the Congo|Lubumbashi
+262|False|1640.598|1645820.0|eastern asia|China|Huai'an
+263|False|1636.062|1287295.25|south america|Bolivia (Plurinational State of)|La Paz
+264|False|1628.119|1718948.25|southern asia|India|Thiruvananthapuram
+265|False|1627.981|1575473.75|northern america|United States of America|Cincinnati
+266|False|1625.092|1642396.25|western asia|Turkey|Bursa
+267|False|1616.798|1617037.75|northern europe|United Kingdom|Glasgow
+268|False|1616.044|1617959.625|southern asia|India|Malappuram
+269|False|1611.203|1623114.25|central america|Mexico|León de los Aldamas
+270|False|1608.292|1043773.8125|southern asia|India|Kannur
+271|False|1607.621|1631792.25|eastern asia|China|Liuzhou
+272|False|1602.921|1645571.625|southern asia|India|Ludhiana
+273|NoMASK|1597.597|NA|middle africa|Democratic Republic of the Congo|Mbuji-Mayi
+274|False|1597.586|1715876.75|south america|Ecuador|Quito
+275|False|1593.004|1636021.25|eastern asia|China|Nantong
+276|True|1592.251|1640716.375|southern asia|Pakistan|Multan
+277|False|1576.653|1349460.5|western europe|France|Lyon
+278|NoMASK|1576.12|NA|middle africa|Congo|Brazzaville
+279|True|1571.599|2039607.0|eastern asia|China|Yangzhou
+280|True|1571.125|1589055.375|eastern asia|China|Baoding
+281|False|1568.017|1161293.5|western europe|France|Marseille-Aix-en-Provence
+282|False|1560.629|1649506.25|south-eastern asia|Indonesia|Semarang
+283|False|1550.944|1686416.0|western asia|Iran (Islamic Republic of)|Karaj
+284|True|1544.994|1554624.75|southern asia|Pakistan|Peshawar
+285|NoMASK|1542.923|NA|western asia|Saudi Arabia|Makkah (Mecca)
+286|False|1535.279|1113357.5|western asia|Turkey|Adana
+287|False|1530.511|1598419.875|southern asia|India|Nashik
+288|False|1523.574|1424580.5|northern america|United States of America|Kansas City
+289|True|1522.747|1565185.0|south-eastern asia|Cambodia|Phnum Pénh (Phnom Penh)
+290|False|1520.578|1553826.625|northern america|United States of America|Orlando
+291|True|1518.252|1560311.75|western africa|Guinea|Conakry
+292|True|1514.337|1768590.0|eastern asia|China, Taiwan Province of China|Gaoxiong
+293|False|1509.736|1520059.0|eastern asia|China|Linyi, Shandong
+294|False|1504.133|1512491.5|central america|Panama|Ciudad de Panamá (Panama City)
+295|True|1500.958|1688537.375|eastern asia|China|Anshan
+296|True|1500.352|1501454.25|southern asia|Pakistan|Hyderabad
+297|False|1497.504|1529834.5|eastern asia|Republic of Korea|Daejon
+298|False|1494.887|1496954.0|northern america|United States of America|Indianapolis
+299|False|1492.393|1508809.0|eastern asia|China|Haikou
+300|False|1477.882|1532660.25|eastern asia|China|Hohhot
+301|False|1474.557|1544869.625|eastern africa|Zimbabwe|Harare
+302|False|1471.998|1495961.0|eastern europe|Russian Federation|Novosibirsk
+303|False|1471.473|1491082.75|eastern asia|Republic of Korea|Gwangju
+304|False|1468.812|981948.9375|western asia|Iran (Islamic Republic of)|Tabriz
+305|False|1466.407|1559606.125|western africa|Togo|Lomé
+306|False|1461.767|1123112.0|eastern asia|China|Yancheng, Jiangsu
+307|False|1459.305|1499693.625|south-eastern asia|Indonesia|Palembang
+308|False|1459.268|1387059.875|south america|Argentina|Córdoba
+309|False|1454.81|1477221.0|south-eastern asia|Philippines|Davao City
+310|True|1454.125|1548218.5|eastern asia|China|Jiangmen
+311|False|1452.784|1454981.75|eastern europe|Ukraine|Kharkiv
+312|False|1450.233|1510694.625|eastern asia|China|Jilin
+313|False|1447.907|1461638.75|southern asia|India|Madurai
+314|False|1442.798|1462842.0|southern asia|India|Vijayawada
+315|False|1440.812|946664.625|northern america|United States of America|Virginia Beach
+316|False|1425.854|1325930.75|eastern asia|China|Xiangyang
+317|False|1424.297|1429040.5|central asia|Kazakhstan|Almaty
+318|False|1420.731|1052775.75|eastern asia|China|Daqing
+319|True|1416.786|1654334.375|southern asia|India|Varanasi (Benares)
+320|False|1409.586|1450554.75|eastern asia|China|Taizhou, Zhejiang
+321|False|1402.809|1426092.375|southern asia|India|Meerut
+322|False|1396.832|1664552.25|western asia|Jordan|Amman
+323|NoMASK|1395.166|NA|western asia|Iran (Islamic Republic of)|Shiraz
+324|False|1378.205|1391800.25|northern america|United States of America|Milwaukee
+325|False|1376.502|1381881.75|northern america|United States of America|Austin
+326|False|1374.475|1379894.625|northern america|United States of America|Columbus, Ohio
+327|False|1364.93|1114100.0|northern america|Bolivia (Plurinational State of)|Santa Cruz
+328|False|1360.715|1397105.75|southern asia|India|Rajkot
+329|False|1359.972|1360274.75|northern europe|Sweden|Stockholm
+330|False|1358.354|1053862.375|eastern asia|China|Qiqihaer
+331|True|1357.598|1475632.875|eastern asia|China|Zhuhai
+332|False|1353.302|962427.25|eastern africa|Somalia|Muqdisho (Mogadishu)
+333|False|1352.761|1412168.375|western europe|Germany|München (Munich)
+334|False|1350.568|1385666.5|eastern asia|China|Datong
+335|False|1347.692|1362467.5|eastern europe|Russian Federation|Yekaterinburg
+336|False|1340.604|989539.875|western asia|Syrian Arab Republic|Hims (Homs)
+337|False|1336.392|1345720.125|southern europe|Serbia|Beograd (Belgrade)
+338|True|1335.187|1188881.625|oceania|New Zealand|Auckland
+339|False|1335.176|1367578.375|south-eastern asia|Indonesia|Makassar (Ujung Pandang)
+340|False|1333.603|1351153.5|central america|Mexico|Ciudad Juárez
+341|False|1328.618|1287302.75|south america|Brazil|Grande São Luís
+342|False|1322.367|1370209.25|southern asia|India|Jamshedpur
+343|False|1320.626|1233575.25|south america|Argentina|Rosario
+344|False|1320.171|1352473.5|eastern asia|China|Fushun, Liaoning
+345|False|1298.263|1302945.875|western asia|Turkey|Gaziantep
+346|False|1296.072|1160803.0|western africa|Nigeria|Benin City
+347|False|1290.574|1349992.125|eastern asia|China|Jining, Shandong
+348|False|1288.513|1235068.25|eastern asia|China|Lianyungang
+349|False|1285.345|1211229.0|southern europe|Portugal|Porto
+350|False|1265.072|913401.6875|northern america|United States of America|Charlotte
+351|True|1257.28|856070.6875|western europe|Switzerland|Zürich (Zurich)
+352|False|1256.69|1270443.75|southern asia|India|Jabalpur
+353|False|1252.744|1272022.75|eastern europe|Russian Federation|Nizhniy Novgorod
+354|False|1243.641|1286398.75|southern asia|India|Srinagar
+355|False|1233.53|1274013.875|eastern europe|Czechia|Praha (Prague)
+356|False|1232.245|1923500.5|eastern asia|China|Chaozhou
+357|False|1232.105|1251878.5|eastern asia|China|Huainan
+358|False|1230.84|1598830.25|southern asia|India|Asansol
+359|False|1221.639|1171603.375|oceania|Australia|Adelaide
+360|False|1218.013|1101761.0|northern america|Canada|Ottawa-Gatineau
+361|False|1215.983|1235492.375|eastern europe|Bulgaria|Sofia
+362|False|1201.918|1271522.5|central america|Costa Rica|San José
+363|False|1200.249|1397518.375|southern asia|India|Allahabad
+364|False|1196.878|1017479.8125|south america|Brazil|João Pessoa
+365|True|1192.357|1212463.125|northern europe|Denmark|København (Copenhagen)
+366|False|1191.368|780636.625|northern america|United States of America|Providence
+367|False|1190.362|1098818.125|northern america|Canada|Calgary
+368|True|1187.023|1246818.0|southern asia|India|Dhanbad
+369|False|1174.898|385466.40625|western asia|Iraq|Al-Mawsil (Mosul)
+370|False|1170.649|1273355.625|southern asia|India|Amritsar
+371|False|1170.324|1175139.625|southern asia|India|Aurangabad
+372|False|1164.448|1020661.5|eastern europe|Russian Federation|Samara
+373|False|1154.403|1043393.25|south america|Brazil|Maceió
+374|False|1153.384|1158401.125|eastern europe|Russian Federation|Omsk
+375|False|1145.548|552470.3125|south-eastern asia|Thailand|Chon Buri
+376|False|1142.14|1146380.625|eastern europe|Russian Federation|Kazan
+377|False|1141.814|1154770.625|eastern asia|China|Xining
+378|True|1139.638|1416941.0|eastern asia|China, Taiwan Province of China|Taizhong
+379|False|1139.289|1374579.875|eastern asia|China|Quanzhou
+380|False|1137.84|548334.9375|eastern asia|Mongolia|Ulaanbaatar
+381|False|1137.346|957687.375|northern america|Canada|Edmonton
+382|False|1136.132|1172434.75|south america|Brazil|Natal
+383|True|1132.597|1194312.5|eastern asia|China|Yinchuan
+384|False|1128.229|1148885.5|eastern europe|Russian Federation|Chelyabinsk
+385|False|1126.001|1084456.125|northern europe|Finland|Helsinki
+386|False|1124.768|770872.4375|eastern asia|China|Zhangjiakou
+387|False|1117.321|1155744.0|southern asia|India|Jodhpur
+388|False|1116.718|1153550.125|eastern asia|China|Taian, Shandong
+389|True|1114.002|512732.5625|south america|Brazil|Joinville
+390|False|1112.922|1143390.625|western asia|Iraq|Al-Basrah (Basra)
+391|True|1108.313|1203082.0|south-eastern asia|Myanmar|Mandalay
+392|True|1106.937|1120412.0|southern asia|India|Ranchi
+393|NoMASK|1106.293|NA|western asia|Saudi Arabia|Al-Madinah (Medina)
+394|False|1106.043|1106143.125|eastern africa|South Africa|Port Elizabeth (Nelson Mandela Bay)
+395|False|1103.434|1144435.875|eastern asia|China|Hengyang
+396|False|1100.238|1112055.75|northern europe|Ireland|Dublin
+397|False|1098.876|1027226.75|central america|Mexico|Querétaro
+398|False|1098.087|1157655.75|southern asia|Bangladesh|Khulna
+399|True|1096.531|1273021.75|eastern africa|Mozambique|Maputo
+400|False|1095.149|1107269.375|northern africa|Libya|Tarabulus (Tripoli)
+401|False|1093.094|1111065.375|southern asia|India|Raipur
+402|False|1088.571|1120758.625|eastern europe|Russian Federation|Rostov-na-Donu (Rostov-on-Don)
+403|False|1087.849|1096526.375|eastern asia|China|Wuhu, Anhui
+404|False|1086.428|1205850.75|central america|El Salvador|San Salvador
+405|False|1086.191|1099300.75|eastern asia|China|Putian
+406|False|1085.234|505441.59375|southern asia|India|Gwalior
+407|False|1079.445|1120993.875|western asia|Georgia|Tbilisi
+408|False|1077.565|1091095.5|south america|Venezuela (Bolivarian Republic of)|Barquisimeto
+409|NoMASK|1077.207|NA|western asia|Iran (Islamic Republic of)|Ahvaz
+410|False|1075.533|1088005.125|eastern asia|China|Qinhuangdao
+411|True|1074.904|963449.125|south america|Colombia|Bucaramanga
+412|NoMASK|1073.968|NA|south-eastern asia|Thailand|Samut Prakan
+413|False|1070.291|1216912.75|southern asia|India|Kollam
+414|False|1070.235|987073.9375|northern america|United States of America|Jacksonville, Florida
+415|NoMASK|1070.016|NA|eastern asia|Republic of Korea|Suweon
+416|True|1065.597|1068820.75|western asia|Armenia|Yerevan
+417|False|1064.983|1086949.5|south america|Venezuela (Bolivarian Republic of)|Maracay
+418|False|1064.617|1175835.0|western europe|Netherlands|Amsterdam
+419|False|1063.155|1102874.0|central america|Mexico|La Laguna
+420|False|1062.354|1069406.375|northern america|United States of America|Memphis
+421|False|1061.597|1067583.875|eastern europe|Russian Federation|Ufa
+422|NoMASK|1059.658|NA|western asia|Iran (Islamic Republic of)|Qom
+423|False|1059.501|1198088.5|eastern asia|Republic of Korea|Changwon
+424|False|1056.555|1056917.75|eastern asia|China|Mianyang, Sichuan
+425|False|1055.952|1102018.0|western africa|Liberia|Monrovia
+426|False|1054.552|1096995.625|southern asia|India|Durg-Bhilainagar
+427|False|1047.263|1086365.75|western asia|Israel|Hefa (Haifa)
+428|True|1044.565|1094913.75|eastern asia|China|Taizhou, Jiangsu
+429|False|1044.498|1065829.0|eastern asia|China|Cixi
+430|False|1043.094|1056242.75|central america|Honduras|Tegucigalpa
+431|True|1041.815|1056111.875|central america|Mexico|San Luis Potosí
+432|False|1038.793|1102520.25|northern africa|Morocco|Fès
+433|False|1035.118|1051464.25|eastern asia|China|Yichang
+434|False|1031.033|1060939.875|eastern asia|China|Zhanjiang
+435|False|1024.82|1035178.625|northern america|United States of America|Salt Lake City
+436|NoMASK|1021.974|NA|western asia|Turkey|Konya
+437|False|1020.912|719659.0|eastern europe|Russian Federation|Volgograd
+438|False|1020.77|1020818.75|western europe|France|Lille
+439|False|1012.951|1082338.75|southern asia|India|Tiruchirappalli
+440|False|1010.091|777999.25|south america|Brazil|Florianópolis
+441|False|1009.721|1030729.0|eastern europe|Ukraine|Dnipro
+442|False|1009.03|1016057.6875|eastern europe|Ukraine|Odesa
+443|False|1008.576|1103981.25|western europe|Germany|Köln (Cologne)
+444|True|1002.773|1039394.1875|western europe|Netherlands|Rotterdam
+445|False|995.086|976742.5625|eastern asia|China|Benxi
+446|False|993.453|1017873.0|eastern asia|China|Zhuzhou
+447|False|992.577|1282498.0|western europe|Belgium|Antwerpen
+448|False|991.925|993421.25|central america|Nicaragua|Managua
+449|NoMASK|991.481|NA|eastern europe|Russian Federation|Perm
+450|False|990.552|994693.8125|middle africa|Chad|N'Djaména
+451|False|988.0|1001618.1875|western africa|Nigeria|Kaduna
+452|False|986.57|990196.0|eastern asia|China|Zunyi
+453|False|985.799|998829.625|northern america|Bolivia (Plurinational State of)|Cochabamba
+454|False|984.602|808543.1875|south america|Argentina|Mendoza
+455|False|978.37|983652.625|southern asia|India|Kota
+456|False|977.425|1057218.0|eastern asia|China|Zaozhuang
+457|True|976.695|1074048.375|southern asia|India|Mysore
+458|False|975.818|603546.25|northern america|United States of America|Nashville-Davidson
+459|False|975.432|983230.375|northern america|United States of America|Louisville
+460|False|974.501|986689.0|central america|Mexico|Mérida
+461|False|973.647|979193.0|eastern europe|Russian Federation|Voronezh
+462|False|971.524|971534.375|eastern europe|Russian Federation|Krasnoyarsk
+463|True|968.659|977010.0|southern asia|India|Bareilly
+464|False|965.555|1011319.0625|eastern europe|Ukraine|Donetsk
+465|NoMASK|964.802|NA|southern asia|Nepal|Kathmandu
+466|True|958.867|982559.0|southern asia|India|Chandigarh
+467|False|958.19|962140.25|eastern asia|China|Guilin
+468|False|957.185|726631.125|northern america|United States of America|Richmond
+469|False|953.998|957077.625|western africa|Niger|Niamey
+470|False|953.589|739999.375|eastern asia|China|Dongying
+471|NoMASK|953.444|NA|south-eastern asia|Indonesia|Bogor
+472|False|953.125|961459.0|south-eastern asia|Thailand|Chiang Mai
+473|False|952.042|952649.1875|southern asia|India|Guwahati (Gauhati)
+474|NoMASK|948.947|NA|eastern asia|Republic of Korea|Seongnam
+475|False|946.077|955866.4375|southern asia|India|Solapur
+476|False|945.197|964972.5|western europe|France|Nice-Cannes
+477|True|943.549|1091956.875|eastern asia|China|Zhenjiang, Jiangsu
+478|False|940.333|1013035.4375|eastern africa|Kenya|Mombasa
+479|False|939.826|943472.5625|eastern asia|China|Jinzhou
+480|False|938.439|854506.0|middle africa|Democratic Republic of the Congo|Kananga
+481|False|938.246|914305.5|central america|Mexico|Mexicali
+482|True|934.911|804389.9375|northern america|United States of America|Buffalo
+483|False|933.717|960692.4375|central america|Mexico|Aguascalientes
+484|True|932.916|985730.0625|southern asia|India|Tiruppur
+485|False|932.378|988572.375|southern asia|India|Hubli-Dharwad
+486|False|926.766|737144.3125|northern america|United States of America|Hartford
+487|False|926.136|933542.625|central america|Mexico|Cuernavaca
+488|True|925.969|525780.375|south-eastern asia|Indonesia|Batam
+489|False|924.813|506000.75|western asia|Syrian Arab Republic|Hamah
+490|False|924.186|673234.25|northern america|United States of America|Bridgeport-Stamford
+491|True|921.321|922750.6875|eastern asia|China|Yueyang
+492|False|919.119|926148.0|south america|Colombia|Cartagena
+493|True|912.889|972825.25|eastern asia|China|Xinxiang
+494|NoMASK|912.318|NA|western asia|United Arab Emirates|Abu Zaby (Abu Dhabi)
+495|False|909.965|917281.0625|eastern asia|China|Weihai
+496|False|908.789|704745.75|western asia|Saudi Arabia|Ad-Dammam
+497|False|905.952|909593.4375|western asia|Turkey|Antalya
+498|False|905.305|985558.875|southern asia|India|Salem
+499|True|905.221|752492.375|western africa|Sierra Leone|Freetown
+500|NoMASK|902.447|NA|eastern asia|Republic of Korea|Goyang
+501|False|902.136|915282.5|south-eastern asia|Indonesia|Pekan Baru
+502|False|902.013|830714.9375|northern america|United States of America|New Orleans
+503|False|900.07|921446.25|south america|Brazil|Teresina
+504|False|900.0|823773.625|western asia|United Arab Emirates|Ash-Shariqah (Sharjah)
+505|False|899.845|935754.4375|eastern asia|China|Jingzhou, Hubei
+506|False|897.916|903111.375|northern europe|Norway|Oslo
+507|False|895.893|1115822.875|eastern asia|China|Xiangtan, Hunan
+508|False|895.794|928842.5|northern america|United States of America|Raleigh
+509|False|894.699|979563.875|eastern asia|China|Maoming
+510|False|894.264|900961.0|eastern asia|China|Chifeng
+511|False|893.427|914208.875|eastern asia|Republic of Korea|Ulsan
+512|False|893.08|966910.0|eastern asia|China|Anyang
+513|False|892.677|928597.0|southern asia|India|Aligarh
+514|False|892.419|908892.5|eastern asia|China|Nanyang, Henan
+515|True|891.49|762303.375|eastern asia|China|Rizhao
+516|False|889.737|894798.4375|western europe|France|Toulouse
+517|False|889.004|933854.6875|south-eastern asia|Viet Nam|Hai Phòng
+518|False|888.584|820450.0|south america|Chile|Valparaíso
+519|False|886.938|895730.75|eastern asia|China|Shiyan
+520|True|884.897|917459.9375|south-eastern asia|Indonesia|Bandar Lampung
+521|False|883.092|910573.25|eastern asia|China|Kaifeng
+522|False|880.138|914079.0625|northern africa|Morocco|Marrakech
+523|False|879.675|893479.875|eastern asia|China|Nanchong
+524|True|870.548|873370.75|eastern asia|China|Yingkou
+525|False|868.963|1070906.5|western africa|Nigeria|Onitsha
+526|True|868.873|875343.0|southern asia|India|Moradabad
+527|False|868.06|883160.6875|southern asia|India|Bhubaneswar
+528|NoMASK|867.913|NA|south-eastern asia|Philippines|Cebu City
+529|True|867.505|1019007.5625|eastern africa|Mozambique|Matola
+530|False|866.357|1035513.625|eastern asia|China|Puning
+531|False|866.097|918192.5|eastern asia|China|Yiwu
+532|True|864.574|868175.0|northern america|United States of America|Oklahoma City
+533|False|864.345|758538.0|central america|Mexico|Acapulco de Juárez
+534|False|863.145|901522.0|eastern asia|China|Baoji
+535|False|863.121|872248.0|northern europe|United Kingdom|Liverpool
+536|False|862.699|955198.3125|southern asia|India|Jalandhar
+537|True|860.526|763017.25|central america|Mexico|Tampico
+538|NoMASK|859.008|NA|middle africa|Democratic Republic of the Congo|Kisangani
+539|True|857.691|867820.25|eastern asia|China|Pingdingshan, Henan
+540|False|855.03|872010.1875|southern europe|Italy|Palermo
+541|False|854.07|829487.25|central america|Mexico|Chihuahua
+542|False|853.99|861630.75|western europe|France|Bordeaux
+543|False|851.888|881710.25|eastern asia|China|Panjin
+544|NoMASK|851.737|NA|eastern asia|Republic of Korea|Bucheon
+545|False|851.089|877096.875|northern europe|United Kingdom|SouthamptonPortsmouth (South Hampshire)
+546|True|850.682|864311.375|western africa|Mauritania|Nouakchott
+547|False|850.639|903826.875|south-eastern asia|Viet Nam|Can Tho
+548|False|846.482|815965.5625|northern america|United States of America|Tucson
+549|True|846.072|918416.875|eastern asia|China|Huaibei
+550|False|844.399|852367.0|south america|Argentina|San Miguel de Tucumán
+551|NoMASK|844.33|NA|eastern asia|Republic of Korea|Yongin
+552|NoMASK|843.969|NA|central asia|Kyrgyzstan|Bishkek
+553|False|839.152|838370.875|eastern europe|Russian Federation|Saratov
+554|False|838.398|859471.4375|eastern asia|China|Jixi, Heilongjiang
+555|NoMASK|836.122|NA|western asia|Iran (Islamic Republic of)|Kermanshah
+556|True|835.776|851009.875|south-eastern asia|Indonesia|Padang
+557|False|830.561|834321.0625|central america|Mexico|Morelia
+558|True|830.347|856333.1875|northern africa|Morocco|Tanger
+559|True|824.63|900019.4375|western africa|Nigeria|Aba
+560|False|824.368|796324.0|central america|Mexico|Saltillo
+561|False|821.408|827371.9375|western asia|Turkey|Diyarbakir
+562|NoMASK|821.262|NA|south-eastern asia|Indonesia|Malang
+563|True|819.588|866402.3125|northern africa|Algeria|Wahran (Oran)
+564|False|816.128|658307.3125|middle africa|Congo|Pointe-Noire
+565|NoMASK|816.089|NA|southern asia|Pakistan|Quetta
+566|False|813.141|814293.5|south america|Brazil|Aracaju
+567|True|813.064|930966.5|eastern asia|China|Ruian
+568|False|812.514|691533.0|central america|Mexico|Veracruz
+569|False|811.999|836802.875|eastern asia|Japan|Niigata
+570|True|808.814|631974.6875|south-eastern asia|Philippines|Zamboanga City
+571|False|807.257|634216.4375|western asia|Turkey|Mersin
+572|NoMASK|807.042|NA|south-eastern asia|Malaysia|Johor Bahru
+573|False|806.579|965003.9375|northern america|United States of America|El Paso
+574|NoMASK|806.241|NA|western asia|Iraq|Kirkuk
+575|True|806.139|859194.4375|southern europe|Greece|Thessaloniki
+576|False|805.258|808983.5625|south-eastern asia|Viet Nam|Da Nang
+577|True|804.682|826630.5|northern america|United States of America|Honolulu
+578|False|804.337|856886.125|southern asia|Pakistan|Islamabad
+579|False|797.059|798659.625|eastern africa|Rwanda|Kigali
+580|False|794.739|694509.0|western asia|Turkey|Kayseri
+581|NoMASK|792.666|NA|south-eastern asia|Thailand|Nonthaburi
+582|False|792.188|800105.8125|south-eastern asia|Thailand|Songkhla
+583|False|791.703|802519.875|south america|Peru|Arequipa
+584|True|791.502|870281.6875|south-eastern asia|Indonesia|Denpasar
+585|False|790.385|900697.1875|eastern asia|China|Bengbu
+586|False|788.87|792481.5|southern europe|Italy|Bergamo
+587|False|786.317|803926.75|eastern asia|China|Mudanjiang
+588|False|785.525|868289.375|southern asia|Bangladesh|Rajshahi
+589|False|785.427|968472.25|south america|Argentina|La Plata
+590|False|784.667|839681.125|southern europe|Spain|Valencia
+591|False|784.13|821117.875|eastern asia|China, Taiwan Province of China|Tainan
+592|False|781.421|880074.5625|western asia|Israel|Jerusalem
+593|False|781.214|830247.875|eastern asia|China|Shangrao
+594|False|777.373|805463.625|eastern asia|China|Zhaoqing
+595|False|775.759|778948.875|eastern europe|Ukraine|Zaporizhzhya
+596|False|775.177|799178.0625|south america|Colombia|Cúcuta
+597|True|775.132|780663.25|south america|Brazil|Campo Grande
+598|False|773.943|784469.0|western africa|Nigeria|Ilorin
+599|False|772.509|887378.5|eastern asia|China|Dandong
+600|False|772.229|787404.0|northern europe|United Kingdom|Newcastle upon Tyne
+601|True|772.214|801496.5625|eastern asia|China|Fuyang
+602|True|772.046|777560.0|eastern asia|China|Tengzhou
+603|True|766.745|783042.9375|eastern asia|China|Suqian
+604|NoMASK|764.36|NA|eastern africa|South Africa|West Rand
+605|False|762.073|607284.8125|southern europe|Italy|Bologna
+606|False|760.109|770099.3125|northern africa|Morocco|Agadir
+607|False|759.044|781122.5625|eastern europe|Poland|Kraków (Cracow)
+608|False|757.486|713120.25|northern america|Canada|Québec
+609|False|757.164|766834.3125|south america|Chile|Concepción
+610|False|756.531|702104.9375|central america|Mexico|Villahermosa
+611|False|751.773|753976.5|northern america|United States of America|Birmingham
+612|False|749.285|863052.6875|eastern asia|China|Jiaxing
+613|False|747.403|770629.375|eastern asia|China|Fuxin
+614|NoMASK|746.499|NA|south-eastern asia|Thailand|Pathum Thani
+615|False|745.405|723471.625|south america|Venezuela (Bolivarian Republic of)|Ciudad Guayana
+616|False|745.294|753718.5625|northern america|United States of America|Albuquerque
+617|False|744.422|756699.5|eastern asia|China|Ganzhou
+618|False|741.223|763414.9375|eastern asia|China|Huzhou
+619|False|741.142|764868.375|eastern europe|Russian Federation|Krasnodar
+620|False|740.512|758071.25|eastern asia|China|Wenling
+621|False|740.362|810608.125|southern asia|India|Warangal
+622|False|739.654|749308.25|eastern asia|China|Luzhou
+623|NoMASK|735.439|NA|western asia|Iraq|Irbil (Erbil)
+624|True|734.876|817664.0|northern america|United States of America|McAllen
+625|False|734.732|750296.375|eastern europe|Poland|Łódź
+626|True|734.145|783722.625|eastern asia|Japan|Kumamoto
+627|False|733.87|760993.375|western africa|Nigeria|Jos
+628|True|733.29|750487.75|eastern europe|Ukraine|Lviv
+629|True|732.435|752409.1875|south america|Brazil|Londrina
+630|False|731.459|729550.0|south-eastern asia|Indonesia|Samarinda
+631|True|731.189|788814.5|eastern asia|China|Liaoyang
+632|True|730.907|733829.0|eastern asia|China|Suzhou, Anhui
+633|False|730.841|784592.875|eastern africa|Malawi|Lilongwe
+634|False|728.457|762819.125|central america|Mexico|Reynosa
+635|False|727.649|712944.6875|northern america|United States of America|Omaha
+636|NoMASK|727.461|NA|southern asia|India|Bhiwandi
+637|False|725.747|745935.75|northern europe|United Kingdom|Nottingham
+638|NoMASK|725.491|NA|eastern asia|Republic of Korea|Ansan
+639|True|725.488|774386.375|eastern asia|China|Ma'anshan
+640|False|725.146|741800.3125|eastern asia|China|Shaoguan
+641|False|724.614|744391.875|northern america|United States of America|Dayton
+642|False|723.81|674978.25|northern america|Canada|Winnipeg
+643|False|723.411|732593.0|eastern asia|China|Heze
+644|True|722.07|875418.375|eastern asia|China|Jieyang
+645|False|721.27|730803.4375|western asia|Oman|Masqat (Muscat)
+646|False|721.237|718886.6875|northern america|United States of America|Rochester
+647|False|720.968|748410.875|central asia|Tajikistan|Dushanbe
+648|False|718.988|719898.4375|eastern europe|Russian Federation|Tolyatti
+649|True|718.982|730634.375|south america|Peru|Trujillo
+650|False|716.845|700589.8125|middle africa|Central African Republic|Bangui
+651|True|716.368|774420.8125|eastern asia|China|Yueqing
+652|True|716.233|714370.5625|central america|Mexico|Hermosillo
+653|False|716.13|766017.25|northern america|Canada|Hamilton
+654|False|714.794|723050.375|eastern asia|China|Binzhou
+655|False|710.449|713091.125|eastern africa|South Africa|Soshanguve
+656|False|709.924|763525.75|eastern africa|South Africa|Vereeniging
+657|False|709.746|740214.9375|eastern asia|China|Pingxiang, Jiangxi
+658|False|708.902|764588.875|eastern asia|Japan|Okayama
+659|True|707.328|503990.5625|western asia|Yemen|Adan (Aden)
+660|True|703.67|616182.8125|southern europe|Italy|Genova (Genoa)
+661|True|701.153|778099.25|eastern africa|Malawi|Blantyre-Limbe
+662|True|700.438|714147.1875|eastern asia|China|Jiaozuo
+663|False|697.988|739617.0|eastern asia|China|Jiujiang
+664|False|697.759|184786.875|eastern asia|China|Yichun, Heilongjiang
+665|False|696.234|768558.375|southern europe|Spain|Sevilla
+666|True|694.576|844572.0|eastern asia|China|Jinhua
+667|True|692.787|728069.625|southern asia|India|Dehradun
+668|False|692.62|702919.125|southern europe|Italy|Firenze (Florence)
+669|False|690.536|732065.0|southern asia|India|Gorakhpur
+670|False|688.43|709897.0|southern europe|Croatia|Zagreb
+671|True|688.101|700852.125|eastern asia|China|Dezhou
+672|True|687.65|710138.4375|eastern asia|China|Huangshi
+673|False|686.98|687915.875|southern asia|India|Siliguri
+674|False|686.493|701087.5|eastern asia|China|Yangjiang
+675|NoMASK|686.46|NA|south-eastern asia|Viet Nam|Bien Hoa
+676|False|685.4|711356.75|central america|Mexico|Tuxtla Gutierrez
+677|True|685.252|811264.6875|southern asia|India|Saharanpur
+678|True|684.121|855875.25|eastern asia|China|Haicheng
+679|False|681.918|747141.5|northern europe|United Kingdom|Sheffield
+680|False|681.632|700295.0|western africa|Nigeria|Zaria
+681|False|681.37|730580.5|western europe|Germany|Frankfurt am Main
+682|NoMASK|680.678|NA|south-eastern asia|Philippines|Antipolo
+683|False|679.291|659681.4375|central america|Mexico|Cancún
+684|NoMASK|678.107|NA|northern africa|Libya|Banghazi
+685|False|677.012|685214.625|central america|Mexico|Culiacán
+686|False|675.609|681758.0625|south america|Venezuela (Bolivarian Republic of)|Barcelona-Puerto La Cruz
+687|NoMASK|675.44|NA|western africa|Benin|Cotonou
+688|False|674.0|675914.0625|western africa|Nigeria|Maiduguri
+689|False|672.25|700839.75|south america|Brazil|Sorocaba
+690|True|669.887|698699.0|eastern asia|China|Leshan
+691|False|669.678|679413.25|eastern africa|Eritrea|Asmara
+692|False|669.301|683522.9375|southern europe|Spain|Zaragoza
+693|False|668.042|660032.375|eastern europe|Ukraine|Kryvyi Rih
+694|False|667.666|681670.0|central asia|Turkmenistan|Ashgabat
+695|False|667.386|679675.875|central america|Mexico|Xalapa
+696|True|667.016|641568.5|northern america|United States of America|Allentown-Bethlehem
+697|True|665.14|721774.625|eastern asia|China|Xingtai
+698|False|665.118|681180.1875|eastern asia|Republic of Korea|Cheongju
+699|False|664.645|680897.25|northern europe|Latvia|Riga
+700|False|664.377|709360.25|eastern asia|China|Xuchang
+701|False|664.283|671251.375|eastern asia|China|Yibin
+702|NoMASK|664.022|NA|central asia|Kazakhstan|Astana
+703|False|663.896|686956.3125|eastern asia|China|Zigong
+704|NoMASK|663.739|NA|western asia|Saudi Arabia|Hufuf-Mubarraz
+705|False|663.576|676586.375|south-eastern asia|Malaysia|Ipoh
+706|False|661.681|717607.5|eastern asia|China|Laiwu
+707|False|660.914|673854.3125|eastern asia|China|Xintai
+708|True|658.387|723320.25|southern asia|India|Guntur
+709|False|658.235|663700.5|eastern africa|Zimbabwe|Bulawayo
+710|False|658.106|575475.9375|northern america|United States of America|Tulsa
+711|True|658.071|677266.3125|western asia|Syrian Arab Republic|Lattakia
+712|False|657.835|944040.625|southern asia|India|Cuttack
+713|False|657.738|585463.375|western europe|Belgium|Liège
+714|False|657.331|659750.6875|northern america|United States of America|Fresno
+715|True|654.207|712481.1875|southern asia|India|Jammu
+716|False|651.952|662701.5625|eastern asia|China|Guigang
+717|False|651.011|660863.0625|south-eastern asia|Thailand|Nakhon Ratchasima
+718|True|649.831|994948.5|eastern asia|China|Xianyang, Shaanxi
+719|True|648.564|434376.84375|middle africa|Gabon|Libreville
+720|False|647.912|683768.0|eastern asia|Republic of Korea|Jeonju
+721|False|647.552|668888.5625|eastern asia|China|Liuan
+722|False|647.339|650985.5|central asia|Kazakhstan|Shimkent
+723|False|647.232|672121.75|eastern asia|China|Changzhi
+724|False|646.106|687300.375|central america|Honduras|San Pedro Sula
+725|True|645.864|720906.125|southern asia|India|Puducherry
+726|False|645.722|651215.0|eastern asia|China|Qingyuan
+727|False|645.509|467362.28125|northern america|United States of America|Sarasota-Bradenton
+728|NoMASK|644.179|NA|western asia|Iran (Islamic Republic of)|Orumiyeh
+729|False|643.432|700678.8125|middle africa|Democratic Republic of the Congo|Bukavu
+730|True|642.851|642964.8125|eastern asia|China|Fuzhou, Jiangxi
+731|False|642.41|699287.5|eastern asia|China|Huludao
+732|False|640.056|652992.75|southern asia|India|Amravati
+733|False|636.969|659693.5625|western asia|Iraq|Najaf
+734|True|636.704|679949.4375|western europe|Netherlands|s-Gravenhage (The Hague)
+735|False|636.05|645070.25|southern asia|India|Bikaner
+736|False|634.144|651794.375|eastern asia|China|Qujing
+737|False|632.652|637907.375|eastern europe|Poland|Wrocław
+738|True|631.341|684659.625|western africa|Nigeria|Uyo
+739|False|628.801|633585.3125|eastern asia|China|Panzhihua
+740|False|627.942|636368.1875|eastern asia|China|Jiamusi
+741|False|627.89|628827.8125|eastern europe|Russian Federation|Izhevsk
+742|False|627.61|634728.1875|southern europe|Italy|Padova
+743|False|627.09|660455.8125|south-eastern asia|Indonesia|Banjarmasin
+744|NoMASK|623.243|NA|western asia|Turkey|Eskisehir
+745|False|622.539|511910.46875|northern america|United States of America|Springfield, Massachusett, Connecticut
+746|False|620.692|639464.5|eastern africa|United Republic of Tanzania|Mwanza
+747|True|620.094|642448.875|eastern asia|China|Pizhou
+748|False|620.013|633977.625|eastern asia|China|Xinyang
+749|False|618.842|624904.75|eastern asia|Dem. People's Republic of Korea|Chongjin
+750|False|618.424|669329.625|eastern asia|China|Yangquan
+751|False|618.364|664909.5625|southern europe|Italy|Venezia
+752|True|617.829|660685.5625|southern asia|India|Mangalore
+753|False|617.637|754434.6875|northern america|United States of America|Concord
+754|True|617.063|645251.75|western asia|Iran (Islamic Republic of)|Rasht
+755|NoMASK|616.44|NA|eastern asia|China|Changde
+756|False|615.521|493562.9375|eastern europe|Russian Federation|Ulyanovsk
+757|False|613.616|616482.875|southern europe|Italy|Bari
+758|True|612.3|678941.125|eastern asia|China|Shangqiu
+759|False|612.093|622549.625|northern europe|United Kingdom|Bristol
+760|False|612.079|615992.625|eastern europe|Russian Federation|Barnaul
+761|NoMASK|611.285|NA|northern africa|Egypt|Bur Sa'id
+762|False|611.111|510940.46875|eastern africa|South Africa|East London (Buffalo City)
+763|False|609.561|634432.0|eastern asia|China|Liupanshui
+764|False|609.141|630336.625|southern asia|Pakistan|Bahawalpur
+765|False|608.718|632373.5|central america|Mexico|Oaxaca de Juárez
+766|False|608.107|663939.1875|western europe|Germany|Stuttgart
+767|False|607.824|679426.8125|south america|Brazil|São José dos Campos
+768|True|607.21|669642.125|eastern asia|China|Zhangzhou
+769|NoMASK|606.912|NA|eastern africa|Somalia|Hargeysa
+770|True|606.226|805383.4375|southern europe|Italy|Busto Arsizio
+771|False|605.994|618275.0|south-eastern asia|Lao People's Democratic Republic|Vientiane
+772|True|605.771|617848.875|eastern asia|Japan|Kagoshima
+773|False|605.767|607078.125|eastern asia|China|Ezhou
+774|False|605.216|613491.625|south america|Argentina|Mar Del Plata
+775|False|605.021|618320.75|eastern asia|China|Tianmen
+776|True|604.309|631973.5625|south-eastern asia|Philippines|Cagayan de Oro City
+777|True|603.788|611316.0|eastern asia|Dem. People's Republic of Korea|Hamhung
+778|True|602.817|655364.625|southern asia|India|Belgaum
+779|False|602.668|639031.25|central america|Mexico|Celaya
+780|NoMASK|602.642|NA|eastern asia|Republic of Korea|Anyang
+781|False|601.58|615136.625|eastern asia|China|Liaocheng
+782|False|601.444|628894.1875|eastern asia|China|Zhuji
+783|False|600.0|601948.125|western africa|Nigeria|Enugu
+784|False|599.713|600185.625|eastern asia|China|Hegang
+785|False|599.571|613798.3125|southern asia|India|Bhavnagar
+786|False|599.3|608943.375|western europe|France|Nantes
+787|True|599.067|605639.25|eastern asia|China|Deyang
+788|False|597.91|597912.75|southern asia|India|Jamnagar
+789|False|597.722|631779.0|south america|Brazil|Ribeirão  Preto
+790|False|597.514|602255.6875|northern america|United States of America|Baton Rouge
+791|False|595.889|568220.25|northern america|United States of America|Albany
+792|False|595.781|596187.0|northern europe|United Kingdom|Belfast
+793|False|593.526|597727.3125|eastern asia|China|Longyan
+794|False|592.252|588376.0625|eastern europe|Russian Federation|Yaroslavl
+795|True|592.026|445252.1875|eastern europe|Russian Federation|Vladivostok
+796|False|592.0|654573.625|western africa|Nigeria|Oshogbo
+797|False|590.947|652847.375|southern asia|India|Firozabad
+798|False|588.862|651895.3125|caribbean|Dominican Republic|Santiago
+799|False|588.088|592509.875|eastern europe|Russian Federation|Irkutsk
+800|False|587.861|637414.5|western europe|Germany|Duesseldorf
+801|False|587.0|670958.375|western africa|Nigeria|Owerri
+802|False|586.535|590616.3125|western africa|Burkina Faso|Bobo-Dioulasso
+803|False|585.259|593319.125|south america|Brazil|Uberlândia
+804|True|585.004|668564.5|northern america|United States of America|Mission Viejo
+805|False|584.514|614113.125|eastern asia|China|Neijiang
+806|False|584.33|609486.375|caribbean|Jamaica|Kingston
+807|False|583.862|589991.0|south-eastern asia|Indonesia|Tasikmalaya
+808|False|582.755|706996.25|western europe|Germany|Dortmund
+809|NoMASK|581.905|NA|western asia|Saudi Arabia|Taif
+810|False|581.574|600480.625|southern europe|Italy|Verona
+811|False|580.371|695160.75|western europe|Germany|Essen
+812|False|579.187|588473.5625|eastern europe|Russian Federation|Tyumen
+813|True|579.05|617950.375|southern asia|Pakistan|Sargodha
+814|NoMASK|578.295|NA|south-eastern asia|Philippines|Dasmarinas
+815|False|578.085|604500.125|eastern asia|China|Zhucheng
+816|True|577.986|578446.375|southern europe|Italy|Catania
+817|True|577.972|725417.625|western asia|Yemen|Ta'izz
+818|False|577.629|558692.875|eastern europe|Russian Federation|Khabarovsk
+819|True|576.383|607214.125|eastern asia|China|Xiaogan
+820|False|575.788|586266.25|northern africa|Tunisia|Safaqis
+821|True|575.262|512411.40625|western asia|Iraq|Karbala
+822|True|574.704|718777.3125|southern asia|India|Durgapur
+823|NoMASK|574.323|NA|southern asia|Sri Lanka|Colombo
+824|False|574.001|511320.6875|eastern asia|China|Liuyang
+825|False|573.988|583198.125|western asia|Iraq|Sulaimaniya
+826|False|572.827|573293.8125|eastern asia|China|Chenzhou
+827|False|570.907|585448.5|eastern asia|Republic of Korea|Cheonan
+828|False|570.727|573074.875|northern america|United States of America|Grand Rapids
+829|False|570.2|635019.6875|eastern asia|China|Shaoyang
+830|False|569.481|465796.5625|northern america|United States of America|Akron
+831|False|568.893|593477.875|eastern asia|China|Xinghua
+832|True|567.915|534797.75|eastern europe|Russian Federation|Makhachkala
+833|False|567.705|596330.0|southern asia|India|Malegaon
+834|False|566.112|492204.125|oceania|Australia|Gold Coast-Tweed Head
+835|True|565.729|580843.8125|eastern asia|China|Anqing
+836|True|565.453|710635.9375|south america|Brazil|Jundiaí
+837|False|564.977|523515.90625|south america|Argentina|Salta
+838|True|564.087|604112.25|eastern asia|China|Luohe
+839|False|563.649|583950.25|northern america|United States of America|New Haven
+840|NoMASK|563.13|NA|eastern asia|China|Changshu
+841|False|563.126|564437.8125|eastern asia|China|Linfen
+842|False|562.691|568765.6875|northern america|United States of America|Knoxville
+843|False|562.583|436396.90625|western europe|France|Toulon
+844|NoMASK|562.49|NA|western asia|Iran (Islamic Republic of)|Zahedan
+845|NoMASK|562.403|NA|western africa|Nigeria|Nnewi
+846|False|561.96|564332.0625|northern america|United States of America|Colorado Springs
+847|False|559.65|572095.4375|eastern asia|China|Xinyu
+848|False|559.625|655931.4375|southern asia|India|Bokaro Steel City
+849|True|559.448|566923.75|southern asia|Pakistan|Sialkot
+850|True|559.426|555537.625|south-eastern asia|Indonesia|Balikpapan
+851|True|559.409|636403.6875|eastern asia|China|Jiangyin
+852|False|557.902|624251.875|southern asia|India|Kolhapur
+853|False|557.443|558295.4375|eastern europe|Poland|Poznań
+854|False|556.454|565761.5|south-eastern asia|Indonesia|Pontianak
+855|False|556.338|594974.8125|southern europe|Spain|Malaga
+856|NoMASK|556.326|NA|eastern africa|Burundi|Bujumbura
+857|NoMASK|556.278|NA|southern europe|Italy|Seregno
+858|False|555.821|599509.4375|northern europe|United Kingdom|Brighton-Worthing-Littlehampton
+859|False|554.731|574173.0|southern europe|Republic of Moldova|Chişinău
+860|NoMASK|553.578|NA|western asia|Israel|Be'er Sheva
+861|False|553.463|554374.3125|northern america|United States of America|Columbia, South Carolina
+862|NoMASK|552.957|NA|middle africa|Angola|Huambo
+863|NoMASK|552.048|NA|northern africa|Sudan|Nyala
+864|False|551.953|534547.75|northern america|United States of America|Charleston-North Charleston
+865|True|551.878|585995.625|eastern asia|China|Xiantao
+866|False|550.484|602735.75|south america|Brazil|Cuiabá
+867|False|549.678|409442.0|northern america|United States of America|Ogden-Layton
+868|False|548.348|457215.75|eastern europe|Russian Federation|Orenburg
+869|False|547.983|524845.5|eastern europe|Russian Federation|Novokuznetsk
+870|False|547.951|554302.75|western europe|Germany|Bremen
+871|False|547.477|561925.8125|southern asia|India|Raurkela
+872|False|547.335|573014.1875|south america|Peru|Chiclayo
+873|False|547.27|581096.3125|eastern asia|China|Taixing
+874|False|546.845|600409.875|southern asia|India|Ajmer
+875|False|546.701|629863.0|southern asia|India|Nellore
+876|False|546.398|577953.75|eastern asia|China|Hengshui
+877|False|546.127|553424.0|caribbean|Trinidad and Tobago|Port of Spain
+878|False|545.795|602327.75|eastern asia|China|Yulin, Guangxi
+879|False|545.763|546585.125|northern europe|Sweden|Göteborg
+880|False|545.216|578477.5|eastern asia|China|Suining, Sichuan
+881|False|544.568|573657.9375|south america|Colombia|Pereira
+882|False|541.525|610019.25|southern asia|India|Nanded Waghala
+883|False|541.338|594775.375|southern asia|India|Jhansi
+884|NoMASK|541.152|NA|western africa|Benin|Abomey-Calavi
+885|False|539.794|565982.0|south-eastern asia|Philippines|General Santos City
+886|True|538.858|555414.0|eastern asia|China|Zhoushan
+887|False|538.542|571921.125|eastern africa|Mozambique|Nampula
+888|False|537.973|563103.9375|eastern asia|China|Tianshui
+889|False|537.223|548056.3125|western europe|Switzerland|Genève
+890|NoMASK|536.969|NA|eastern asia|China, Macao SAR|Macao
+891|False|536.609|420311.6875|northern america|United States of America|Cape Coral
+892|True|535.406|570087.6875|eastern asia|China|Tongliao
+893|NoMASK|535.021|NA|western asia|State of Palestine|Gaza (incl. Ash Shati Camp)
+894|True|534.787|554329.875|southern asia|India|Gulbarga
+895|False|533.976|548543.4375|eastern asia|China|Yongzhou
+896|NoMASK|533.946|NA|northern africa|Egypt|As-Suways
+897|False|533.278|546692.625|south-eastern asia|Indonesia|Jambi
+898|False|532.871|534049.125|eastern europe|Russian Federation|Kemerovo
+899|True|531.982|554084.125|western africa|Ghana|Sekondi Takoradi
+900|False|531.184|538644.4375|eastern asia|China|Chengde
+901|NoMASK|531.0|NA|western africa|Nigeria|Ikorodu
+902|NoMASK|529.277|NA|western asia|Iran (Islamic Republic of)|Kerman
+903|False|528.55|548911.1875|southern asia|Bangladesh|Sylhet
+904|True|528.324|453509.9375|eastern asia|China|Yulin, Shaanxi
+905|True|527.662|532469.0625|northern america|United States of America|Bakersfield
+906|True|526.139|659175.625|eastern asia|China|Yuyao
+907|False|525.59|528281.5|eastern europe|Lithuania|Vilnius
+908|False|525.408|547272.9375|eastern asia|China|Wuzhou
+909|False|524.811|489621.375|eastern europe|Russian Federation|Ryazan
+910|True|524.7|535374.625|eastern asia|China|Langfang
+911|False|523.732|734339.625|western asia|Qatar|Ad-Dawhah (Doha)
+912|False|523.704|529466.8125|western europe|Germany|Leipzig
+913|NoMASK|523.413|NA|western asia|Syrian Arab Republic|Al-Raqqa
+914|False|523.295|544999.6875|eastern europe|Russian Federation|Tomsk
+915|False|522.928|561248.25|western europe|Germany|Hannover
+916|NoMASK|522.6|NA|south-eastern asia|Philippines|Bacoor
+917|False|521.301|546510.4375|western europe|Germany|Dresden
+918|False|521.192|525563.75|southern europe|TFYR Macedonia|Skopje
+919|True|521.119|536728.0|eastern asia|China|Tongling
+920|False|519.832|520592.25|eastern europe|Russian Federation|Astrakhan
+921|True|519.569|519499.8125|central america|Mexico|Durango
+922|NoMASK|517.79|NA|middle africa|Democratic Republic of the Congo|Tshikapa
+923|False|517.61|519464.03125|western europe|Switzerland|Basel
+924|False|517.343|529768.875|eastern europe|Russian Federation|Penza
+925|False|517.115|532893.5|eastern asia|Japan|Matsuyama
+926|True|516.863|523216.96875|western africa|Côte d'Ivoire|Bouake
+927|NoMASK|515.031|NA|western asia|Saudi Arabia|Tabuk
+928|False|514.54|594415.5|southern asia|India|Erode
+929|False|513.924|404099.4375|central america|Mexico|Poza Rica de Hidalgo
+930|NoMASK|513.415|NA|northern africa|Libya|Misratah
+931|True|513.342|576739.25|south-eastern asia|Philippines|Bacolod
+932|NoMASK|513.214|NA|western asia|Iran (Islamic Republic of)|Hamadan
+933|False|513.118|535957.3125|central america|Mexico|Pachuca de Soto
+934|False|513.078|513985.96875|eastern europe|Russian Federation|Naberezhnye Tchelny
+935|False|513.0|528426.0625|western africa|Nigeria|Warri
+936|False|511.264|545480.5|eastern asia|Japan|Utsunomiya
+937|False|510.139|518621.71875|south-eastern asia|Malaysia|Kuching
+938|True|509.907|520479.34375|south america|Brazil|Feira De Santana
+939|False|509.834|521863.71875|south america|Brazil|Juiz De Fora
+940|False|509.265|573156.3125|southern asia|India|Sangli
+941|False|509.142|546807.6875|southern asia|India|Ujjain
+942|False|508.783|514553.28125|eastern europe|Russian Federation|Lipetsk
+943|False|508.206|521905.5625|western europe|France|Douai-Lens
+944|False|507.759|500516.46875|northern america|United States of America|Toledo
+945|False|506.509|429691.3125|south america|Colombia|Ibagué
+946|True|506.379|534840.125|eastern asia|China|Siping
+947|False|504.987|526242.875|western europe|Germany|Nurenberg
+948|NoMASK|504.537|NA|western asia|Jordan|Zarqa
+949|False|504.454|509754.40625|northern europe|United Kingdom|Leicester
+950|False|501.258|503131.1875|eastern asia|China|Qitaihe
+951|False|500.632|502026.28125|western europe|France|Grenoble
+952|False|500.57|485829.5|eastern europe|Ukraine|Mykolaiv
+953|False|500.314|575405.625|central america|Mexico|Tlaxcala
+954|False|500.103|486030.25|eastern europe|Russian Federation|Tula
+955|False|499.901|506688.09375|eastern asia|China|Yanji
+956|NoMASK|499.763|NA|south-eastern asia|Indonesia|Surakarta
+957|False|498.751|338755.71875|eastern asia|China|Wuhai
+958|NoMASK|498.398|NA|northern africa|Morocco|Meknès
+959|False|498.256|498738.34375|eastern asia|China|Guiping
+960|False|497.419|537697.75|eastern asia|China|Cangzhou
+961|False|497.364|654616.125|eastern asia|China|Linhai
+962|False|496.66|518660.5625|eastern africa|Zambia|Kitwe
+963|NoMASK|495.554|NA|western asia|Turkey|Sanliurfa
+964|False|495.172|460084.15625|south america|Argentina|San Juan
+965|False|494.672|478813.75|eastern asia|China|Baishan
+966|NoMASK|494.488|NA|south america|Argentina|Santa Fe
+967|False|494.257|575780.6875|eastern asia|China|Danyang
+968|False|493.454|526488.9375|western europe|Germany|Duisburg
+969|False|493.25|511615.28125|southern asia|India|Tirunelveli
+970|True|491.989|650655.5625|western asia|Turkey|Gebze
+971|False|491.41|521511.15625|eastern asia|China|Meishan
+972|False|491.299|570761.3125|eastern asia|China|Hanzhong
+973|NoMASK|489.83|NA|middle africa|Angola|Lubango
+974|True|489.77|709149.125|central america|Mexico|Matamoros
+975|False|488.843|495834.90625|western asia|Yemen|Al-Hudaydah
+976|False|488.434|568858.0625|northern america|United States of America|Provo-Orem
+977|False|488.018|516758.6875|northern america|United States of America|Worcester
+978|False|487.603|495554.5625|eastern europe|Belarus|Gomel
+979|False|485.467|103164.890625|eastern asia|China|Erduosi (Ordoss)
+980|False|484.925|447087.5|eastern africa|Djibouti|Djibouti
+981|False|484.443|490570.8125|eastern asia|China|Qinzhou
+982|False|484.287|579964.3125|eastern asia|China|Dongtai
+983|True|482.472|493112.6875|southern asia|India|Muzaffarnagar
+984|False|481.566|383367.15625|south-eastern asia|Thailand|Udon Thani
+985|False|480.405|489640.4375|eastern asia|China|Shuangyashan
+986|False|479.859|501348.5|northern europe|United Kingdom|Edinburgh
+987|False|479.833|484118.40625|western asia|Turkey|Samsun
+988|False|479.101|517699.625|southern asia|India|Vellore
+989|False|476.0|498396.8125|western africa|Nigeria|Sokoto
+990|True|475.624|522106.25|eastern asia|China|Chaoyang
+991|False|475.202|527931.0|eastern asia|Japan|Kurashiki
+992|False|474.853|488227.46875|eastern asia|China|Hebi
+993|NoMASK|474.368|NA|eastern asia|China|Dazhou
+994|False|474.206|459158.75|northern america|United States of America|Wichita
+995|False|474.087|510163.0|eastern asia|China|Shouguang
+996|NoMASK|474.046|NA|western asia|Iran (Islamic Republic of)|Arak
+997|False|473.755|491889.46875|eastern asia|China|Tonghua
+998|False|473.493|517666.0625|eastern asia|Japan|Oita
+999|NoMASK|473.491|NA|south america|Brazil|Vale do Aço
+1000|False|473.326|495052.59375|southern asia|India|Kurnool
+1001|False|473.1|478042.75|eastern europe|Russian Federation|Kirov
+1002|NoMASK|473.008|NA|middle africa|Angola|Benguela
+1003|False|472.595|530627.4375|northern america|Canada|Kitchener-Cambrigde-Waterloo
+1004|NoMASK|472.376|NA|southern asia|India|Rajahmundry
+1005|NoMASK|472.246|NA|south-eastern asia|Thailand|Samut Sakhon
+1006|False|471.805|375160.65625|northern america|Canada|London
+1007|NoMASK|471.307|NA|western asia|Iran (Islamic Republic of)|Yazd
+1008|False|470.95|478603.1875|western asia|Turkey|Denizli
+1009|False|470.929|316121.625|south america|Venezuela (Bolivarian Republic of)|Cabimas
+1010|NoMASK|470.502|NA|western asia|Saudi Arabia|Buraydah
+1011|True|470.264|517112.6875|eastern asia|China|Feicheng
+1012|True|470.109|615565.125|southern asia|India|Gaya
+1013|False|469.772|538983.5|eastern asia|China|Jincheng
+1014|NoMASK|469.486|NA|south america|Venezuela (Bolivarian Republic of)|Maturin
+1015|NoMASK|469.307|NA|middle africa|Democratic Republic of the Congo|Kolwezi
+1016|False|468.852|432279.125|southern europe|Italy|Cagliari
+1017|NoMASK|468.437|NA|western asia|Iraq|Nasiriyah
+1018|False|468.329|388341.1875|southern asia|India|Udaipur
+1019|NoMASK|468.001|NA|northern africa|Egypt|Al-Mansurah
+1020|False|467.282|537228.75|eastern asia|China|Fuqing
+1021|False|467.063|457431.9375|eastern europe|Ukraine|Mariupol
+1022|False|466.908|468567.8125|eastern asia|China|Bozhou
+1023|False|466.528|488472.78125|eastern asia|China|Leiyang
+1024|NoMASK|466.384|NA|eastern asia|China|Shishi
+1025|NoMASK|466.205|NA|central asia|Kazakhstan|Karaganda
+1026|False|466.013|521416.46875|western europe|Netherlands|Utrecht
+1027|False|465.155|476432.5|western europe|France|Rouen
+1028|False|465.076|478049.9375|eastern asia|China|Bazhong
+1029|False|465.032|472245.3125|eastern asia|China|Huaihua
+1030|False|465.0|512744.34375|western africa|Nigeria|Akure
+1031|NoMASK|464.761|NA|western asia|Iran (Islamic Republic of)|Ardabil
+1032|False|463.459|473869.5|northern europe|United Kingdom|BournemouthPoole
+1033|NoMASK|463.432|NA|eastern asia|China|Songyuan
+1034|True|462.63|542401.875|eastern asia|China|Beihai
+1035|False|461.967|463287.625|eastern asia|Japan|Kanazawa
+1036|False|461.959|481866.15625|eastern asia|China|Hanchuan
+1037|NoMASK|461.878|NA|northern africa|Egypt|Al-Mahallah al-Kubra
+1038|NoMASK|461.334|NA|south-eastern asia|Philippines|San Jose del Monte
+1039|False|461.242|503952.375|eastern asia|Japan|Fukuyama
+1040|False|461.231|558345.5|eastern asia|China|Tongchuan
+1041|False|460.644|484328.5625|eastern europe|Poland|Gdańsk
+1042|NoMASK|460.354|NA|eastern asia|China|Kunshan
+1043|False|460.0|465588.125|western africa|Nigeria|Abeokuta
+1044|False|459.811|498905.375|eastern asia|China|Gaomi
+1045|False|459.577|476355.03125|eastern africa|South Africa|Pietermaritzburg (The Msunduzi)
+1046|False|459.177|471521.625|eastern africa|Mozambique|Beira
+1047|False|457.097|328323.8125|southern europe|Italy|Taranto
+1048|True|456.481|532348.6875|eastern asia|China|Zhoukou
+1049|NoMASK|455.722|NA|eastern africa|United Republic of Tanzania|Zanzibar
+1050|False|454.385|468296.59375|northern america|United States of America|Palm Bay-Melbourne
+1051|False|453.477|511433.6875|southern asia|India|Jalgaon
+1052|False|453.251|461240.4375|eastern europe|Russian Federation|Cheboksary
+1053|True|452.848|480755.0625|northern africa|Morocco|Oujda
+1054|NoMASK|452.493|NA|central asia|Uzbekistan|Samarkand
+1055|NoMASK|452.483|NA|eastern asia|China|Dongyang
+1056|False|452.259|439239.65625|northern america|United States of America|Des Moines
+1057|False|451.861|474054.5|eastern asia|China|Weinan
+1058|True|451.807|468468.0|central asia|Uzbekistan|Namangan
+1059|False|450.76|454316.15625|eastern asia|China|Yichun, Jiangxi
+1060|False|450.602|448482.5625|eastern africa|South Africa|Bloemfontein
+1061|False|449.931|458268.0625|western europe|France|Strasbourg
+1062|NoMASK|449.643|NA|south-eastern asia|Thailand|Chiang Rai
+1063|False|449.166|458585.9375|southern asia|India|Tirupati
+1064|True|448.795|474444.875|northern america|United States of America|Temecula-Murrieta
+1065|False|448.793|399980.1875|eastern africa|Zambia|Ndola
+1066|False|448.689|550102.1875|eastern asia|China|Haimen
+1067|False|448.411|494506.71875|southern asia|India|Mathura
+1068|NoMASK|448.187|NA|middle africa|Angola|Cabinda
+1069|True|448.02|467372.75|eastern asia|China|Sanya
+1070|False|446.731|455071.34375|northern america|United States of America|Harrisburg
+1071|NoMASK|446.067|NA|eastern asia|China|Daye
+1072|NoMASK|445.745|NA|western asia|Iraq|Amara
+1073|False|445.4|449813.71875|western europe|France|Avignon
+1074|True|444.881|447838.25|southern asia|India|Bilaspur
+1075|False|444.336|459613.0625|eastern asia|Japan|Nagasaki
+1076|False|443.759|463995.8125|northern europe|United Kingdom|Cardiff
+1077|NoMASK|442.679|NA|northern africa|Egypt|Tanta
+1078|True|442.519|444118.4375|southern europe|Italy|Brescia
+1079|True|441.732|687884.125|southern europe|Italy|Como
+1080|False|441.286|467343.40625|northern africa|Algeria|Qacentina
+1081|True|440.366|457539.25|south-eastern asia|Thailand|Rayong
+1082|False|440.22|475869.71875|eastern asia|China|Zhumadian
+1083|False|439.772|631508.875|eastern asia|China|Liling
+1084|NoMASK|439.352|NA|eastern asia|China|Jinzhong
+1085|True|438.97|567047.375|southern asia|India|Cherthala
+1086|False|438.782|452070.1875|eastern asia|China|Heyuan
+1087|False|438.673|451886.5625|eastern asia|China|Zaoyang
+1088|False|438.283|538144.75|southern asia|India|Kakinada
+1089|True|437.848|450800.375|southern asia|India|Panipat
+1090|False|437.312|439064.09375|eastern asia|China|Zhongxiang
+1091|True|436.826|480455.84375|southern asia|India|Patiala
+1092|False|435.394|446434.125|eastern asia|China|Qianjiang
+1093|False|435.141|457203.125|western europe|Belgium|Gent
+1094|False|434.786|703181.9375|central america|Mexico|Cuautla Morelos
+1095|True|434.376|558282.8125|eastern asia|China|Puyang
+1096|False|434.289|444765.5625|eastern europe|Ukraine|Luhansk
+1097|True|433.809|444672.4375|western africa|Nigeria|Umuahia
+1098|False|433.329|417998.34375|northern america|United States of America|Little Rock
+1099|NoMASK|432.782|NA|western asia|Saudi Arabia|Khamis Mushayt
+1100|False|432.613|474186.25|south america|Brazil|Volta Redonda
+1101|False|431.978|285164.1875|middle africa|Democratic Republic of the Congo|Likasi
+1102|False|431.844|440909.5625|eastern europe|Russian Federation|Kaliningrad, Kaliningrad Oblast
+1103|False|431.496|431542.90625|southern asia|Pakistan|Sukkur
+1104|False|430.226|380385.625|central america|Mexico|Tepic
+1105|NoMASK|430.164|NA|south america|Colombia|Santa Marta
+1106|False|429.884|453875.125|southern asia|India|Davanagere
+1107|NoMASK|429.03|NA|eastern asia|China|Taicang
+1108|False|428.064|449248.9375|southern europe|Spain|Murcia
+1109|True|427.786|482244.0|central america|Mexico|Orizaba
+1110|False|427.7|462162.875|eastern asia|China|Anshun
+1111|False|425.835|429185.25|eastern asia|China|Yuncheng
+1112|False|425.677|444820.0|western asia|Syrian Arab Republic|Tartus
+1113|False|425.526|274619.0625|northern america|United States of America|Poughkeepsie-Newburgh
+1114|NoMASK|425.344|NA|south-eastern asia|Philippines|Iloilo City
+1115|True|425.328|436248.0|western asia|Turkey|Malatya
+1116|False|424.941|468643.46875|eastern asia|China|Renqiu
+1117|False|424.647|451342.3125|eastern asia|China|Pingdu
+1118|False|424.625|430195.9375|caribbean|Cuba|Santiago de Cuba
+1119|True|424.084|463461.40625|southern asia|India|Akola
+1120|NoMASK|423.215|NA|south-eastern asia|Thailand|Kalasin
+1121|False|421.917|433194.09375|eastern asia|Japan|Toyama
+1122|NoMASK|420.103|NA|western asia|Iran (Islamic Republic of)|Bandar Abbas
+1123|True|419.363|459539.5|eastern asia|Japan|Takamatsu
+1124|False|418.986|419991.9375|eastern asia|China|Loudi
+1125|True|418.602|428120.5|south america|Brazil|Caxias Do Sul
+1126|True|418.229|395479.625|south america|Brazil|Campos dos Goytacazes
+1127|False|417.526|409231.9375|south america|Colombia|Villavicencio
+1128|False|417.085|838575.375|eastern asia|China|Longhai
+1129|False|416.543|419929.15625|eastern asia|China|Kuerle
+1130|False|416.532|445757.0625|south america|Venezuela (Bolivarian Republic of)|San Cristóbal
+1131|False|416.281|421490.53125|eastern europe|Russian Federation|Bryansk
+1132|NoMASK|416.136|NA|eastern asia|Republic of Korea|Uijeongbu
+1133|False|415.246|416063.0|eastern asia|China|Bijie
+1134|False|415.067|419187.59375|eastern europe|Russian Federation|Kursk
+1135|False|414.084|449224.1875|eastern asia|China|Quzhou
+1136|False|413.54|414334.75|eastern europe|Slovakia|Bratislava
+1137|NoMASK|413.289|NA|western asia|Turkey|Kahramanmaras
+1138|True|413.198|524554.875|southern asia|India|Kayamkulam
+1139|NoMASK|413.179|NA|southern asia|Bangladesh|Comilla
+1140|NoMASK|413.059|NA|eastern asia|China, Taiwan Province of China|Xinzhu
+1141|NoMASK|412.71|NA|eastern asia|China|Zhangjiagang
+1142|True|412.642|452294.0|south-eastern asia|Malaysia|Kota Kinabalu
+1143|False|412.571|411823.125|northern america|United States of America|Syracuse
+1144|False|412.494|418137.375|south-eastern asia|Thailand|Khon-Kaen
+1145|False|412.432|418596.3125|eastern asia|China|Wafangdian
+1146|NoMASK|412.0|NA|western africa|Nigeria|Bauchi
+1147|NoMASK|411.431|NA|southern europe|Italy|Caserta
+1148|True|410.979|417112.5|south-eastern asia|Indonesia|Manado
+1149|False|410.826|355522.75|oceania|Australia|Newcastle-Maitland
+1150|False|410.497|421424.78125|eastern europe|Poland|Szczecin
+1151|False|409.9|414916.875|western asia|Turkey|Sakarya
+1152|NoMASK|409.475|NA|southern asia|Bangladesh|Bogra
+1153|False|409.201|534945.625|southern asia|India|Imphal
+1154|False|409.164|431397.25|eastern europe|Russian Federation|Ivanovo
+1155|False|409.107|417637.40625|south-eastern asia|Thailand|Ubon Ratchathani
+1156|False|409.058|430221.1875|northern africa|Sudan|Port Sudan (Bur Sudan)
+1157|True|408.697|483383.25|southern europe|Albania|Tiranë (Tirana)
+1158|True|408.575|421416.375|western africa|Guinea-Bissau|Bissau
+1159|False|408.176|398269.03125|eastern europe|Russian Federation|Magnitogorsk
+1160|False|408.144|295877.09375|south-eastern asia|Thailand|Surat Thani
+1161|True|408.069|478480.0625|eastern asia|China|Dengzhou
+1162|NoMASK|407.888|NA|eastern africa|Somalia|Merca
+1163|False|407.865|508515.96875|southern europe|Italy|Salerno
+1164|NoMASK|407.754|NA|southern asia|India|Bhagalpur
+1165|False|407.677|369991.4375|eastern asia|China|Nanping
+1166|NoMASK|407.405|NA|northern africa|Egypt|Asyut
+1167|NoMASK|405.89|NA|eastern asia|Republic of Korea|Siheung
+1168|False|404.623|382024.84375|eastern asia|China|Yan'an
+1169|False|404.52|434216.0|western europe|Belgium|Charleroi
+1170|NoMASK|404.343|NA|south-eastern asia|Indonesia|Mataram
+1171|True|404.186|323682.3125|northern america|United States of America|Lancaster
+1172|False|403.813|399242.8125|eastern europe|Russian Federation|Tver
+1173|False|403.648|391432.75|northern america|United States of America|Madison
+1174|False|403.426|425325.375|southern asia|India|Bellary
+1175|False|403.314|404369.65625|northern america|United States of America|Greenville
+1176|False|403.098|409260.875|western europe|France|Montpellier
+1177|False|402.946|422559.78125|south america|Colombia|Manizales
+1178|False|402.716|396241.65625|eastern europe|Russian Federation|Ulan-Ude
+1179|False|402.507|424400.375|southern asia|India|Thoothukkudi (Tuticorin)
+1180|False|402.249|481127.03125|eastern asia|China|Chaohu
+1181|False|401.15|476101.84375|southern asia|Bangladesh|Mymensingh
+1182|False|400.501|425996.09375|eastern asia|China|Shizuishan
+1183|False|400.36|442174.53125|eastern asia|China|Yiyang, Hunan
+1184|False|400.33|409526.875|eastern asia|Japan|Miyazaki
+1185|True|399.838|467476.65625|eastern asia|China|Jiaozhou
+1186|False|399.577|445966.625|northern africa|Morocco|Kénitra
+1187|False|399.334|404258.4375|eastern asia|China|Zhangye
+1188|NoMASK|399.241|NA|western asia|Qatar|Ar-Rayyan
+1189|True|399.173|403091.3125|western asia|Iraq|Hillah
+1190|False|398.896|427655.5|eastern asia|China|Sanmenxia
+1191|True|397.692|375485.125|oceania|Australia|Canberra
+1192|True|397.536|428619.25|eastern asia|China|Xinyi
+1193|NoMASK|397.19|NA|eastern africa|United Republic of Tanzania|Arusha
+1194|False|396.871|400919.6875|eastern europe|Russian Federation|Stavropol
+1195|False|396.827|399870.5625|south america|Peru|Piura
+1196|False|395.269|452922.9375|southern asia|Pakistan|Larkana
+1197|False|395.241|410905.09375|eastern asia|China|Jingmen
+1198|False|394.649|370581.40625|northern america|United States of America|Reno
+1199|False|394.129|404517.3125|northern europe|Estonia|Tallinn
+1200|False|394.094|489018.0625|eastern asia|China|Tongxiang
+1201|NoMASK|393.731|NA|eastern asia|China|Jinjiang
+1202|False|393.64|322635.09375|northern america|United States of America|Winston-Salem
+1203|False|393.459|478363.8125|western africa|Gambia|Banjul
+1204|False|393.306|424535.875|eastern asia|China|Yuxi
+1205|True|393.184|255678.5|south-eastern asia|Philippines|Basilan City (including City of Isabela)
+1206|NoMASK|392.352|NA|western asia|Syrian Arab Republic|Al-Hasakah
+1207|False|392.168|399094.6875|southern europe|Spain|Palma
+1208|True|391.862|400300.3125|northern america|Canada|St. Catharines-Niagara
+1209|False|391.486|393894.375|eastern asia|China|Suizhou
+1210|NoMASK|391.297|NA|south-eastern asia|Philippines|Calamba
+1211|True|390.937|440616.65625|eastern asia|China|Taishan
+1212|False|390.743|408267.71875|eastern asia|China|Haining
+1213|NoMASK|390.574|NA|south america|Peru|Iquitos
+1214|False|390.057|443445.03125|eastern asia|China|Xiongan
+1215|NoMASK|389.762|NA|southern asia|India|Muzaffarpur
+1216|False|389.624|479252.25|southern asia|India|Agartala
+1217|True|389.553|382254.96875|south america|Brazil|Pôrto Velho
+1218|NoMASK|389.409|NA|south-eastern asia|Indonesia|Yogyakarta
+1219|False|389.27|411126.34375|northern america|United States of America|Spokane
+1220|False|389.26|462750.5|southern asia|Pakistan|Sheikhupura
+1221|False|388.559|400918.34375|eastern asia|China|Chuzhou
+1222|False|388.158|333538.03125|northern america|United States of America|Augusta-Richmond County
+1223|False|387.942|206437.375|southern europe|Italy|Latina
+1224|False|387.933|424983.8125|eastern asia|China|Shangyu
+1225|False|387.265|330802.28125|northern america|Canada|Halifax
+1226|False|387.153|425012.875|western europe|Switzerland|Bern
+1227|False|386.833|334370.90625|northern america|United States of America|Youngstown
+1228|False|386.767|310066.25|oceania|New Zealand|Wellington
+1229|True|384.815|417938.3125|eastern asia|China|Longkou
+1230|False|384.776|391982.34375|central asia|Uzbekistan|Andizhan
+1231|NoMASK|384.749|NA|south america|Argentina|Resistencia
+1232|True|384.522|439768.28125|central america|Mexico|Nuevo Laredo
+1233|True|383.498|398671.84375|southern asia|Afghanistan|Kandahar
+1234|False|383.312|396846.0625|eastern asia|China|Tieling
+1235|False|383.072|422227.78125|south america|Brazil|São José do Rio Preto
+1236|False|382.8|328064.8125|south-eastern asia|Malaysia|Kuantan
+1237|NoMASK|382.737|NA|eastern asia|China|Jingjiang
+1238|True|382.148|349271.4375|central america|Mexico|Mazatlán
+1239|False|382.101|384140.65625|northern america|United States of America|Chattanooga
+1240|False|381.765|386597.21875|eastern asia|Japan|Nagano
+1241|NoMASK|381.496|NA|central america|Mexico|Irapuato
+1242|False|381.409|381734.3125|northern america|United States of America|Scranton
+1243|False|380.874|360751.46875|central america|Mexico|Puerto Vallarta
+1244|NoMASK|380.479|NA|western asia|Iran (Islamic Republic of)|Eslamshahr
+1245|True|380.299|475027.5625|eastern asia|China|Qingzhou
+1246|False|380.138|381427.3125|eastern asia|China|Liaoyuan
+1247|True|380.106|429261.4375|south america|Brazil|Macapá
+1248|False|379.476|298610.9375|western asia|Turkey|Erzurum
+1249|False|379.336|396985.40625|eastern asia|China|Laizhou
+1250|False|379.223|391799.875|south america|Brazil|Petrolina
+1251|False|379.139|390936.375|northern america|United States of America|Port St. Lucie
+1252|NoMASK|379.096|NA|eastern asia|China, Taiwan Province of China|Jilong
+1253|False|378.903|386603.8125|southern asia|India|Yamunanagar
+1254|False|378.383|384390.90625|south america|Brazil|Juazeiro Do Norte
+1255|False|378.15|410745.5|southern asia|India|Ahmadnagar
+1256|False|377.745|412484.0|eastern asia|China|Fengcheng
+1257|True|377.63|398224.53125|southern europe|Spain|Las Palmas Gran Canaria
+1258|False|377.232|396898.0625|eastern europe|Czechia|Brno
+1259|NoMASK|376.929|NA|western asia|United Arab Emirates|Al-Ain
+1260|True|376.862|411783.96875|western europe|Germany|Bochum
+1261|False|376.766|388827.96875|southern asia|India|Latur
+1262|NoMASK|376.695|NA|western asia|Iran (Islamic Republic of)|Zanjan
+1263|True|376.489|391769.0|eastern asia|China|Guangyuan
+1264|False|376.453|451022.3125|eastern asia|Japan|Toyohashi
+1265|False|376.376|389728.5625|eastern asia|China|Shuozhou
+1266|False|376.0|427060.625|western africa|Nigeria|Calabar
+1267|False|375.56|434138.5|northern europe|United Kingdom|Teeside (Middlesbrough)
+1268|False|375.06|352857.03125|oceania|New Zealand|Christchurch
+1269|False|374.493|315001.96875|western asia|Iran (Islamic Republic of)|Qazvin
+1270|NoMASK|374.375|NA|south america|Chile|La Serena-Coquimbo
+1271|NoMASK|374.141|NA|south america|Argentina|Santiago Del Estero
+1272|False|373.283|408426.0|eastern asia|China|Hezhou
+1273|False|373.208|398428.09375|southern asia|India|Dhule
+1274|False|373.11|376999.28125|south-eastern asia|Malaysia|Seremban
+1275|False|372.867|401942.3125|eastern asia|China|Ankang
+1276|False|372.66|401909.4375|eastern asia|China|Ziyang
+1277|False|372.441|381338.5|south america|Peru|Cusco
+1278|NoMASK|372.336|NA|south-eastern asia|Thailand|Buri Ram
+1279|False|372.135|372411.0625|northern america|United States of America|Stockton
+1280|False|372.008|395165.125|western europe|France|Saint-Étienne
+1281|False|371.994|378599.375|northern europe|United Kingdom|Stoke-on-Trent (The Potteries)
+1282|False|371.848|415013.40625|eastern asia|China|Yongkang
+1283|False|370.978|445353.75|eastern asia|Japan|Takasaki
+1284|False|370.432|407930.1875|western europe|Switzerland|Lausanne
+1285|True|370.079|440616.65625|eastern asia|China|Kaiping
+1286|NoMASK|369.413|NA|south-eastern asia|Thailand|Lampang
+1287|True|368.717|371117.6875|eastern asia|China|Shanwei
+1288|False|368.371|418458.875|southern asia|India|Rohtak
+1289|True|368.032|414224.6875|northern america|United States of America|Oxnard
+1290|False|368.004|377408.5|northern america|United States of America|Denton-Lewisville
+1291|NoMASK|367.355|NA|south america|Chile|Antofagasta
+1292|True|367.075|424693.53125|western asia|Jordan|Irbid
+1293|True|366.868|380475.125|south america|Brazil|Campina Grande
+1294|NoMASK|366.335|NA|northern africa|Sudan|Al Obeid (Al Ubayyid)
+1295|False|366.272|371123.15625|southern asia|Pakistan|Jhang
+1296|True|366.268|370384.75|western africa|Ghana|Tamale
+1297|False|365.882|378718.375|eastern europe|Ukraine|Vinnitsa
+1298|False|365.774|393780.15625|southern asia|India|Sagar
+1299|False|365.726|385228.53125|eastern asia|China|Liyang
+1300|True|364.683|374914.25|eastern europe|Poland|Bydgoszcz
+1301|NoMASK|363.974|NA|western asia|Turkey|Van
+1302|False|363.238|439284.75|south-eastern asia|Thailand|Phra Nakhon Si Ayutthaya
+1303|NoMASK|362.849|NA|south america|Colombia|Valledupar
+1304|NoMASK|362.807|NA|eastern europe|Russian Federation|Nizhny Tagil
+1305|False|362.798|372514.1875|eastern asia|China|Dali
+1306|True|362.605|365653.6875|eastern europe|Ukraine|Makiivka
+1307|True|362.379|376723.9375|eastern asia|China|Suihua
+1308|False|362.001|482112.9375|eastern asia|China|Gongyi
+1309|False|361.987|363263.125|eastern asia|China|Rongcheng
+1310|False|361.878|396644.8125|eastern asia|China|Jingdezhen
+1311|False|361.725|393010.875|eastern asia|China|Jianyang
+1312|True|361.724|361789.71875|southern asia|India|Korba
+1313|False|360.993|324239.3125|eastern asia|China|Baiyin
+1314|NoMASK|360.713|NA|middle africa|Democratic Republic of the Congo|Kikwit
+1315|NoMASK|360.478|NA|middle africa|Angola|Malanje
+1316|False|360.408|332347.125|eastern europe|Belarus|Mogilev
+1317|NoMASK|359.968|NA|south-eastern asia|Thailand|Roi Et
+1318|False|359.437|392170.53125|northern america|United States of America|Modesto
+1319|False|359.209|364532.34375|eastern europe|Ukraine|Sevastopol
+1320|False|358.691|369808.5625|southern asia|Afghanistan|Herat
+1321|False|358.346|375880.25|northern europe|United Kingdom|Coventry-Bedworth
+1322|False|358.0|397727.0625|western africa|Nigeria|Igbidu
+1323|NoMASK|357.999|NA|western asia|Iran (Islamic Republic of)|Sanandaj
+1324|False|357.15|496789.25|eastern asia|China|Laiyang
+1325|False|357.0|374904.03125|western africa|Nigeria|Okene
+1326|False|356.492|445183.0625|central america|Mexico|Minatitlán
+1327|False|356.389|367489.9375|south america|Brazil|Piracicaba
+1328|True|356.237|411454.09375|eastern asia|China|Anqiu
+1329|False|356.125|364678.34375|south america|Argentina|Corrientes
+1330|False|355.999|364977.96875|northern america|United States of America|Flint
+1331|NoMASK|355.954|NA|central asia|Kazakhstan|Aktyubinsk
+1332|False|355.709|359323.75|eastern europe|Russian Federation|Belgorod
+1333|True|354.604|385968.5625|middle africa|Democratic Republic of the Congo|Goma
+1334|False|354.389|404749.4375|northern africa|Morocco|Tétouan
+1335|True|353.834|371936.3125|northern africa|Algeria|Blida
+1336|False|353.74|418602.5|western europe|France|Béthune
+1337|False|353.563|385762.1875|southern asia|India|Bhilwara
+1338|False|353.248|363766.78125|eastern asia|China|Zhaodong
+1339|False|353.234|403722.71875|eastern asia|China|Xinmi
+1340|NoMASK|353.121|NA|southern asia|India|Brahmapur
+1341|False|353.087|347248.5625|northern america|United States of America|Jackson, Mississippi
+1342|False|352.507|362824.46875|southern europe|Italy|Pescara
+1343|True|352.343|381779.53125|eastern asia|China|Meizhou
+1344|NoMASK|352.169|NA|south-eastern asia|Philippines|Lapu-Lapu City
+1345|False|351.892|375126.21875|western europe|Germany|Wuppertal
+1346|False|351.861|359559.90625|northern america|United States of America|Boise City
+1347|False|351.796|228578.9375|northern america|United States of America|Daytona Beach-Port Orange
+1348|False|351.758|366073.125|eastern asia|China|Bayannaoer
+1349|True|351.638|367655.625|northern america|Canada|Oshawa
+1350|NoMASK|351.389|NA|south america|Venezuela (Bolivarian Republic of)|Guarenas-Guatire
+1351|NoMASK|351.171|NA|southern europe|Spain|Bilbao
+1352|True|350.272|368437.09375|south-eastern asia|Thailand|Phuket
+1353|True|350.122|228489.046875|eastern asia|China|Kelamayi
+1354|False|350.041|349442.53125|eastern europe|Belarus|Vitebsk
+1355|False|350.0|375098.34375|western africa|Nigeria|Ogbomosho
+1356|False|349.887|369897.25|eastern europe|Poland|Lublin
+1357|False|349.872|374486.53125|south america|Colombia|Armenia
+1358|True|349.406|357270.625|eastern asia|China|Sihui
+1359|True|349.406|453117.375|eastern africa|Zimbabwe|Chitungwiza
+1360|False|349.242|415457.8125|northern america|United States of America|Durham
+1361|True|349.06|366495.3125|south america|Brazil|Maringá
+1362|False|348.706|351468.34375|eastern europe|Russian Federation|Arkhangelsk
+1363|NoMASK|348.292|NA|south america|Venezuela (Bolivarian Republic of)|Ciudad Bolivar
+1364|False|348.214|348313.8125|northern america|United States of America|Indio-Cathedral City-Palm Springs
+1365|True|348.167|380720.46875|southern asia|India|Shillong
+1366|True|348.155|500046.59375|eastern asia|China|Yuhuan
+1367|True|347.634|355493.28125|central america|Mexico|Coatzacoalcos
+1368|False|347.489|313455.125|eastern asia|Japan|Asahikawa
+1369|False|347.307|352647.4375|western europe|France|Tours
+1370|NoMASK|346.302|NA|middle africa|Democratic Republic of the Congo|Bunia
+1371|True|346.06|386752.125|southern asia|India|Shahjahanpur
+1372|NoMASK|345.875|NA|south america|Peru|Chimbote
+1373|False|345.846|364930.8125|eastern africa|United Republic of Tanzania|Mbeya
+1374|NoMASK|345.591|NA|western asia|Iraq|Diwaniyah
+1375|True|345.278|361678.0625|northern africa|Algeria|Annaba
+1376|False|345.113|364837.03125|eastern asia|China|Yixing
+1377|NoMASK|344.396|NA|western asia|Iran (Islamic Republic of)|Khorramabad
+1378|False|344.351|323310.40625|northern america|United States of America|Lancaster-Palmdale
+1379|False|344.316|287923.625|eastern asia|China|Yingde
+1380|False|344.285|344722.9375|eastern europe|Russian Federation|Vladimir
+1381|True|344.278|440006.375|southern asia|India|Rampur
+1382|True|344.039|470354.1875|southern asia|Bangladesh|Barisal
+1383|NoMASK|343.916|NA|south america|Brazil|Montes Claros
+1384|True|343.901|381659.0|eastern asia|China|Shengzhou
+1385|False|343.673|360844.90625|eastern asia|Japan|Kochi
+1386|NoMASK|343.053|NA|eastern europe|Russian Federation|Balashikha
+1387|False|342.916|462908.65625|eastern asia|China|Laixi
+1388|NoMASK|342.856|NA|eastern asia|Japan|Iwaki
+1389|NoMASK|342.769|NA|eastern europe|Russian Federation|Sochi
+1390|True|342.198|343529.375|southern asia|India|Barddhaman
+1391|True|342.071|303256.15625|northern america|Canada|Victoria
+1392|False|342.033|368134.25|southern europe|Bosnia and Herzegovina|Sarajevo
+1393|False|342.0|348781.96875|western africa|Nigeria|Gombe
+1394|False|341.974|353519.875|eastern asia|China|Linqing
+1395|False|341.396|349650.21875|eastern europe|Ukraine|Simferopol
+1396|NoMASK|341.359|NA|western asia|Saudi Arabia|Jubayl
+1397|False|340.483|342480.4375|northern america|United States of America|Pensacola
+1398|False|340.443|361945.125|southern asia|India|Kottayam
+1399|False|340.425|352174.125|eastern asia|China|Xianning
+1400|False|340.322|353809.5|eastern asia|Japan|Maebashi
+1401|NoMASK|340.294|NA|western asia|Jordan|Ar-Rusayfah
+1402|False|339.853|347541.3125|eastern europe|Bulgaria|Plovdiv
+1403|NoMASK|339.461|NA|south america|Colombia|Buenaventura
+1404|NoMASK|339.34|NA|south america|Argentina|Neuquén-Plottier-Cipolletti
+1405|True|339.164|357008.75|southern asia|Pakistan|Rahim Yar Khan
+1406|False|338.833|352519.875|eastern asia|Republic of Korea|Gumi
+1407|NoMASK|338.798|NA|northern africa|Egypt|Al-Fayyum
+1408|False|338.718|359379.375|eastern asia|Japan|Koriyama
+1409|False|338.682|369227.5625|southern asia|India|Kadapa
+1410|False|338.549|339036.25|south america|Colombia|Pasto
+1411|True|337.938|317009.46875|south america|Brazil|Bauru
+1412|True|337.355|339599.21875|eastern asia|China|Jiyuan
+1413|False|337.339|339712.0|south-eastern asia|Thailand|Nakhon Pathom
+1414|False|337.0|390102.8125|western africa|Nigeria|Ado-Ekiti
+1415|NoMASK|336.998|NA|southern asia|Bangladesh|Rangpur
+1416|False|336.824|360985.28125|middle africa|Cameroon|Bamenda
+1417|False|336.703|350603.0625|eastern asia|China|Gongzhuling
+1418|True|336.329|367805.9375|eastern asia|China|Gaoyou
+1419|True|336.286|370438.875|southern europe|Italy|Barletta
+1420|False|336.009|369520.15625|south america|Peru|Huancayo
+1421|True|336.0|360842.78125|western africa|Nigeria|Abakaliki
+1422|True|335.812|364646.125|southern asia|India|Alwar
+1423|False|335.553|425658.34375|northern europe|United Kingdom|Sunderland
+1424|True|334.818|297382.90625|central america|Mexico|Colima
+1425|False|334.554|354795.90625|western europe|France|Valenciennes
+1426|False|334.128|417741.75|eastern asia|China|Xinzheng
+1427|False|334.124|346214.34375|eastern asia|China|Xingyi, Guizhou
+1428|False|334.033|330334.3125|eastern europe|Russian Federation|Kurgan
+1429|True|333.875|350745.75|southern asia|India|Anantapur
+1430|True|333.827|357404.34375|southern asia|Pakistan|Gujrat
+1431|True|333.668|271069.5|south-eastern asia|Indonesia|Ambon
+1432|False|332.524|300628.59375|northern america|United States of America|Victorville-Hesperia-Apple Valley
+1433|NoMASK|332.274|NA|south-eastern asia|Philippines|Mandaue City
+1434|True|332.199|603104.875|middle africa|Democratic Republic of the Congo|Uvira
+1435|True|332.153|376359.375|eastern asia|China|Wuchuan
+1436|False|332.067|333181.09375|southern europe|Italy|Treviso
+1437|False|332.0|361371.46875|western africa|Nigeria|Katsina
+1438|False|331.994|361925.03125|eastern asia|Dem. People's Republic of Korea|Wonsan
+1439|False|331.989|386668.875|eastern asia|China|Sanhe
+1440|False|331.843|336011.0625|eastern asia|China|Xinyi
+1441|True|331.833|336172.15625|eastern asia|Republic of Korea|Pohang
+1442|False|331.39|327822.875|eastern europe|Belarus|Grodno
+1443|NoMASK|331.2|NA|south america|Colombia|Monteria
+1444|True|331.0|339598.8125|western africa|Nigeria|Minna
+1445|False|330.966|346724.9375|eastern asia|China|Cenxi
+1446|NoMASK|330.518|NA|western asia|Iraq|Kut
+1447|NoMASK|330.091|NA|western asia|Turkey|Elazig
+1448|False|329.683|343220.1875|western europe|Germany|Bielefeld
+1449|True|329.215|372915.34375|eastern asia|China|Wuwei
+1450|False|329.0|335679.53125|western africa|Nigeria|Ondo
+1451|NoMASK|328.756|NA|south-eastern asia|Philippines|Angeles City
+1452|False|328.683|365978.40625|western europe|Netherlands|Eindhoven
+1453|False|328.44|322359.875|south america|Brazil|Anápolis
+1454|NoMASK|328.357|NA|eastern asia|Republic of Korea|Gwangmyeong
+1455|False|328.225|335796.125|southern europe|Italy|Modena
+1456|NoMASK|328.0|NA|western africa|Nigeria|Gboko
+1457|True|327.966|329653.34375|eastern asia|China|Changning
+1458|False|327.706|357575.53125|eastern asia|China|Gaozhou
+1459|False|327.515|280336.03125|eastern europe|Bulgaria|Varna
+1460|False|327.356|335664.8125|eastern asia|China|Sanming
+1461|NoMASK|327.327|NA|south america|Ecuador|Cuenca
+1462|False|327.227|336467.34375|eastern asia|China|Chuxiong
+1463|False|326.812|321880.0|eastern europe|Russian Federation|Smolensk
+1464|NoMASK|326.671|NA|central asia|Kazakhstan|Taraz
+1465|False|326.4|321824.9375|northern america|United States of America|Mobile
+1466|NoMASK|326.011|NA|eastern asia|Dem. People's Republic of Korea|Sinuiju
+1467|True|325.65|328876.4375|western asia|Turkey|Batman
+1468|NoMASK|325.543|NA|southern europe|Spain|Cordoba
+1469|False|325.098|387012.375|eastern asia|China|Ji'an, Jiangxi
+1470|False|325.066|328196.4375|eastern europe|Russian Federation|Kaluga
+1471|NoMASK|324.845|NA|northern europe|United Kingdom|Birkenhead
+1472|NoMASK|324.595|NA|western asia|Syrian Arab Republic|Deir El-Zor(Deir ez-Zor)
+1473|False|324.203|310670.75|eastern europe|Russian Federation|Chita
+1474|False|324.073|334832.65625|eastern asia|Japan|Akita
+1475|NoMASK|323.475|NA|south-eastern asia|Malaysia|Sandakan
+1476|True|323.433|353376.78125|south-eastern asia|Philippines|Iligan
+1477|False|322.958|372951.0|southern europe|Spain|Alicante
+1478|False|322.697|358264.375|southern asia|India|Ichalkaranji
+1479|True|322.48|341962.78125|eastern asia|China|Yongcheng
+1480|False|322.128|330210.84375|eastern asia|China|Fuan
+1481|False|322.0|334233.25|western africa|Nigeria|Oyo
+1482|NoMASK|322.0|NA|western africa|Nigeria|Lokoja
+1483|NoMASK|321.929|NA|southern asia|India|Bijapur
+1484|False|321.748|391714.5|southern europe|Italy|Reggio Emilia
+1485|True|321.226|334813.0625|eastern asia|Republic of Korea|Jeju
+1486|NoMASK|320.941|NA|middle africa|Angola|Lobito
+1487|True|320.75|267516.09375|northern america|United States of America|Corpus Christi
+1488|NoMASK|320.248|NA|central asia|Kazakhstan|Pavlodar
+1489|True|319.947|419722.1875|northern america|Canada|Windsor
+1490|NoMASK|319.493|NA|south-eastern asia|Philippines|Baguio City
+1491|False|319.422|255725.8125|middle africa|Democratic Republic of the Congo|Mbandaka
+1492|True|319.262|323264.1875|eastern europe|Romania|Iasi
+1493|False|319.186|348739.34375|southern asia|India|Shimoga
+1494|False|319.09|331324.40625|eastern asia|China|Linzhou
+1495|True|319.074|354413.875|south-eastern asia|Philippines|Tarlac
+1496|False|318.303|312066.625|eastern europe|Russian Federation|Orel
+1497|True|318.221|323127.125|southern asia|India|Chandrapur
+1498|False|318.172|341766.59375|northern america|United States of America|Kissimmee
+1499|NoMASK|317.997|NA|western asia|Yemen|Ibb
+1500|True|317.948|322795.65625|south america|Argentina|Posadas
+1501|False|317.656|303055.84375|central america|Mexico|Monclova
+1502|False|316.889|393668.625|northern europe|United Kingdom|Reading-Wokingham
+1503|NoMASK|316.863|NA|northern africa|Egypt|Az-Zaqazig
+1504|NoMASK|316.851|NA|south america|Colombia|Neiva
+1505|False|316.472|382691.59375|south-eastern asia|Thailand|Ratchaburi
+1506|True|316.32|482244.0|central america|Mexico|Córdoba
+1507|NoMASK|315.774|NA|eastern asia|Japan|Naha
+1508|True|315.59|344387.65625|eastern asia|China|Dujiangyan
+1509|False|315.498|385672.78125|western europe|Germany|Bonn
+1510|True|315.331|320404.0625|western asia|Azerbaijan|Gäncä
+1511|False|314.669|322357.78125|south-eastern asia|Malaysia|Kuala Terengganu
+1512|False|314.466|342552.5|southern asia|India|Junagadh
+1513|False|314.185|317077.03125|western africa|Namibia|Windhoek
+1514|False|314.162|311120.3125|northern america|United States of America|Fort Wayne
+1515|True|314.127|377381.59375|eastern europe|Russian Federation|Volzhsky
+1516|NoMASK|314.069|NA|south america|Argentina|San Salvador de Jujuy
+1517|NoMASK|314.021|NA|western asia|Iran (Islamic Republic of)|Gorgan
+1518|False|313.876|320041.21875|northern america|United States of America|Lansing
+1519|True|313.358|401454.5625|southern asia|Pakistan|Mardan
+1520|False|313.345|325251.9375|eastern asia|China|Enshi
+1521|True|313.255|313576.9375|eastern asia|China|Shihezi
+1522|True|313.063|333259.78125|northern europe|United Kingdom|Kingston upon Hull
+1523|True|313.0|336955.8125|western asia|Azerbaijan|Sumquayit
+1524|False|312.993|318149.1875|northern america|United States of America|Greensboro
+1525|False|312.985|316207.3125|eastern europe|Belarus|Brest
+1526|NoMASK|312.949|NA|south-eastern asia|Viet Nam|Hue
+1527|False|312.926|315412.875|northern america|United States of America|Bonita Springs-Naples
+1528|False|312.906|326018.6875|western europe|France|Rennes
+1529|True|312.823|352271.6875|eastern asia|China|Guang'an
+1530|True|312.77|314372.6875|south america|Brazil|Franca
+1531|False|312.459|363717.0625|eastern asia|China|Dashiqiao
+1532|NoMASK|312.378|NA|western asia|Saudi Arabia|Ha'il
+1533|False|312.332|327425.40625|southern europe|Spain|Valladolid
+1534|False|312.296|300150.03125|eastern europe|Russian Federation|Cherepovets
+1535|False|312.019|363953.625|southern asia|Pakistan|Sahiwal
+1536|True|311.951|343727.75|southern asia|Pakistan|Kasur
+1537|NoMASK|311.831|NA|south-eastern asia|Thailand|Sakon Nakhon
+1538|False|311.811|313667.375|eastern europe|Russian Federation|Vladikavkaz
+1539|True|311.698|388774.03125|northern europe|United Kingdom|Preston
+1540|True|311.545|196969.5625|oceania|Papua New Guinea|Port Moresby
+1541|False|311.179|309438.5625|northern america|United States of America|Fayetteville
+1542|NoMASK|311.17|NA|south america|Venezuela (Bolivarian Republic of)|Cumana
+1543|True|310.938|401705.0625|oceania|Australia|Central Coast
+1544|False|310.737|316583.5|eastern asia|China|Xuancheng
+1545|False|310.544|317084.5|south-eastern asia|Philippines|Butuan
+1546|True|310.116|310922.71875|central america|Mexico|Zacatecas
+1547|False|309.95|323394.125|eastern asia|China|Miluo
+1548|False|309.885|304474.625|south-eastern asia|Indonesia|Bengkulu
+1549|True|309.842|787440.8125|southern europe|Italy|Nola
+1550|False|309.606|361116.25|southern asia|India|Nizamabad
+1551|True|309.219|329519.75|northern africa|Sudan|Kassala
+1552|False|308.823|309154.75|northern america|United States of America|Santa Rosa
+1553|NoMASK|308.419|NA|northern africa|Egypt|Al-Ismailiyah
+1554|False|308.232|212598.21875|northern europe|Finland|Tampere
+1555|False|307.966|326179.09375|eastern asia|China|Laibin
+1556|False|307.791|250898.546875|eastern asia|China|Hami
+1557|NoMASK|307.734|NA|south america|Brazil|Rio Branco
+1558|NoMASK|307.367|NA|central asia|Kazakhstan|Ust-Kamenogorsk
+1559|NoMASK|306.765|NA|southern asia|India|English Bazar
+1560|False|306.595|384748.875|northern america|United States of America|Ann Arbor
+1561|True|306.354|323538.75|eastern europe|Romania|Timisoara
+1562|True|306.351|406822.8125|south-eastern asia|Philippines|Batangas City
+1563|False|306.224|335605.3125|southern asia|Pakistan|Dera Ghazikhan
+1564|False|306.149|304853.15625|south america|Brazil|Pelotas
+1565|True|306.136|307761.25|caribbean|Puerto Rico|Aguadilla-Isabela-San Sebastian
+1566|NoMASK|305.888|NA|eastern europe|Russian Federation|Surgut
+1567|NoMASK|305.817|NA|eastern africa|Somalia|Berbera
+1568|True|305.654|385181.3125|northern europe|United Kingdom|Newport
+1569|True|305.598|298117.375|central america|Mexico|Ciudad Victoria
+1570|NoMASK|305.121|NA|southern asia|India|Darbhanga
+1571|NoMASK|304.93|NA|south america|Venezuela (Bolivarian Republic of)|Merida
+1572|NoMASK|304.437|NA|south-eastern asia|Philippines|Imus
+1573|True|304.388|311071.90625|south america|Brazil|Ponta Grossa
+1574|False|303.891|326565.5625|southern asia|India|Hisar
+1575|True|303.799|319009.625|southern asia|India|Hardwar
+1576|False|303.727|335558.34375|southern asia|India|Parbhani
+1577|False|303.299|305312.9375|western europe|Germany|Mannheim
+1578|True|303.221|393079.6875|southern asia|India|Purnia
+1579|False|303.092|320542.75|northern africa|Sudan|Wad Medani
+1580|NoMASK|302.628|NA|central asia|Kazakhstan|Semipalatinsk
+1581|True|302.604|359457.4375|eastern asia|Japan|Kurume
+1582|True|302.33|318943.0625|southern asia|Pakistan|Wah
+1583|NoMASK|302.013|NA|western asia|Turkey|Sivas
+1584|False|301.796|303956.125|eastern europe|Romania|Cluj-Napoca
+1585|False|301.429|286311.0|eastern europe|Russian Federation|Vologda
+1586|NoMASK|301.212|NA|eastern asia|China|Changji
+1587|NoMASK|301.094|NA|caribbean|Cuba|Camaguey
+1588|False|301.08|319998.875|eastern asia|China|Macheng
+1589|True|300.827|343657.53125|eastern asia|China|Qufu
+1590|False|300.59|322084.75|southern europe|Italy|Vicenza
+1591|True|300.357|350295.375|southern europe|Italy|Parma
+1592|NoMASK|300.055|NA|western asia|Saudi Arabia|Najran
+1593|False|299.711|309571.03125|eastern asia|China|Zhuanghe
+1594|NoMASK|299.691|NA|eastern asia|China|Yining
+1595|NoMASK|299.311|NA|south-eastern asia|Indonesia|Sukabumi
+1596|NoMASK|299.184|NA|central america|Mexico|Ciudad Obregón
+1597|True|299.123|302074.34375|western asia|Turkey|Izmit
+1598|False|299.062|328938.6875|northern europe|United Kingdom|Swansea
+1599|NoMASK|299.059|NA|south america|Argentina|Bahia Blanca
+1600|True|299.056|291421.65625|northern america|United States of America|Fayetteville-Springdale
+1601|False|298.917|296368.0625|northern america|United States of America|Shreveport
+1602|False|298.71|307681.84375|northern africa|Algeria|El Djelfa
+1603|True|298.502|303418.125|south america|Chile|Temuco
+1604|NoMASK|298.366|NA|northern africa|Morocco|Safi
+1605|False|298.271|343139.0625|southern asia|India|Tumkur
+1606|NoMASK|298.15|NA|southern asia|India|Baharampur
+1607|NoMASK|297.818|NA|southern asia|India|Kharagpur
+1608|False|297.68|300793.59375|eastern europe|Russian Federation|Saransk
+1609|False|297.555|310729.96875|northern america|United States of America|Rockford
+1610|False|297.463|336754.875|northern america|United States of America|Trenton
+1611|False|297.252|303096.3125|central america|Mexico|Tehuacán
+1612|True|297.007|311225.5625|eastern asia|China|Yunfu
+1613|NoMASK|296.996|NA|south-eastern asia|Malaysia|Kota Bharu
+1614|NoMASK|296.917|NA|central america|Costa Rica|Heredia
+1615|False|296.902|298445.4375|south-eastern asia|Viet Nam|Nha Trang
+1616|NoMASK|296.754|NA|south-eastern asia|Indonesia|Cirebon
+1617|True|296.546|348843.15625|southern asia|India|Habra
+1618|NoMASK|296.041|NA|eastern africa|Somalia|Kismaayo
+1619|NoMASK|296.031|NA|eastern asia|Republic of Korea|Gimhae
+1620|False|295.936|332216.28125|southern asia|India|Karnal
+1621|True|295.444|352874.84375|south-eastern asia|Viet Nam|Vungtau
+1622|NoMASK|295.264|NA|south-eastern asia|Philippines|San Pedro
+1623|False|295.25|370029.5625|eastern asia|China|Yanshi
+1624|False|295.128|329650.5625|eastern asia|China|Jurong
+1625|True|294.429|288286.40625|eastern africa|South Africa|Witbank
+1626|False|294.376|327494.0625|western europe|Germany|Karlsruhe
+1627|False|294.356|298008.65625|south america|Brazil|Blumenau
+1628|True|293.786|360438.75|northern europe|United Kingdom|Southend-On-Sea
+1629|True|293.511|302549.09375|southern europe|Spain|Vigo
+1630|True|293.44|503166.78125|western asia|Turkey|Manisa
+1631|NoMASK|293.0|NA|western africa|Nigeria|Ife
+1632|NoMASK|292.994|NA|eastern africa|Kenya|Nakuru
+1633|NoMASK|292.408|NA|southern asia|India|Bihar Sharif
+1634|NoMASK|292.172|NA|western asia|Bahrain|Al-Manamah (Manama)
+1635|False|292.166|298295.78125|northern america|United States of America|Round Lake Beach-McHenry-Grayslake
+1636|False|292.057|326086.5625|southern asia|Pakistan|Okara
+1637|NoMASK|291.932|NA|middle africa|Democratic Republic of the Congo|Matadi
+1638|False|291.775|293987.9375|eastern asia|China|Hechi
+1639|False|291.384|301833.78125|southern asia|India|Karimnagar
+1640|True|291.317|318325.375|northern america|United States of America|Lexington-Fayette
+1641|NoMASK|291.3|NA|northern africa|Egypt|Kafr-ad-Dawwar
+1642|False|291.278|314295.125|western africa|Senegal|Thies
+1643|False|290.96|296617.96875|eastern asia|China|Gaoan
+1644|False|290.253|300230.0625|eastern asia|China|Lishui, Zhejiang
+1645|NoMASK|290.246|NA|south america|Venezuela (Bolivarian Republic of)|Barinas
+1646|True|289.731|310816.3125|eastern africa|South Africa|Rustenburg
+1647|NoMASK|289.529|NA|eastern asia|China|Baicheng
+1648|True|288.959|254804.65625|south america|Brazil|Uberaba
+1649|True|288.815|293253.5|northern america|United States of America|Huntsville
+1650|False|288.795|422827.3125|southern asia|India|Palakkad
+1651|True|288.655|319409.0625|middle africa|Cameroon|Bafoussam
+1652|False|288.553|300513.5|southern asia|India|Aizawl
+1653|False|288.52|443186.15625|eastern asia|China|Donggang
+1654|False|288.003|351557.1875|southern asia|India|Thanjavur
+1655|False|288.0|290924.0|western africa|Nigeria|Makurdi
+1656|True|287.873|356781.03125|southern asia|India|Farrukhabad
+1657|False|287.063|371060.125|southern europe|Italy|Lecco
+1658|False|286.817|299028.0|eastern asia|China|Yangchun
+1659|False|286.767|312349.875|eastern asia|China|Dengfeng
+1660|False|286.724|315541.5625|western asia|Iran (Islamic Republic of)|Sari
+1661|False|286.712|314437.75|southern asia|India|Dindigul
+1662|NoMASK|286.645|NA|south-eastern asia|Philippines|Santa Rosa
+1663|NoMASK|286.55|NA|south-eastern asia|Philippines|San Fernando
+1664|False|286.374|296314.65625|western europe|Germany|Muenster (Westfalen)
+1665|True|286.372|288501.8125|northern africa|Algeria|Batna
+1666|NoMASK|285.463|NA|southern asia|India|Santipur
+1667|True|285.292|291801.75|northern africa|Egypt|Aswan
+1668|False|285.283|313414.375|southern asia|India|Dewas
+1669|NoMASK|284.908|NA|south-eastern asia|Philippines|Lipa City
+1670|NoMASK|284.855|NA|south-eastern asia|Philippines|Binan
+1671|True|284.471|334371.8125|eastern asia|China|Chizhou
+1672|False|284.411|327641.65625|eastern asia|China|Leping
+1673|False|284.307|307737.5625|eastern asia|China|Huangshan
+1674|NoMASK|283.532|NA|southern asia|Afghanistan|Mazar-e Sharif
+1675|False|283.455|288119.4375|eastern africa|Ethiopia|Mekele
+1676|False|283.236|294869.21875|northern africa|Sudan|Al Gadarif
+1677|False|282.839|367256.75|southern asia|India|Anand
+1678|False|282.603|297679.3125|eastern asia|China|Longchang
+1679|True|282.54|311294.1875|eastern asia|China|Changyi
+1680|False|282.307|285933.03125|northern america|United States of America|Asheville
+1681|False|282.166|292577.3125|western africa|Niger|Zinder
+1682|False|282.104|324285.78125|eastern asia|China|Luoding
+1683|True|281.958|310515.6875|southern asia|India|Jalna
+1684|False|281.931|292793.96875|eastern africa|United Republic of Tanzania|Morogoro
+1685|NoMASK|281.922|NA|south-eastern asia|Indonesia|Pekalongan
+1686|False|281.579|310533.96875|western africa|Nigeria|Effon Alaiye
+1687|False|281.488|332006.53125|eastern asia|China|Pinghu
+1688|True|281.174|289175.96875|eastern asia|China|Akesu
+1689|True|280.619|291901.9375|southern asia|India|Bathinda
+1690|True|280.484|215837.625|south america|Venezuela (Bolivarian Republic of)|Acarigua-Aruare
+1691|True|280.191|302443.0|central america|Mexico|Ensenada
+1692|False|279.724|288318.75|eastern asia|China|Zhaoyuan
+1693|NoMASK|279.356|NA|eastern asia|China|Heshan
+1694|True|279.326|300182.0625|northern america|United States of America|Antioch
+1695|True|279.125|385411.5625|eastern asia|China|Yuanjiang
+1696|False|279.121|293064.5|southern asia|India|Navsari
+1697|True|279.043|307268.71875|southern asia|India|Satna
+1698|NoMASK|278.992|NA|south america|Brazil|Caruaru
+1699|False|278.634|279942.5|eastern asia|China|Yushu
+1700|False|278.475|234920.359375|oceania|Australia|Wollongong
+1701|True|278.087|283559.53125|northern europe|Sweden|Malmö
+1702|True|277.035|285241.1875|eastern asia|China|Xinzhou
+1703|False|276.945|270442.5|south america|Brazil|Boa Vista
+1704|False|276.134|294880.0625|eastern asia|China|Changge
+1705|False|275.377|273029.34375|northern america|United States of America|Springfield, Missouri
+1706|False|275.152|197157.078125|eastern asia|China|Shenmu
+1707|False|274.97|315588.0|eastern asia|China|Fangchenggang
+1708|False|274.9|211670.921875|oceania|Australia|Sunshine Coast
+1709|False|274.55|273568.6875|eastern asia|China|Wulanhaote
+1710|True|274.516|459350.96875|eastern asia|China|Hailin
+1711|NoMASK|274.279|NA|south america|Brazil|Vitória da Conquista
+1712|False|273.768|359244.5625|southern asia|India|Maunath Bhanjan
+1713|NoMASK|273.607|NA|middle africa|Angola|Cuito
+1714|NoMASK|272.984|NA|western asia|Saudi Arabia|Hafar al-Batin
+1715|False|272.68|294817.9375|eastern asia|China|Kaili
+1716|NoMASK|272.625|NA|south-eastern asia|Philippines|Cotabato
+1717|False|272.278|351807.03125|south america|Brazil|Taubaté
+1718|False|271.167|295593.4375|southern asia|India|Ratlam
+1719|False|270.862|281265.5625|eastern africa|Mozambique|Chimoio
+1720|True|269.668|266205.59375|south america|Brazil|Cascavel
+1721|False|269.618|318254.5|eastern asia|China|Songzi
+1722|NoMASK|269.399|NA|western asia|Iran (Islamic Republic of)|Kashan
+1723|NoMASK|268.994|NA|eastern asia|China|Xingning
+1724|NoMASK|268.352|NA|western asia|Iran (Islamic Republic of)|Qods
+1725|NoMASK|267.898|NA|middle africa|Cameroon|Garoua
+1726|True|267.341|286666.71875|eastern asia|China|Nankang
+1727|NoMASK|267.171|NA|eastern europe|Russian Federation|Yakutsk
+1728|NoMASK|267.142|NA|south america|Ecuador|Santo Domingo
+1729|True|266.879|280580.75|western africa|Nigeria|Okpogho
+1730|True|266.163|308245.125|eastern africa|Ethiopia|Dire Dawa
+1731|False|266.093|267407.75|northern america|United States of America|Fort Collins
+1732|NoMASK|266.017|NA|eastern asia|China|Xingyang
+1733|False|265.842|248970.875|northern america|United States of America|Montgomery
+1734|NoMASK|265.698|NA|eastern africa|Kenya|Kisumu
+1735|False|265.206|272620.4375|eastern asia|China|Tongcheng
+1736|NoMASK|264.971|NA|central asia|Uzbekistan|Nukus
+1737|NoMASK|264.935|NA|central america|Mexico|Uruapán
+1738|NoMASK|264.536|NA|western asia|Qatar|Doha Industrial Area
+1739|False|264.402|272014.65625|northern america|United States of America|Lakeland
+1740|NoMASK|263.808|NA|south america|Paraguay|Ciudad del Este
+1741|True|263.43|206792.6875|western asia|Yemen|Al-Mukalla
+1742|True|263.141|376359.375|eastern asia|China|Huazhou
+1743|False|262.221|284153.4375|northern africa|Algeria|Sétif
+1744|False|262.121|266419.5|northern america|United States of America|Savannah
+1745|NoMASK|261.808|NA|middle africa|Cameroon|Loum
+1746|NoMASK|261.356|NA|northern america|United States of America|Santa Clarita
+1747|False|261.057|314093.4375|eastern africa|Kenya|Eldoret
+1748|NoMASK|259.235|NA|southern asia|India|Hapur
+1749|NoMASK|258.896|NA|eastern asia|China|Huixian
+1750|False|258.703|304470.0625|southern asia|India|Ranipet
+1751|False|258.681|319306.3125|south-eastern asia|Thailand|Lamphun
+1752|NoMASK|258.369|NA|western asia|Turkey|Balikesir
+1753|False|258.131|262083.65625|eastern asia|China|Yaan
+1754|True|257.966|272281.15625|eastern asia|China|Rushan
+1755|True|257.67|332613.15625|eastern asia|China|Zhuozhou
+1756|False|257.649|112523.734375|south america|Peru|Tacna
+1757|NoMASK|257.558|NA|south-eastern asia|Indonesia|Jayapura
+1758|True|257.447|310731.25|southern asia|India|Khammam
+1759|NoMASK|257.096|NA|southern asia|India|Arrah
+1760|NoMASK|257.048|NA|central america|Mexico|Los Mochis
+1761|True|257.0|277602.125|western africa|Nigeria|Ijebu-Ode
+1762|True|256.676|314208.0|eastern asia|China|Qidong
+1763|False|255.802|217061.53125|northern america|Canada|Saskatoon
+1764|False|255.574|333940.15625|eastern asia|China|Dingzhou
+1765|True|255.532|263273.9375|eastern asia|China|Rugao
+1766|False|254.936|228073.8125|northern america|United States of America|Lafayette
+1767|NoMASK|254.766|NA|eastern europe|Russian Federation|Podolsk
+1768|NoMASK|254.761|NA|western africa|South Sudan|Juba
+1769|False|254.555|309887.6875|western africa|Nigeria|Ikot Ekpene
+1770|True|254.382|282987.90625|eastern asia|China|Botou
+1771|True|253.641|273636.96875|south-eastern asia|Malaysia|Alor Star
+1772|NoMASK|253.468|NA|south-eastern asia|Viet Nam|Long Xuyen
+1773|NoMASK|253.354|NA|eastern asia|China|Zhaotong
+1774|False|252.15|264832.84375|eastern asia|China|Jiuquan
+1775|NoMASK|251.694|NA|southern asia|Nepal|Pokhara
+1776|NoMASK|250.16|NA|south-eastern asia|Philippines|Cabuyao
+1777|NoMASK|250.133|NA|eastern africa|Ethiopia|Nazret
+1778|True|250.036|274972.625|eastern asia|China|Ningde
+1779|False|250.0|255461.15625|western asia|United Arab Emirates|Ajman
+1780|False|249.841|245331.3125|south america|Bolivia (Plurinational State of)|Oruro
+1781|False|248.752|260304.03125|eastern asia|China|Wenchang
+1782|NoMASK|248.0|NA|western africa|Nigeria|Birnin Kebbi
+1783|False|247.0|266747.5625|western africa|Nigeria|Ilesha
+1784|False|246.111|261698.796875|southern asia|India|Morvi
+1785|False|245.789|221616.515625|eastern asia|China|Manzhouli
+1786|False|245.648|261063.671875|eastern africa|Madagascar|Toamasina
+1787|NoMASK|245.312|NA|south-eastern asia|Philippines|General Trias
+1788|True|245.155|318475.53125|northern america|United States of America|The Woodlands
+1789|True|245.115|270257.5625|eastern asia|China|Lvliang
+1790|NoMASK|244.727|NA|eastern asia|China|Pingliang
+1791|NoMASK|244.296|NA|eastern africa|Kenya|Ruiru
+1792|True|243.878|251275.1875|eastern africa|South Africa|Polokwane
+1793|NoMASK|242.443|NA|western africa|Benin|Djougou
+1794|True|242.096|260829.25|eastern asia|China|Haiyang
+1795|False|241.409|186333.625|south-eastern asia|Thailand|Chanthaburi
+1796|NoMASK|241.0|NA|western africa|Nigeria|Lafia
+1797|NoMASK|240.966|NA|southern asia|India|Begusarai
+1798|False|240.442|250597.71875|western africa|Mali|Sikasso
+1799|NoMASK|240.402|NA|middle africa|Angola|Uige
+1800|False|240.364|251966.546875|eastern asia|China|Enping
+1801|NoMASK|240.347|NA|western africa|Senegal|Rufisque
+1802|True|240.008|248633.234375|southern asia|India|Gandhidham
+1803|False|239.877|249410.53125|eastern asia|China|Anning
+1804|True|239.677|244675.640625|western asia|Saudi Arabia|Thuqbah
+1805|False|238.433|251496.125|eastern asia|China|Hejian
+1806|NoMASK|237.468|NA|northern america|United States of America|Laredo
+1807|NoMASK|236.241|NA|eastern africa|Ethiopia|Gondar
+1808|False|235.233|322801.25|eastern asia|China|Lengshuijiang
+1809|True|235.196|244036.03125|western asia|Iraq|Baaqoobah
+1810|NoMASK|234.795|NA|western asia|Saudi Arabia|Yanbu' al-Bahr
+1811|True|234.381|234717.3125|eastern asia|China|Anlu
+1812|False|233.532|261605.28125|south-eastern asia|Myanmar|Nay Pyi Taw
+1813|True|233.241|236209.109375|south-eastern asia|Thailand|Lop Buri
+1814|NoMASK|232.006|NA|western asia|Iran (Islamic Republic of)|Shahriyar
+1815|NoMASK|231.713|NA|southern asia|India|Roorkee
+1816|NoMASK|230.539|NA|southern asia|India|Dhulian
+1817|NoMASK|229.852|NA|middle africa|Equatorial Guinea|Bata
+1818|False|229.829|244387.25|eastern africa|Mozambique|Quelimane
+1819|True|229.805|303659.625|southern asia|India|Ottappalam
+1820|NoMASK|228.0|NA|western africa|Nigeria|Saki
+1821|False|227.683|239483.65625|southern asia|India|Karur
+1822|False|226.894|243242.734375|south-eastern asia|Thailand|Suphan Buri
+1823|NoMASK|226.318|NA|eastern asia|China|Xingping
+1824|False|226.314|247378.125|southern asia|India|Haldwani-cum-kathgodam
+1825|True|226.004|243716.21875|middle africa|Cameroon|Mbouda
+1826|False|222.993|224021.03125|western africa|Benin|Parakou
+1827|True|222.78|232133.65625|northern america|United States of America|Visalia
+1828|True|222.727|272251.34375|southern asia|India|Kanhangad
+1829|True|221.31|244675.640625|western asia|Saudi Arabia|Khubar
+1830|NoMASK|220.672|NA|southern asia|India|Raniganj
+1831|False|220.216|229257.125|eastern asia|China|Xuanwei
+1832|NoMASK|219.529|NA|western asia|Iraq|Faloojah
+1833|False|218.332|157948.265625|northern america|United States of America|Myrtle Beach
+1834|True|218.254|228793.625|northern america|United States of America|Concord
+1835|False|217.443|243500.875|eastern asia|China|Wanning
+1836|False|217.126|219001.59375|southern asia|India|Hosur
+1837|False|216.402|283636.21875|eastern asia|China|Emeishan
+1838|False|215.627|219214.359375|eastern asia|China|Danzhou
+1839|NoMASK|214.69|NA|eastern africa|Madagascar|Antsirabe
+1840|False|213.619|218069.21875|eastern asia|China|Zhangshu
+1841|NoMASK|213.224|NA|central america|Costa Rica|Alajuela
+1842|False|213.027|226570.78125|eastern asia|China|Jiayuguan
+1843|False|212.495|250114.78125|eastern asia|China|Zixing
+1844|False|212.037|212712.96875|eastern asia|China|Fujin
+1845|True|209.306|231023.15625|eastern asia|China|Gaoping
+1846|False|209.0|220692.03125|western africa|Nigeria|Potiskum
+1847|NoMASK|208.435|NA|western asia|Iraq|Ramadi
+1848|False|207.042|218682.96875|eastern asia|China|Ningguo
+1849|NoMASK|206.887|NA|middle africa|Democratic Republic of the Congo|Kabinda
+1850|NoMASK|205.05|NA|south-eastern asia|Viet Nam|Thu Dau Mot
+1851|NoMASK|202.852|NA|western asia|Jordan|Al-Quwaysimah
+1852|False|200.472|226692.375|western asia|Yemen|Dhamar
+1853|True|195.291|252126.953125|southern asia|India|Deoghar
+1854|False|189.691|175942.15625|eastern africa|Mozambique|Tete
+1855|NoMASK|187.204|NA|southern asia|Bangladesh|Rupganj
+1856|True|174.178|162045.484375|eastern africa|United Republic of Tanzania|Songea
+1857|True|173.0|199944.0|western africa|Nigeria|Gwagwalada
+1858|NoMASK|171.495|NA|western asia|Oman|Salahah (Salalah)
+1859|NoMASK|170.544|NA|western asia|Jordan|Tila al-Ali
+1860|NoMASK|137.983|NA|western asia|Iraq|Samarra
