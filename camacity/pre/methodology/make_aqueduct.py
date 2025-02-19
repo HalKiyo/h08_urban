@@ -60,7 +60,7 @@ def explore(city_num, save_flag=False):
 
     # check if directories exist in dat/cty_int/
     savepath = f"{cama_dir}/dat/cty_aqd_/{distance_condition}km_elevation/city_{city_num:08}{SUF}"
-    displaypath = f'{cama_dir}/dat/cty_aqd_/fig_{distance_condition}km_samebasin/intake_display_{city_num:08}{SUF}'
+    displaypath = f'{cama_dir}/dat/cty_aqd_/fig_{distance_condition}km_elevation/intake_display_{city_num:08}{SUF}'
 
 #----------------------------------------------------------------------------------------
 #   Whether valid mask or not
@@ -276,8 +276,8 @@ def explore(city_num, save_flag=False):
     if save_flag is True:
         intake.astype(np.float32).tofile(savepath)
         print(f"{savepath} saved")
-        #display_data.astype(np.float32).tofile(displaypath)
-        #print(f"{displaypath} saved")
+        display_data.astype(np.float32).tofile(displaypath)
+        print(f"{displaypath} saved")
     else:
         print(f"save_flag is {save_flag}")
 
