@@ -14,7 +14,7 @@ import pulp
 from ortoolpy import model_min, addbinvars, addvals
 from pulp import lpSum
 
-def operation():
+def main():
     # datadir
     h08dir = '/mnt/c/Users/tsimk/Downloads/dotfiles/h08'
 
@@ -400,7 +400,7 @@ def get_downstream_coords(start_coord, riv_nxtxy_cropped):
         # ① インデックスが有効範囲内かチェック
         if target_row < 0 or target_row >= riv_nxtxy_cropped.shape[0] or \
            target_col < 0 or target_col >= riv_nxtxy_cropped.shape[1]:
-            print(f"Error: target_row={target_row}, target_col={target_col} is out of bounds!")
+            print(f"Warning: target_row={target_row}, target_col={target_col} is out of bounds!")
             break  # ループを終了
 
         # ② 無効な値 (NaN) をチェック
@@ -465,11 +465,11 @@ def explore_flow(mask_cropped, rivnum_cropped, rivout_cropped, riv_nxtxy_cropped
 
         max_flow = search_rivout[max_idx]
         if max_flow < add_rate * total_flow:
-            print(f"Stopping search: max_flow ({max_flow * 1000 / 365 / city_pop}) is less than {add_rate*100}% of total_flow ({total_flow * 1000 / 365/ city_pop})")
+            print(f"Stopping search A: max_flow ({max_flow * 1000 / 365 / city_pop}) is less than {add_rate*100}% of total_flow ({total_flow * 1000 / 365/ city_pop})")
             break
             
         if max_idx in source_list:
-            print(f"no more new sources available: {accm_ava:.2f} liter/day/capita")
+            print(f"Stopping search B: no more new sources available at {accm_ava:.2f} liter/day/capita")
             break
 
         # 下流の探索を実施し、既存のsource_listに含まれるものがあるかチェック
@@ -482,7 +482,7 @@ def explore_flow(mask_cropped, rivnum_cropped, rivout_cropped, riv_nxtxy_cropped
         accm_ava, success = evaluate_availability(source_list, rivout_cropped, city_pop, threshold=threshold)
 
         if success:
-            print(f"Threshold reached: {accm_ava:.2f} liter/day/capita")
+            print(f"Stopping search C: Threshold reached at {accm_ava:.2f} liter/day/capita")
             break
 
         search_mask[max_idx] = False
@@ -540,7 +540,11 @@ def plot_source(city_cropped,
 
     # 河川ごとの流量
     inflow_values = rivout_cropped[from_y, from_x]
-    linewidths = np.interp(inflow_values, (inflow_values.min(), inflow_values.max()), (min_width, max_width))
+    if inflow_values.size == 0:
+        print("Warning: inflow_values is empty. Skipping interpolation")
+        linewidths = 0.5
+    else:
+        linewidths = np.interp(inflow_values, (inflow_values.min(), inflow_values.max()), (min_width, max_width))
 
     # 河川の終点
     end_mask = (np.isnan(to_y)) | (np.isnan(to_x)) | ((from_y == to_y) & (from_x == to_x))
@@ -651,7 +655,11 @@ def plot_availability(city_cropped,
 
     # 河川ごとの流量
     inflow_values = rivout_cropped[from_y, from_x]
-    linewidths = np.interp(inflow_values, (inflow_values.min(), inflow_values.max()), (min_width, max_width))
+    if inflow_values.size == 0:
+        print("Warning: inflow_values is empty. Skipping interpolation")
+        linewidths = 0.5
+    else:
+        linewidths = np.interp(inflow_values, (inflow_values.min(), inflow_values.max()), (min_width, max_width))
 
     # 河川の終点
     end_mask = (np.isnan(to_y)) | (np.isnan(to_x)) | ((from_y == to_y) & (from_x == to_x))
@@ -703,4 +711,4 @@ def plot_availability(city_cropped,
     plt.savefig(savepath)
 
 if __name__ == '__main__':
-    operation()
+    main()

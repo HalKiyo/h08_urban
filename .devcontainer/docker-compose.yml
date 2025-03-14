@@ -20,7 +20,7 @@ services:
             - "9999"
         ports:
             - "127.0.0.1:9999:9999"
-        working_dir: '/mnt/c/Users/tsimk/Downloads/H08_20230612'
+        working_dir: '/mnt/c/Users/tsimk/Downloads'
         volumes:
             - /mnt/c/:/mnt/c/
             - /mnt/wslg:/mnt/wslg
